@@ -1,0 +1,13 @@
+number = 3
+if number < 1 then
+   value = "smaller than one"
+ elseif number==1 then
+   value = "one"
+ elseif number==2 then
+   value = "two"
+ elseif number==3 then
+   value = "three"
+ else
+   value = "bigger than three"
+ end
+print(value)

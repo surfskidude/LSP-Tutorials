@@ -1,0 +1,12 @@
+print("foo =",type(foo))
+bar = foo  -- make bar reference the same function as foo
+foo = nil  -- foo no longer references the function...
+print("bar =",type(bar)) --   but bar still does.
+
+bar = nil  -- bar no longer references the function either.
+-- The functions are no longer accessible.
+print("bar =",type(bar), "foo =", type(foo))   
+
+-- try to invoke the function.
+foo() -- This code fails
+

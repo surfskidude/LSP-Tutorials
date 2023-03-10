@@ -1,0 +1,59 @@
+-- Download data from:
+local url='https://realtimelogic.com/articles/Lua-FastTracks-Embedded-Web-Application-Development'
+
+function allwords() -- Modified: fetches data from 'url'
+   local http = require"httpc".create{shark=ba.sharkclient()}
+   http:request{url=url,method="GET"}
+   local data,err=http:read"*a"
+   if not data then
+      print("HTTP failed:",err)
+      return function() return nil end
+   end
+   local function words()
+      for word in data:gmatch"%w+" do
+         if #word > 2 then coroutine.yield(word) end -- skip short words
+      end
+   end
+   local nextword = coroutine.create(words)
+   return function()
+      local ok,word=coroutine.resume(nextword)
+      return ok and word -- or return nil i.e. end of string
+   end
+end
+
+function prefix (w1, w2)
+   return w1 .. ' ' .. w2
+end
+
+local statetab
+
+function insert (index, value)
+   if not statetab[index] then
+      statetab[index] = {n=0}
+   end
+   table.insert(statetab[index], value)
+end
+
+local N  = 2
+local MAXGEN = 10000
+local NOWORD = "\n"
+
+-- build table
+statetab = {}
+local w1, w2 = NOWORD, NOWORD
+for w in allwords() do
+   insert(prefix(w1, w2), w)
+   w1 = w2; w2 = w;
+end
+insert(prefix(w1, w2), NOWORD)
+-- generate text
+w1 = NOWORD; w2 = NOWORD     -- reinitialize
+for i=1,MAXGEN do
+   local list = statetab[prefix(w1, w2)]
+   -- choose a random item from list
+   local r = math.random(#list)
+   local nextword = list[r]
+   if nextword == NOWORD then return end
+   print(nextword)
+   w1 = w2; w2 = nextword
+end

@@ -1,0 +1,3 @@
+x = function() print("hello") end
+x() -- call the variable i.e. the function
+

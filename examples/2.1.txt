@@ -1,0 +1,23 @@
+foo=42 -- Number
+print(type(foo),foo)
+
+foo="Hello World" -- String
+print(type(foo),foo)
+
+foo=true -- Boolean
+print(type(foo),foo)
+
+foo={} -- Empty table
+print(type(foo),foo)
+
+foo=function() end -- Function doing nothing
+print(type(foo),foo)
+
+foo=nil
+print(type(foo),foo)
+
+foo=request -- The HTTP request object (C userdata object)
+print(type(foo),foo)
+
+foo=coroutine.create(function() end) -- thread
+print(type(foo),foo)

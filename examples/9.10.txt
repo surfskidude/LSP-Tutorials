@@ -1,0 +1,13 @@
+<html><body><pre><?lsp
+print("_ENV:", _ENV, ", app:", app, ", _G:", _G)
+print("FALSE: _ENV == _G ->",_ENV == _G) -- but true in standard Lua
+print("FALSE: app == _G ->", app == _G)
+print("TRUE: app._G == _G ->", app._G == _G)
+print("TRUE: getmetatable(app).__index == _G ->",
+      getmetatable(app).__index == _G)
+
+print("\n------------ APP TABLE ----------------")
+for key,val in pairs(app) do print('\tapp:',key,val) end
+print("\n------- GLOBAL (_G) TABLE ------------")
+for key,val in pairs(_G) do print('\t_G:',key,val) end
+?></pre></body></html>

@@ -1,0 +1,5 @@
+x = 2
+print("x=",x)
+x = nil
+print("x=",x)
+

@@ -1,0 +1,5 @@
+x = "123"  -- a string
+print(x, type(x)) -- show the value of x and its type
+x = x + 7  -- add a number to the string which forces coercion
+print(x, type(x)) -- again show the value and type
+

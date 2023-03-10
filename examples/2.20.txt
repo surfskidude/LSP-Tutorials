@@ -1,0 +1,7 @@
+a = 1
+print(a)
+a = "hello"
+print(a)
+a = { item1="abc" }
+print(a)
+

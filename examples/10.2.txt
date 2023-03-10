@@ -1,0 +1,6 @@
+function foo()
+   print("foo", 1)
+   coroutine.yield()
+   print("foo", 2)
+end
+print"Function 'foo' is used in ex: 10.3"

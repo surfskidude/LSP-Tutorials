@@ -1,0 +1,7 @@
+<html><body>
+  <h1>
+   <?lsp 
+      response:write("Hello World!")
+    ?>
+   </h1>
+</body></html>

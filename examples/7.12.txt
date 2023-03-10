@@ -1,0 +1,33 @@
+<pre>
+<?lsp
+
+local function printTab(t, i)
+   local padding = string.rep("\t", i)
+   for k,v in pairs(t) do
+      if type(v) == "table" then
+         print(string.format("%s%s:",padding,k))
+         printTab(v, i+1)
+      else
+         print(string.format("%s%s=%s",padding,k,v))
+      end
+   end
+end
+
+local sock,err=ba.socket.connect("google.com", 443, {shark=ba.sharkclient()})
+if sock then
+   print("cipher",sock:cipher())
+   print("trusted",sock:trusted())
+   printTab(sock:certificate(), 1)
+   print"----------------------"
+   sock:write"GET /robots.txt HTTP/1.0\n\n"
+   while true do
+      local data = sock:read(500)
+      if not data then break end -- No more data
+      print(data)
+   end
+   sock:close()
+else
+   print(err)
+end
+?>
+</pre>

@@ -1,0 +1,6 @@
+<html><body>
+  <h1>
+    <?lsp print("Hello") ?>
+    <?lsp= "world!" ?>
+  </h1>
+</body></html>

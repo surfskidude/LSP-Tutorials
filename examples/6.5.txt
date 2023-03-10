@@ -1,0 +1,41 @@
+<?lsp
+local message="Click the button below"
+if request:method() == "POST" then
+   if app.getlineBusy then
+      message = "busy"
+   else
+      if mako.daemon then print"Example must be disabled when server runs in the background!" return end
+      _G.print(string.format("%c",7)) -- Beep
+      _G.print"Enter text and press the Enter button:"
+      app.getlineBusy=true
+      message = require("mymodule").getline()
+      app.getlineBusy=false
+   end
+end
+?>
+<html>
+  <head>
+    <style>
+    img {display:none;}
+    </style>
+    <script src="/rtl/jquery.js"></script>
+    <script>
+$(function() {
+    $("input").click(function() {
+        $("#form").hide();
+        $("img").show();
+        return true;
+    });
+});
+    </script>
+  </head>
+  <body>
+    <img src="/images/loader.gif" />
+    <div id="form">
+       <p><?lsp=message?></p>
+       <form method="post">
+         <input type="submit" value="Wait for console input"/>
+       </form>
+    </div>
+  </body>
+</html>

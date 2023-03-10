@@ -1,0 +1,10 @@
+function foo(x)
+   -- we can exit the function before the end if need be
+   if x>3 then return true end
+   -- return a value at the end of the function (optional)
+   return false                 
+end
+print(foo(1))
+
+-- different exit point
+print(foo(100))

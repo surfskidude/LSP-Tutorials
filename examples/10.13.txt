@@ -1,0 +1,1 @@
+print(mytimer:cancel() and "OK" or "FAILED")

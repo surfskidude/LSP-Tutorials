@@ -1,0 +1,23 @@
+<?lsp
+local name,email
+if request:method() == "POST" then
+   -- Local function using regexp to trim of whitespace
+   local function trim(s)
+      return s and s:gsub("^%s*(.-)%s*$", "%1")
+   end
+   local data = request:data()
+   name,email = trim(data.name),trim(data.email)
+   local ok = -- Set if data is OK
+      name and email and -- Check for nil values
+      #name >= 2 and
+      email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?")
+   response:write("<h1>",ok and "OK" or "Invalid Data","</h1>")
+end
+?>
+<html><body>
+<form method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+</body></html>

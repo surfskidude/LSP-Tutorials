@@ -1,0 +1,17 @@
+if mako.daemon then print"Example must be disabled when server runs in the background!" return end
+
+mymod = require"mymodule"
+
+if app.getlineBusy then
+   print"busy"
+else
+   _G.print(string.format("%c",7)) -- Beep
+   -- Print to server's console Window
+   _G.print"Enter text and press the Enter button:"
+   -- Prevent other HTTP threads
+   app.getlineBusy=true
+   -- Function getline does not return until the Enter
+   -- button is pressed in the server's console window
+   print(mymod.getline())
+   app.getlineBusy=false
+end

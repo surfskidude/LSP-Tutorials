@@ -1,0 +1,5 @@
+x = true
+print("x:",x)
+print("not x:",not x)
+print("not false:",not false)
+

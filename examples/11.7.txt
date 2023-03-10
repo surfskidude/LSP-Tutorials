@@ -1,0 +1,25 @@
+mt = {}  -- metatable
+
+function String(s)
+   return setmetatable({ value = s or '' }, mt)
+ end
+
+function mt.__add(a, b)
+   return String(a.value .. b.value)
+ end
+
+function mt.__mul(a, b)
+   return String(string.rep(a.value, b))
+ end
+
+s = String('hello ')
+
+print(s.value)
+
+-- concat 2 String instances
+print( (s + String('Lua user')).value )
+
+print( (s*3).value )
+
+-- use both metamethods
+print( (((s + String('Lua user.')))*2).value )

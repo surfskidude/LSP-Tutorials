@@ -1,0 +1,11 @@
+<html><body>
+  <h1>
+   <?lsp 
+      local print = _G.print
+      print("Hello World!")
+      -- Print formatted string.
+      -- The ASCII value 7 usually produces a beep
+      print(string.format("%c",7))
+    ?>
+   </h1>
+</body></html>

@@ -1,0 +1,29 @@
+-- If this code runs again, remove the old timer. 
+if mytimer then
+   mytimer:cancel()
+end
+
+-- The timer function -- i.e. the coroutine.
+local function timeout()
+   -- Do we have os.time?
+   -- If not, set it to a function returning 0
+   local tnow = os and os.time or function() return 0 end
+   local startTime = tnow()
+   local counter = 0
+   while true do -- Forever loop
+      counter = counter + 1
+      -- Print out elapse counter,
+      -- and time since timer started
+      trace("Timer",counter, tnow() - startTime)
+      -- Wait for next timer event
+      coroutine.yield(true)
+   end
+end
+
+-- Create the timer
+mytimer, err = ba.timer(timeout)
+assert(mytimer, err) -- Check for errors in timer function
+
+-- Start interval timer
+mytimer:set(1000)
+print"Timer started. See console window for printouts."

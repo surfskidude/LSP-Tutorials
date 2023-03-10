@@ -1,0 +1,9 @@
+LED = require"LED"
+
+print("getLed:",LED.getLed())
+
+LED.setLed(true)
+print("getLed:",LED.getLed())
+
+LED.setLed(false)
+print("getLed:",LED.getLed())

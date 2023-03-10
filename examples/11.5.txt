@@ -1,0 +1,6 @@
+print("\ngetmetatable(x) = ")
+print(getmetatable(x))
+
+-- get the "__add" metamethod
+print("\ngetmetatable(x).__add = ")
+print(getmetatable(x).__add)

@@ -1,0 +1,6 @@
+x,y=3,4
+function foo() local x=1 print("x:",x,_ENV.x) end
+foo()
+do local y=2 print("y:",y, _ENV.y)  end
+print("x:",x,_ENV.x)
+print("y:",y, _ENV.y)

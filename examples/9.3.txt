@@ -1,0 +1,11 @@
+gbA = 1         -- global scope
+function foo()  -- start of foo scope
+  gbB = 2       -- no local keyword so global scope
+  local gbA = gbA
+  print("local gbA in foo", gbA)
+  gbA = "Hello World"
+end -- end of foo scope and local 'gbA'
+print("Before foo is called:",gbA,gbB)
+foo()
+print("After foo is called:",gbA,gbB)
+

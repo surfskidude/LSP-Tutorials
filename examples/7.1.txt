@@ -1,0 +1,11 @@
+<html>
+  <head>
+    <script src="/rtl/jquery.js"></script>
+    <script>
+$(function() {
+   alert("hello");
+});
+  </script>
+  </head>
+  <body><p>World</p></body>
+</html>

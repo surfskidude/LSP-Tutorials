@@ -1,0 +1,9 @@
+a="Hello"
+function foo(_ENV)
+    print("foo:",a,_ENV)
+end
+
+foo(_ENV)
+local newEnv = {a="world"}
+newEnv = setmetatable(newEnv,{__index = _ENV})
+foo(newEnv)

@@ -1,0 +1,3 @@
+for key,value in pairs({10, print, "banana"}) do
+   print(key, value)
+end

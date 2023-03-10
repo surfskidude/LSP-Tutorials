@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <script src="/rtl/jquery.js"></script>
+    <script src="/rtl/smq.js"></script>
+    <script>
+$(function() {
+    function print(txt) {
+        $("#console").append(txt+"\n");
+    };
+    var smq = SMQ.Client(SMQ.wsURL("/My-SMQ-Broker/"));
+    function serverMessage(msg) {
+        print('Server: ' + msg);
+    };
+    smq.subscribe("self", {onmsg:serverMessage, datatype:"text"});
+    smq.publish("","hello");
+});
+    </script>
+  </head>
+  <body>
+  <p><b>Console Window:</b></p>
+  <pre id="console"></pre>
+  </body>
+</html>

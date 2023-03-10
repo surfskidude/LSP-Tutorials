@@ -1,0 +1,3 @@
+x = "onion"
+print("type(x) =",type(x))     -- What type are you?
+x()           -- Calling x() fails.

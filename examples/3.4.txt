@@ -1,0 +1,6 @@
+i = 1
+repeat
+  print(i)
+  i = i+1
+  if i>3 then break end
+until cows_come_home

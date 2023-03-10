@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Barracuda Application Server Demo and Tutorials</title>
+<script src="/rtl/jquery.js"></script>
+<script>
+$(function() {
+window.location = "/About.lsp";
+});
+</script>
+</head>
+<body>
+
+<h1>Barracuda Application Server Demo and Tutorials</h1>
+
+<p>You see this text since your browser is either very old or you have disabled JavaScript. Our tutorials require that you use a standard compliant browser.</p>
+
+<p><a href="About.lsp">Enter tutorial</a></p>
+
+
+</body>
+</html>

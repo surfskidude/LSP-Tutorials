@@ -1,0 +1,5 @@
+x = x * 10
+print(x)
+print(x*2) -- will not change the value of x
+print(x)
+

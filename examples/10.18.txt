@@ -1,0 +1,18 @@
+<?lsp
+
+local function timeout()
+   for i=1,5 do
+      trace("Interval", i)
+      coroutine.yield(true)
+   end
+   trace("Stop interval")
+   print("Terminating Coroutine")
+end
+
+-- Create a self referencing interval timer and start the coroutine immediately.
+ba.timer(timeout):set(1000,true,true)
+?>
+
+<html><body>
+<h3>See server's console window for printouts.</h3>
+</body></html>

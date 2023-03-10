@@ -1,0 +1,3 @@
+who = "Lua user"
+print(who)
+

@@ -1,0 +1,5 @@
+a = 1
+b = "hello"
+c = { item1="abc" }
+print(a,b,c)
+

@@ -1,0 +1,204 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" overflow="hidden" style="position:relative" viewBox="33.5 35.5 740.1 364.3">
+  <defs>
+    <path id="e" d="M0 6a6 6 0 0 1 6-6h146a6 6 0 0 1 6 6v18a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6z"/>
+    <path id="o" fill="none" stroke-width="3" d="M0 0v41"/>
+    <path id="p" stroke="none" d="M7 41 0 55l-7-14z"/>
+  </defs>
+  <defs>
+    <filter id="d" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2"/>
+      <feOffset dx="1.5" dy="1.5" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="m" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2"/>
+      <feOffset dx="1.5" dy="1.5" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="i" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2.1"/>
+      <feOffset dx="2.1" dy="2.1" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="j" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2"/>
+      <feOffset dx=".2" dy=".2" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="n" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2"/>
+      <feOffset dx=".2" dy=".2" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="u" width="2" height="2" x="-.5" y="-.5">
+      <feFlood flood-color="#000" flood-opacity=".3" result="flood"/>
+      <feComposite in="flood" in2="SourceAlpha" operator="in" result="mask"/>
+      <feGaussianBlur in="mask" stdDeviation="2"/>
+      <feOffset dx="1.8" dy="1.8" result="oEffect0"/>
+      <feMerge>
+        <feMergeNode in="oEffect0"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="b" width="2" height="2" x="-.5" y="-.5">
+      <feMerge>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <image xlink:href="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+CjwhLS0gR2VuZXJhdGVkIGJ5IE1pY3Jvc29mdCBWaXNpbywgU1ZHIEV4cG9ydCBFQUYyOUJGNDk4MkU1NzU3Q0UwMTQ2ODRDNTVGNjc0MC5zdmcgUGFnZS0xIC0tPgoKPHN2ZwogICB4bWxuczp2PSJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3Zpc2lvLzIwMDMvU1ZHRXh0ZW5zaW9ucy8iCiAgIHhtbG5zOmRjPSJodHRwOi8vcHVybC5vcmcvZGMvZWxlbWVudHMvMS4xLyIKICAgeG1sbnM6Y2M9Imh0dHA6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL25zIyIKICAgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIgogICB4bWxuczpzdmc9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIgogICB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciCiAgIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIgogICB4bWxuczpzb2RpcG9kaT0iaHR0cDovL3NvZGlwb2RpLnNvdXJjZWZvcmdlLm5ldC9EVEQvc29kaXBvZGktMC5kdGQiCiAgIHhtbG5zOmlua3NjYXBlPSJodHRwOi8vd3d3Lmlua3NjYXBlLm9yZy9uYW1lc3BhY2VzL2lua3NjYXBlIgogICB3aWR0aD0iNS43NTAwNjc3aW4iCiAgIGhlaWdodD0iNC4zMTUxMTM1aW4iCiAgIHZpZXdCb3g9IjAgMCA0MTQuMDA0ODggMzEwLjY4ODE4IgogICB4bWw6c3BhY2U9InByZXNlcnZlIgogICBjbGFzcz0ic3QyIgogICBpZD0ic3ZnMiIKICAgdmVyc2lvbj0iMS4xIgogICBpbmtzY2FwZTp2ZXJzaW9uPSIwLjkxIHIxMzcyNSIKICAgc29kaXBvZGk6ZG9jbmFtZT0iRUFGMjlCRjQ5ODJFNTc1N0NFMDE0Njg0QzU1RjY3NDAuc3ZnIgogICBzdHlsZT0iZm9udC1zaXplOjEycHg7b3ZlcmZsb3c6dmlzaWJsZTtjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM6c1JHQjtmaWxsOm5vbmU7ZmlsbC1ydWxlOmV2ZW5vZGQ7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1taXRlcmxpbWl0OjMiPjxtZXRhZGF0YQogICBpZD0ibWV0YWRhdGE0OCI+PHJkZjpSREY+PGNjOldvcmsKICAgICAgIHJkZjphYm91dD0iIj48ZGM6Zm9ybWF0PmltYWdlL3N2Zyt4bWw8L2RjOmZvcm1hdD48ZGM6dHlwZQogICAgICAgICByZGY6cmVzb3VyY2U9Imh0dHA6Ly9wdXJsLm9yZy9kYy9kY21pdHlwZS9TdGlsbEltYWdlIiAvPjxkYzp0aXRsZT48L2RjOnRpdGxlPjwvY2M6V29yaz48L3JkZjpSREY+PC9tZXRhZGF0YT48ZGVmcwogICBpZD0iZGVmczQ2Ij4KCQkKCQkKCQkKCQoJCQkKCQkJCgkJCQoJCQkKCQkKCQkJCQoJCQkJCgkJCQoJCQkJCTxjbGlwUGF0aAogICBpZD0ibWZpZDU3OTIiPgoJCQkJCQk8cmVjdAogICB3aWR0aD0iNjA1IgogICBoZWlnaHQ9IjQ1OSIKICAgaWQ9Im1maWQ1NzkzIgogICB4PSIwIgogICB5PSIwIiAvPgoJCQkJCTwvY2xpcFBhdGg+CgkJCQkJCgkJCQk8L2RlZnM+PHNvZGlwb2RpOm5hbWVkdmlldwogICBwYWdlY29sb3I9IiNmZmZmZmYiCiAgIGJvcmRlcmNvbG9yPSIjNjY2NjY2IgogICBib3JkZXJvcGFjaXR5PSIxIgogICBvYmplY3R0b2xlcmFuY2U9IjEwIgogICBncmlkdG9sZXJhbmNlPSIxMCIKICAgZ3VpZGV0b2xlcmFuY2U9IjEwIgogICBpbmtzY2FwZTpwYWdlb3BhY2l0eT0iMCIKICAgaW5rc2NhcGU6cGFnZXNoYWRvdz0iMiIKICAgaW5rc2NhcGU6d2luZG93LXdpZHRoPSIxOTIwIgogICBpbmtzY2FwZTp3aW5kb3ctaGVpZ2h0PSIxMDI4IgogICBpZD0ibmFtZWR2aWV3NDQiCiAgIHNob3dncmlkPSJmYWxzZSIKICAgZml0LW1hcmdpbi10b3A9IjAiCiAgIGZpdC1tYXJnaW4tbGVmdD0iMCIKICAgZml0LW1hcmdpbi1yaWdodD0iMCIKICAgZml0LW1hcmdpbi1ib3R0b209IjAiCiAgIGlua3NjYXBlOnpvb209IjAuMjM4MzgzODQiCiAgIGlua3NjYXBlOmN4PSIzNzUuODU2MyIKICAgaW5rc2NhcGU6Y3k9IjQ3OS4wMjc3MyIKICAgaW5rc2NhcGU6d2luZG93LXg9Ii04IgogICBpbmtzY2FwZTp3aW5kb3cteT0iLTgiCiAgIGlua3NjYXBlOndpbmRvdy1tYXhpbWl6ZWQ9IjEiCiAgIGlua3NjYXBlOmN1cnJlbnQtbGF5ZXI9InN2ZzIiIC8+Cgk8djpkb2N1bWVudFByb3BlcnRpZXMKICAgdjpsYW5nSUQ9IjEwMzMiCiAgIHY6dmlld01hcmt1cD0iZmFsc2UiPgoJCTx2OnVzZXJEZWZzPgoJCQk8djp1ZAogICB2Om5hbWVVPSJtc3ZOb0F1dG9Db25uZWN0IgogICB2OnZhbD0iVlQwKDEpOjI2IiAvPgoJCTwvdjp1c2VyRGVmcz4KCTwvdjpkb2N1bWVudFByb3BlcnRpZXM+CgoJPHN0eWxlCiAgIHR5cGU9InRleHQvY3NzIgogICBpZD0ic3R5bGU0Ij4KCTwhW0NEQVRBWwoJCS5zdDEge2ZpbGw6bm9uZTtzdHJva2U6bm9uZTtzdHJva2UtbGluZWNhcDpyb3VuZDtzdHJva2UtbGluZWpvaW46cm91bmQ7c3Ryb2tlLXdpZHRoOjAuNzV9CgkJLnN0MiB7ZmlsbDpub25lO2ZpbGwtcnVsZTpldmVub2RkO2ZvbnQtc2l6ZToxMnB4O292ZXJmbG93OnZpc2libGU7c3Ryb2tlLWxpbmVjYXA6c3F1YXJlO3N0cm9rZS1taXRlcmxpbWl0OjN9CgldXT4KCTwvc3R5bGU+CgoJPHJlY3QKICAgdjpyZWN0Q29udGV4dD0iZm9yZWlnbiIKICAgeD0iODcuOTQ0ODQ3IgogICB5PSItMzM4LjY5NDk1IgogICB3aWR0aD0iNDI4LjczOTk5IgogICBoZWlnaHQ9IjMyNS4yNzYiCiAgIGNsYXNzPSJzdDEiCiAgIGlkPSJyZWN0MTMiCiAgIHN0eWxlPSJmaWxsOm5vbmU7c3Ryb2tlOm5vbmU7c3Ryb2tlLXdpZHRoOjAuNzU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7c3Ryb2tlLWxpbmVqb2luOnJvdW5kIiAvPjxnCiAgIGNsaXAtcGF0aD0idXJsKCNtZmlkNTc5MikiCiAgIGlkPSJnMjEiCiAgIHRyYW5zZm9ybT0ibWF0cml4KDAuNzA4NjYxMTQsMCwwLDAuNzA4NjYyMzEsLTUuMzE0OTU4NiwtNS4xNjU5MzEyKSI+CgkJCQkJCTwhLS0gR2V0REMgLS0+CgkJCQkJCTwhLS0gUmVsZWFzZWQgREMgLS0+CgkJCQkJCTwhLS0gR2V0REMgLS0+CgkJCQkJCTxtYXNrCiAgIGlkPSJtZmlkNTc5NCIKICAgZmlsbC1ydWxlPSJldmVub2RkIgogICBmaWxsPSJ3aGl0ZSIKICAgc3Ryb2tlPSJub25lIiAvPgoJCQkJCQk8IS0tIFJlbGVhc2VkIERDIC0tPgoJCQkJCQk8ZGVmcwogICBpZD0iZGVmczI0Ij4KCQkJCQkJCTxwYXRoCiAgIGlkPSJtZmlkNTc5NSIKICAgZD0iTSA1OTEsMjI4IDM3MSw0NDUgMzE2LDM5MCA0MjcsMjc5IDgsMjgwIDgsMTczIDQyNiwxNzMgMzE2LDY0IDM3MSw4IGwgMjIwLDIyMCAwLDAgeiIKICAgaW5rc2NhcGU6Y29ubmVjdG9yLWN1cnZhdHVyZT0iMCIgLz4KCQkJCQkJPC9kZWZzPgoJCQkJCQk8ZwogICBpZD0iZzI3Ij4KCQkJCQkJCTxnCiAgIGlkPSJnMjkiCiAgIHN0eWxlPSJjb2xvci1yZW5kZXJpbmc6b3B0aW1pemVRdWFsaXR5O3RleHQtcmVuZGVyaW5nOmdlb21ldHJpY1ByZWNpc2lvbiI+CgkJCQkJCQkJPGcKICAgaWQ9ImczMSIKICAgc3R5bGU9ImZpbGw6I2ZmZmZmZiI+CgkJCQkJCQkJCTx1c2UKICAgeGxpbms6aHJlZj0iI21maWQ1Nzk1IgogICBpZD0idXNlMzMiCiAgIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtzdHJva2U6bm9uZSIKICAgeD0iMCIKICAgeT0iMCIKICAgd2lkdGg9IjEwMCUiCiAgIGhlaWdodD0iMTAwJSIgLz4KCQkJCQkJCQkJPGRlZnMKICAgaWQ9ImRlZnMzNSI+CgkJCQkJCQkJCQk8cGF0aAogICBpZD0ibWZpZDU3OTYiCiAgIGQ9Ik0gNTkxLDIyOCAzNzEsNDQ1IDMxNiwzOTAgNDI3LDI3OSA4LDI4MCA4LDE3MyA0MjYsMTczIDMxNiw2NCAzNzEsOCA1OTEsMjI4IgogICBpbmtzY2FwZTpjb25uZWN0b3ItY3VydmF0dXJlPSIwIiAvPgoJCQkJCQkJCQk8L2RlZnM+CgkJCQkJCQkJPC9nPgoJCQkJCQkJCTxnCiAgIHN0cm9rZS1taXRlcmxpbWl0PSIxMCIKICAgaWQ9ImczOCIKICAgc3R5bGU9ImZpbGw6I2ZmZmZmZjtzdHJva2U6IzAwMDAwMDtzdHJva2Utd2lkdGg6MTtzdHJva2UtbWl0ZXJsaW1pdDoxMCI+CgkJCQkJCQkJCTx1c2UKICAgeGxpbms6aHJlZj0iI21maWQ1Nzk2IgogICBpZD0idXNlNDAiCiAgIHN0eWxlPSJmaWxsOm5vbmUiCiAgIHg9IjAiCiAgIHk9IjAiCiAgIHdpZHRoPSIxMDAlIgogICBoZWlnaHQ9IjEwMCUiIC8+CgkJCQkJCQkJPC9nPgoJCQkJCQkJPC9nPgoJCQkJCQk8L2c+CgkJCQkJPC9nPjxyZWN0CiAgIHY6cmVjdENvbnRleHQ9ImZvcmVpZ24iCiAgIHg9Ijg3Ljk0NDg0NyIKICAgeT0iLTMzOC42OTQ5NSIKICAgd2lkdGg9IjQyOC43Mzk5OSIKICAgaGVpZ2h0PSIzMjUuMjc2IgogICBjbGFzcz0ic3QxIgogICBpZD0icmVjdDQyIgogICBzdHlsZT0iZmlsbDpub25lO3N0cm9rZTpub25lO3N0cm9rZS13aWR0aDowLjc1O3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZCIgLz4KPC9zdmc+" id="s" width="5.8" height="4.3" x="0" y="0" preserveAspectRatio="none"/>
+  </defs>
+  <g fill="url(#a)" stroke="#85A3B6" filter="url(#b)" transform="translate(46 48)">
+    <linearGradient id="a" x1="213" x2="213" y1="0" y2="336" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#bba35b"/>
+      <stop offset="100%" stop-color="#fef7e4"/>
+    </linearGradient>
+    <path d="M0 0h426v336H0z"/>
+  </g>
+  <g fill="url(#c)" stroke="#7F7F7F" filter="url(#d)" transform="translate(53 52)">
+    <linearGradient id="c" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(57 57)"><tspan xml:space="preserve" x="5.6" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="138.6">System C Code</tspan></text>
+  <g fill="url(#f)" stroke="#7F7F7F" filter="url(#d)" transform="translate(61 58)">
+    <linearGradient id="f" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(65 63)"><tspan xml:space="preserve" x="5.6" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="138.6">System C Code</tspan></text>
+  <g fill="url(#g)" stroke="#7F7F7F" filter="url(#d)" transform="translate(68 65)">
+    <linearGradient id="g" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(72 70)"><tspan xml:space="preserve" x="5.6" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="138.6">System C Code</tspan></text>
+  <g fill="url(#h)" stroke="#7F7F7F" filter="url(#i)" transform="translate(194 109)">
+    <linearGradient id="h" x1="110.8" x2="110.8" y1="0" y2="41.4" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#85a3b6"/>
+    </linearGradient>
+    <path d="M0 8a8 8 0 0 1 8-8h205a8 8 0 0 1 9 8v25a8 8 0 0 1-9 8H8a8 8 0 0 1-8-8z"/>
+  </g>
+  <text xml:space="preserve" transform="translate(199 120)"><tspan xml:space="preserve" x=".7" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="210.4">Lua Binding Generator</tspan></text>
+  <g fill="red" stroke="red" filter="url(#j)" transform="translate(147 95)">
+    <path fill="none" stroke-width="4" d="M0 0a39 39 0 0 0 31 36"/>
+    <path stroke="none" d="m31 28 16 7-15 9z"/>
+  </g>
+  <g fill="url(#k)" stroke="#7F7F7F" filter="url(#d)" transform="translate(194 183)">
+    <linearGradient id="k" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(198 188)"><tspan xml:space="preserve" x="14.7" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="120.4">Lua Bindings</tspan></text>
+  <g fill="url(#l)" stroke="#7F7F7F" filter="url(#m)" transform="translate(53 270)">
+    <linearGradient id="l" x1="142.5" x2="142.5" y1="0" y2="29.2" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#85a3b6"/>
+    </linearGradient>
+    <path d="M0 6a6 6 0 0 1 6-6h273a6 6 0 0 1 6 6v17a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6z"/>
+  </g>
+  <text xml:space="preserve" transform="translate(57 274)"><tspan xml:space="preserve" x="75.3" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="126.1">Compile/Link</tspan></text>
+  <g fill="red" stroke="red" filter="url(#n)" transform="translate(108 95)">
+    <path fill="none" stroke-width="3" d="M0 0v158"/>
+    <path stroke="none" d="m7 158-7 14-7-14z"/>
+  </g>
+  <g fill="red" stroke="red" filter="url(#n)" transform="translate(273 213)">
+    <use xlink:href="#o" stroke-width="3"/>
+    <use xlink:href="#p"/>
+  </g>
+  <g fill="red" stroke="red" filter="url(#j)" transform="translate(352 155)">
+    <path fill="none" stroke-width="4" d="M16 44A29 29 0 0 0 36 0"/>
+    <path stroke="none" d="M15 52 0 43l17-7z"/>
+  </g>
+  <g fill="red" stroke="red" filter="url(#n)" transform="translate(196 299)">
+    <use xlink:href="#o" stroke-width="3"/>
+    <use xlink:href="#p"/>
+  </g>
+  <path fill="none" d="M230 54h241v44H230z"/>
+  <text xml:space="preserve" transform="translate(230 54)"><tspan xml:space="preserve" x="0" y="36.1" fill="#0070C0" font-family="Segoe UI,Source Sans Pro,Arial,Helvetica Neue,Helvetica,sans-serif" font-size="33.3" font-weight="bold" text-rendering="optimizeSpeed" textLength="240.6">C Development</tspan></text>
+  <g fill="url(#q)" stroke="#7F7F7F" filter="url(#b)" transform="translate(53 354)">
+    <linearGradient id="q" x1="146" x2="146" y1="0" y2="29.3" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#d4d4d4"/>
+      <stop offset="100%" stop-color="#6a6a6a"/>
+    </linearGradient>
+    <path d="M0 6a6 6 0 0 1 6-6h280a6 6 0 0 1 6 6v17a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6z"/>
+  </g>
+  <text xml:space="preserve" transform="translate(57 358)"><tspan xml:space="preserve" x="104.9" y="16.7" fill="#FFF" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="73.9">Execute</tspan></text>
+  <g fill="url(#r)" filter="url(#b)" transform="rotate(90 186 476)">
+    <pattern id="r" width="56" height="76.7" x="0" y="0" patternUnits="userSpaceOnUse" preserveAspectRatio="none meet">
+      <use xlink:href="#s" transform="scale(9.565 17.535)"/>
+    </pattern>
+    <path d="M0 0h55v76H0z"/>
+  </g>
+  <g fill="url(#t)" stroke="#7F7F7F" filter="url(#u)" transform="translate(530 348)">
+    <linearGradient id="t" x1="97.7" x2="97.7" y1="0" y2="35.9" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <path d="M0 7a7 7 0 0 1 7-7h181a7 7 0 0 1 7 7v22a7 7 0 0 1-7 7H7a7 7 0 0 1-7-7z"/>
+  </g>
+  <text xml:space="preserve" transform="translate(535 355)"><tspan xml:space="preserve" x=".5" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="185.3">Lua Virtual Machine</tspan></text>
+  <g fill="url(#v)" stroke="#7F7F7F" filter="url(#d)" transform="translate(536 243)">
+    <linearGradient id="v" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(540 248)"><tspan xml:space="preserve" x="5.6" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="138.6">System C Code</tspan></text>
+  <g fill="url(#w)" stroke="#7F7F7F" filter="url(#d)" transform="translate(544 249)">
+    <linearGradient id="w" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(548 254)"><tspan xml:space="preserve" x="5.6" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="138.6">System C Code</tspan></text>
+  <g fill="url(#x)" stroke="#7F7F7F" filter="url(#d)" transform="translate(551 256)">
+    <linearGradient id="x" x1="79" x2="79" y1="0" y2="29.5" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#fff"/>
+      <stop offset="100%" stop-color="#f2f2b7"/>
+    </linearGradient>
+    <use xlink:href="#e"/>
+  </g>
+  <text xml:space="preserve" transform="translate(555 261)"><tspan xml:space="preserve" x="27.7" y="16.7" font-family="Verdana,Geneva,sans-serif" font-size="16.7" font-weight="bold" text-rendering="optimizeSpeed" textLength="94.2">Lua Script</tspan></text>
+  <path fill="none" d="M487 188h275v44H487z"/>
+  <text xml:space="preserve" transform="translate(487 188)"><tspan xml:space="preserve" x="0" y="36.1" fill="#0070C0" font-family="Segoe UI,Source Sans Pro,Arial,Helvetica Neue,Helvetica,sans-serif" font-size="33.3" font-weight="bold" text-rendering="optimizeSpeed" textLength="275">Lua Development</tspan></text>
+  <g fill="#85A3B6" stroke="#85A3B6">
+    <path fill="none" stroke-dasharray="3,3" stroke-width="3" d="M345 368h163"/>
+    <path stroke="none" d="m508 361 14 7-14 7z"/>
+  </g>
+</svg>

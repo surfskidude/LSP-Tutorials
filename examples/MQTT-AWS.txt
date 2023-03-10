@@ -1,0 +1,200 @@
+<?lsp
+-- The following code runs on the server side Lua virtual machine.
+local fmt=string.format
+
+-- Called by code below when we have a WebSocket connection request
+-- sock: the browser's WebSocket connection
+-- zio: IO object referencing the uploaded zip file 'connect_device_package.zip'
+-- awsBroker: The AWS broker's domain name, extracted from the uploaded zip file
+-- certName: The X.509 certificate name for the file in 'connect_device_package.zip
+-- keyName: The private key name for the file in 'connect_device_package.zip
+-- print: a function designed for sending messages over the WebSocket connection
+local function startMQTT(sock,zio,awsBroker,certName,keyName,print)
+   local certstore = ba.create.certstore()
+   if certstore:addcert(io,"AmazonRootCA1.pem") then
+      local shark = ba.create.sharkssl(certstore)
+      local sharkcert = ba.create.sharkcert(zio, certName, keyName)
+      if sharkcert and shark:addcert(sharkcert) then
+         local function trpr(msg) -- Both trace and print
+            trace(msg) -- to server log
+            print(msg) -- to browser console
+         end
+         local function onpub(topic, msg) -- MQTT callback function
+            trpr(fmt("topic: %s, msg: %s", topic,msg))
+         end
+         ba.socket.event(function()
+            local mqtt,err = require"mqttc".connect(
+               awsBroker, -- broker name
+               onpub, -- Callback
+              {  -- The option (op) table
+                 shark = shark,
+                 id = "basicPubSub",
+                 port = 443,
+                 alpn = "x-amzn-mqtt-ca"
+              })
+            if mqtt then
+               -- Wait for events from browser, which can only be a
+               -- 'close' event since the browser does not send data.
+               sock:event(function()
+                  sock:read()
+                  trace"Browser closed WebSocket connect"
+                  mqtt:disconnect() -- Makes mqtt:run() below return
+               end, "s")
+               trpr(fmt("MQTT client connected to %s",awsBroker))
+               mqtt:subscribe("topic_1")
+               mqtt:subscribe("topic_2")
+               -- Publish a message to "topic_1" every second.
+               local timer=ba.timer(function()
+                  local seq=1
+                  while true do
+                     mqtt:publish("topic_1",ba.json.encode{message="Hello World",sequence=seq})
+                     coroutine.yield(true)
+                     seq=seq+1
+                  end
+               end)
+               timer:set(1000)
+               mqtt:run() -- blocks in this coroutine
+               timer:cancel()
+               trpr"MQTT connection closed"
+               return
+            else
+               trpr(fmt("Cannot connect to %s, err: %s",awsBroker,err))
+            end
+         end)
+      else
+         trpr(fmt("Creating the SharkSSL certificate using %s and %s failed",certName,keyName))
+      end
+   else
+      trpr"Cannot open AmazonRootCA1.pem using the app's predefined io"
+   end
+end
+
+-- If drag and drop upload
+if request:method() == "PUT" then
+   local fp,err=_G.io.tmpfile() -- Using Lua's standard IO
+   if fp then
+      -- Save zip file (the uploaded data)
+      for data in request:rawrdr() do fp:write(data) end
+      local zio
+      zio,err=ba.mkio(fp) -- Mount uploaded ZIP file
+      if zio then
+         -- Store ZIP IO as 'awsZipIo' in session object
+         request:session(true).awsZipIo = zio
+         response:setstatus(204)
+         return -- Done with PUT
+      end
+   else
+      -- Failed, but we still need to consume data
+      for data in request:rawrdr() do end
+   end
+   response:setstatus(500)
+   response:write(err)
+   return  -- Done with failed PUT
+end
+-- If client WebSsocket request
+if request:header"Sec-WebSocket-Key" then
+   local session = request:session()
+   local sock = ba.socket.req2sock(request)
+   if sock then -- if request upgraded to WebSocket conn.
+      local function print(msg) sock:write(msg, true) end
+      if session and session.awsZipIo then
+         local zio <close> = session.awsZipIo
+         session.awsZipIo=nil
+         print"Extracting certificate and key from 'connect_device_package.zip'"
+         local certName,keyName
+         for name in zio:files"" do
+            if name:find(".cert.pem",1,true) then certName=name
+            elseif name:find(".private.key",1,true) then keyName=name end
+         end
+         print(fmt("Certificate: %s\nPrivate key: %s",certName or "?", keyName or "?"))
+         if certName and keyName then
+            local fp <close> = zio:open"start.sh"
+            local data = fp and fp:read"*a"
+            local awsBroker = data:match"basicPubSub%.py.-%-e%s+([^%s]+)"
+            if awsBroker then
+               print(fmt("AWS MQTT broker name: %s",awsBroker))
+               startMQTT(sock,zio,awsBroker,certName,keyName,print)
+               return
+            else
+               print"Error: cannot extract AWS MQTT broker name"
+            end
+         end
+         print"Error: cannot decode content in 'connect_device_package.zip'"
+      else
+         print"Error: no session or stored ZIP file"
+      end
+   end
+   return
+end
+
+-- Server side code ends here
+-- Client side (browser) code starts below:
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <style>
+  html,body{
+      height:100%;
+  }
+  #dropbox {
+      position: absolute;
+      width: 250px;
+      top: 50%;
+      left: 50%;
+      margin-top: -125px;
+      margin-left: -125px;
+      background:#c0392b;
+      color:white;
+      padding:1em;
+      text-align:center;
+  }
+  </style>
+  <script src="/rtl/jquery.js"></script>
+<script>
+
+$(function() {
+    $('body').bind('dragover',function(e) {
+        e.preventDefault();
+        $('#dropbox').html("Now drop the file!");
+        return false;
+    });
+    $('body').bind('drop',function(e) {
+        e.preventDefault();
+        const file=e.originalEvent.dataTransfer.files[0];
+        if("connect_device_package.zip" != file.name) {
+            $('#dropbox').html("Oops, the file name must be 'connect_device_package.zip'");
+            return false;
+        };
+        $('#dropbox').html("Initiating upload!");
+        $.ajax({
+            type:"PUT",
+            processData:false,
+            contentType: false,
+            data:file,
+            error:function(r){ $('#dropbox').html("Upload failed: "+r.responseText); },
+            success:function(){
+                $('body').html("<pre id='console'></pre>");
+                function print(txt) { $("#console").append(txt+"\n"); };
+                var host = "<?lsp=request:url():gsub("^http","ws")?>";
+                //The following is required for routing via the example framework
+                host += "?execute=true&type=lsp&ex=<?lsp=request:data('ex')?>";
+                print("Initiating WebSocket connection: "+host);
+                let s = new WebSocket(host);
+                s.onopen = function() { print("Connected, server messages:\n"); };
+                s.onmessage = function (e) { print(e.data); };
+                s.onclose = function (e) { print("Server closed the connection"); };
+            }
+        });
+        return false;
+    });
+});
+
+</script>
+</head>
+<body>
+
+<div id="dropbox">Drag and drop the zip file<br/>'connect_device_package.zip'<br/>here!</div>
+
+</body>

@@ -1,0 +1,18 @@
+<html><body>
+<pre style="background:green">
+<?lsp -- START SERVER SIDE CODE
+print("HTTP Method Type", request:method())
+if request:method() == "POST" then
+   local luaTable = request:data()
+   print("Name:", luaTable.name)
+   print("E-Mail:", luaTable.email)
+end
+-- END SERVER SIDE CODE
+?>
+</pre>
+<form method="post">
+Name: <input type="text" name="name"><br>
+E-mail: <input type="text" name="email"><br>
+<input type="submit">
+</form>
+</body></html>

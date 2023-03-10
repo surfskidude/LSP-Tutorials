@@ -1,0 +1,4 @@
+print("hello ")
+print("hello " .. who) -- the variable "who" was assigned above
+print(who)
+

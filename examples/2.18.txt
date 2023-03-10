@@ -1,0 +1,6 @@
+print(type(request), request) -- Print the HTTP request object (C userdata object)
+
+--Some userdata objects provide a __tostring method and provides
+--formatted output when calling print.
+sock=ba.socket.connect("google.com",443)
+print(type(sock),sock)

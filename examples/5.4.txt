@@ -1,0 +1,27 @@
+<?lsp
+local name,email,nameOK,emailOK = "","",true,true
+if request:method() == "POST" then
+   local function trim(s)
+      return s and s:gsub("^%s*(.-)%s*$", "%1")
+   end
+   local data = request:data()
+   name,email = trim(data.name),trim(data.email)
+   nameOK = name and #name >= 2
+   emailOK = email and email:match("[A-Za-z0-9%.%%%+%-]+@[A-Za-z0-9%.%%%+%-]+%.%w%w%w?%w?")
+   if nameOK and emailOK then
+      -- SAVE DATA HERE
+      -- Goto next page in wizard
+      response:sendredirect("https://realtimelogic.com/images/BAS-text.jpg")
+   end
+end
+?>
+
+<html><body>
+<form method="post">
+Name: <input type="text" name="name" value="<?lsp=name?>">
+<?lsp= nameOK and "" or "Incorrect Data"?><br>
+E-mail: <input type="text" name="email" value="<?lsp=email?>">
+<?lsp= emailOK and "" or "Incorrect Data"?><br>
+<input type="submit">
+</form>
+</body></html>

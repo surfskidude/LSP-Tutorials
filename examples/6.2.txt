@@ -1,0 +1,14 @@
+<?lsp
+   local LED = require"LED"
+   if request:method() == "POST" then
+      LED.setLed(request:data"LED" and true or false)
+   end
+?>
+<html><body>
+
+<form method="post">
+LED: <input name = "LED" type="checkbox" <?lsp= LED.getLed() and "checked" or ""?>/><br>
+<input type="submit">
+</form>
+
+</body></html>

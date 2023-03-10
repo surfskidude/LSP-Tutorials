@@ -1,0 +1,9 @@
+-- create function and assign to foo
+foo = function(n) return n*2 end 
+bar = foo -- bar and foo now refer to the same function
+print("foo == bar:",foo == bar)
+
+foo = function(n) return n*2 end 
+print("foo == bar:", foo == bar)  -- not the same function
+
+print(foo(2), bar(2))

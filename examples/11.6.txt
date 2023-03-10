@@ -1,0 +1,17 @@
+x = { value = 3 }
+
+mt = { __add = function (a, b)
+        local v = { value = a.value + b.value }
+        -- Set metatable on return value 'v'
+        return setmetatable(v, mt)
+       end
+     }  -- metatable
+
+setmetatable(x, mt)
+
+a = x+x
+print(a.value)  -- as before
+
+-- no error this time as "a" is the same "class" as "x"
+b = a+a
+print(b.value)

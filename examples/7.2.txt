@@ -1,0 +1,17 @@
+<html>
+  <head>
+    <script src="/rtl/jquery.js"></script>
+    <script>
+$(function() {
+   $("#out").empty();
+   $("#in").keypress(function(ev) {
+      $("#out").append(String.fromCharCode(ev.which));
+   });
+});
+    </script>
+  </head>
+  <body>
+    <h1 id="out">Please enable JavaScript</h1>
+    <input id="in" type="text" />
+  </body>
+</html>

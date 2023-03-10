@@ -1,0 +1,22 @@
+local myprint=print -- closure
+a = "Hello" -- global
+
+function foo()
+    myprint("foo-1:", a)
+    local _ENV = {a = "world"}
+    myprint("foo-2:", a)
+end
+foo() -- Call foo
+
+function bar(_ENV)
+    myprint("bar:", a, _ENV)
+end
+
+bar(_ENV)
+bar({a = "world"}) -- Call bar with provided table
+
+myprint("Original _ENV", _ENV, _G)
+local savedENV = _ENV
+_ENV = {} -- Set to new table.
+myprint("NEW _ENV", _ENV, _G) -- _G is nil
+_ENV = savedENV

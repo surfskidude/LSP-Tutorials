@@ -1,0 +1,7 @@
+a,b = 0,1
+while true do -- infinite loop
+  print(b)
+  a,b = b,a+b
+  -- exit the loop if the condition is true
+  if a > 500 then break end
+end

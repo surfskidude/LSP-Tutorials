@@ -1,0 +1,7 @@
+x = 7.7
+print(x, type(x), math.type(x))
+
+x = 7
+print(x, type(x), math.type(x))
+
+

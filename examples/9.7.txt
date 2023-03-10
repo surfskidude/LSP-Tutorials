@@ -1,0 +1,18 @@
+-- Remove all dynamically declared variables in current scope
+for key in pairs(_ENV) do _ENV[key]=nil end
+
+a,b,c='va','vb','vc' -- dynamically declared variables
+-- 3 ways to access 'a'
+print('a:', a, _ENV.a, _ENV['a'])
+
+ -- _ENV is used implicitly if not specified
+assert(c == _ENV.c and _ENV.c == 'vc')
+
+--Print all variables in current scope
+for key,val in pairs(_ENV) do
+   print(string.format("_ENV['%s'] = %s",key,val))
+end
+
+_ENV.b="Hello"
+_ENV["c"]="world"
+print("b and c:", b, c)

@@ -1,0 +1,11 @@
+-- no such key in the String table class
+print("s.length= ",s.length)
+
+mt.__index = function (t,key)
+    if key == 'length' then
+       return string.len(t.value)
+    end
+ end
+
+-- new __index event calls the above function
+print("s.length= ",s.length)

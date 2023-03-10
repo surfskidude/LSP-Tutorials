@@ -1,0 +1,5 @@
+g = "global"
+print(g)
+
+function foo() print(g) end
+foo()

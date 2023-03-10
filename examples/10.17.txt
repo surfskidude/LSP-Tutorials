@@ -1,0 +1,2 @@
+ -- Perform a full garbage-collection cycle
+print(collectgarbage())

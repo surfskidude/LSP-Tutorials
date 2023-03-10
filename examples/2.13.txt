@@ -1,0 +1,11 @@
+y = {
+   const={ name="Pi", value=3.1415927 },
+   const2={ name="light speed", value=3e8 }
+}
+
+print(y.const.name, y.const.value)
+print(y.const2.name, y.const2.value)
+print(y, y.const, y.const2)
+
+print(y.const["name"], y["const"]["value"]) -- same as y.const.name, y.const.value
+

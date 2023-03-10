@@ -1,0 +1,17 @@
+do
+   local localA="A"
+   do
+      local localB="B"
+      do
+         local localC="C"
+         do
+            local localD="D"
+            print("1:",localA,localB,localC,localD)
+         end
+         print("2:",localA,localB,localC,localD)
+      end
+      print("3:",localA,localB,localC,localD)
+   end
+   print("4:",localA,localB,localC,localD)
+end
+print("5:",localA,localB,localC,localD)

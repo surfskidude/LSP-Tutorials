@@ -1,0 +1,54 @@
+<?lsp
+if request:header"Sec-WebSocket-Key" then
+   trace"New WebSocket connection"
+   local s = ba.socket.req2sock(request)
+   if s then
+      for count = 1,5 do
+         local msg  = string.format("hello %d",count)
+         trace('',msg)
+         s:write(msg, true) -- Send message to client
+         ba.sleep(1000)
+      end
+      trace"Closing WebSocket connection"
+      s:close()
+      return -- We are done
+   end
+end
+?>
+<html>
+  <head>
+    <script src="/rtl/jquery.js"></script>
+    <script>
+$(function() {
+    function print(txt) {
+        $("#console").append(txt+"\n");
+    };
+    var host = "<?lsp=request:url():gsub("^http","ws")?>";
+    host += "?execute=true&type=lsp&ex=<?lsp=request:data('ex')?>";
+    print("Connecting to: "+host);
+    var s;
+    try { s = new WebSocket(host); } catch(e) {}
+    if( ! s ) {
+        print("WebSockets not supported");
+        return;
+    }
+    s.onopen = function() {
+        print("Connected");
+    };
+    s.onmessage = function (e) {
+        print('Server: ' + e.data);
+    };
+    s.onclose = function (e) {
+        print("Server closed the connection");
+    };
+    s.onerror = function (error) {
+        print('WebSocket Error ' + error);
+    };
+});
+    </script>
+  </head>
+  <body>
+  <p><b>Console Window:</b></p>
+  <pre id="console"></pre>
+  </body>
+</html>

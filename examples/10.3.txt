@@ -1,0 +1,4 @@
+-- create a coroutine with foo as the entry
+co = coroutine.create(foo)
+-- display the type of object "co" 
+print(type(co))

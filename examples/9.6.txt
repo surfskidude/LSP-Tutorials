@@ -1,0 +1,13 @@
+local function funcFactory()
+   local i=0
+   local function innerFunction()
+      i = i + 1
+      return i
+   end
+   return innerFunction
+end
+
+local x = funcFactory()
+print(x())
+print(x())
+print(x())

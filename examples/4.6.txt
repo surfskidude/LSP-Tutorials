@@ -1,0 +1,3 @@
+x = foo
+print("type(x) =", type(x)) -- What type are you?
+print(x(77))   -- Calling x(), which is now foo() works.

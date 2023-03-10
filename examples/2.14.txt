@@ -1,0 +1,19 @@
+function foo() print("Hello") end -- declare the function
+foo() -- call the function
+
+-- A Lua function can return multiple values
+function bar(arg1, arg2) return arg1,arg2 end
+print(bar("Hello", "World"))
+
+-- Function taking variable number of arguments.
+function vararg(...) return ... end
+print(vararg("Hello", "World"))
+
+-- We can skip the parenthesis when we provide only one value
+print(vararg{}) -- arg1=Empty table
+print(vararg"Hello") -- arg1=string
+
+-- Function 'require', which returns the requested module, is typically
+-- called without parenthesis
+print(require"mqttc") -- Prints table (the MQTT module)
+

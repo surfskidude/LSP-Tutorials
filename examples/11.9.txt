@@ -1,0 +1,9 @@
+print(s.value, s.length)
+
+mt.__newindex = function (t, key, value)
+   error(string.format('Member "%s" is not allowed.\n%s',
+                       key,
+                       'The only member allowed is "value".'   
+                 ))
+ end
+s.value = 'abc'  -- no error here

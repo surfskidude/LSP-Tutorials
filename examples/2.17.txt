@@ -1,0 +1,5 @@
+print(x == nil)
+x = 7
+print(x == nil)
+print(x)
+

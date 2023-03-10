@@ -1,0 +1,2 @@
+-- without a metatable this is just a regular table
+a = x+x               -- Will fail

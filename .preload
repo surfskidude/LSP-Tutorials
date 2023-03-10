@@ -1,0 +1,194 @@
+
+assert(mako, "This program is designed for the Mako Server")
+
+local startupInfoFmt=[[
+
+
+**************************************************************
+
+  Start your browser and navigate to http://%s             
+
+**************************************************************
+
+]]
+
+local demo={internet=false} -- Global info for all demos/tutorials. internet set to true if avail.
+_G.demo=demo
+
+local hdir = os.getenv"HOME" or os.getenv"USERPROFILE"
+assert(hdir, "Cannot find your home directory")
+local fmt=string.format
+local dos2unix = mako.dos2unix
+hdir=dos2unix(hdir)
+local dio=ba.openio"disk"
+
+app.acmeOP={
+   info="Mako Server's Let's Encrypt example",
+   acceptterms=true,
+   rsa=true,
+   production=true
+}
+
+ -- Used by SharkSSL.lsp and set by isreg below
+
+local function isreg()
+   local function auto()
+       -- Starts engine if previosly registered
+      local email,domain=require"acme/dns".auto(app.acmeOP)
+      if domain then trace("Certificate for",domain, "loaded") end
+   end
+   pcall(auto)
+end
+ba.thread.run(isreg)
+
+local fp = dio:open(hdir.."/.config.json") or io:open(".config.json")
+
+if fp then
+   demo.config = ba.json.decode(fp:read"*a")
+   fp:close()
+end
+if not demo.config then
+   trace"PARSE ERR: config.json"
+   demo.config={}
+end
+
+function createdir(dir)
+   assert(dio:stat(dir) or dio:mkdir(dir), "Cannot create "..dir)
+   return dir
+end
+local exdir=createdir(hdir.."/lspapps")
+exdir=createdir(exdir.."/examples")
+exio=ba.mkio(dio,exdir)
+
+local cex={ -- Special C examples
+   LED="src/module/LED-x.c",
+   mymodule="src/module/mymodule-x.c"
+}
+
+function saveEx(exno, data)
+   local fp
+   if cex[exno] then
+      fp = cc.modio:open(cex[exno],"w")
+   else
+      fp = exio:open(fmt("%s.lsp",exno), "w")
+   end
+   if fp then
+      fp:write(data)
+      return fp:close()
+   end
+end
+
+function compileC(exno)
+   if cex[exno] then
+      return cc.compile(exno, cex[exno])
+   end
+end
+
+function openC(exno)
+   if cex[exno] then
+      return cc.modio:open(cex[exno])
+   end   
+end
+
+
+-- WFS home/installation dir
+wfshdir = fmt("/fs/%s/",ba.urlencode(dos2unix(ba.openio"home":realpath""))):gsub("//","/")
+
+
+
+
+-- Ref: http://makoserver.net/articles/How-to-Create-a-Cloud-Storage-Server
+local rio = ba.openio"disk" -- The root IO
+local env = mako.env
+local ldir = mako.dos2unix(env and (env.TMP or env.TEMP) or "/tmp").."/.LOCK"
+if not rio:stat(ldir) then
+   if not rio:mkdir(ldir) then
+      trace("Cannot open WebDAV lock directory:",ldir)
+      ldir=nil -- WebDAV may be in read only mode when used by some clients
+   end
+end
+local maxUploads=50
+local maxLocks=100
+require"wfs" -- install ba.create.wfs by loading it from mako.zip
+fsdir=ba.create.wfs("fs",rio,ldir,maxUploads,maxLocks)
+fsdir:insert() -- Insert as a root node with name 'fs' in the VFS
+-- Compat fix. Web apps designed for WFS.
+ba.serverport,ba.serversslport=mako.port,mako.sslport
+
+local function getIpAddr()
+   local _,type = ba.openio"disk":resourcetype()
+   local h=require"httpc".create()
+   local ok = h:request{
+      url="http://realtimelogic.com/downloads/register.lsp",
+      method="HEAD",
+      query={mako=mako and "yes" or "no",type=type}
+   }
+   if ok and h:status() == 200 then
+      demo.internet = true
+      local s=ba.socket.http2sock(h)
+      ipaddr=s:sockname() -- from LSP: use as app.ipaddr
+      demo.ipaddr=ipaddr
+      s:close()
+   else
+      demo.ipaddr="localhost"
+   end
+   local url = mako.port == 80 and demo.ipaddr or
+      fmt("%s:%d",demo.ipaddr,mako.port)
+   print(fmt(startupInfoFmt,url))
+end
+
+ba.thread.run(getIpAddr)
+if mako.execpath:match"net.makoserver.android/cache/exec$" then
+   io:dofile".lua/android.lua"
+end
+--io:dofile(".lua/fix.lua", _ENV)
+
+demo.index=ba.create.dir(nil,-10)
+demo.index:setfunc(function(_ENV,path) 
+   if request:method() == "GET" and response:initial() then
+      if pcall(function() response:forward"/index.shtml" end) then return true end
+      response:reset()
+   end
+   return false
+end)
+demo.index:insert()
+
+function loadex(env,name)
+   fp = io:open("."..name..".ex")
+   if fp then
+      local data = fp:read"*a"
+      fp:close()
+      -- Convert LSP to Lua
+      data,err = ba.parselsp("<div class='EX'>"..data.."</div>")
+      if data then
+         local func
+         -- Compile Lua code
+         func,err = load(data,"mypage.lsp","t",_ENV)
+         if func then
+            func(env,"mypage.lsp",io,nil,app)
+            return
+         end
+      end
+      error(string.format("Failed: %s: %s", name,err or ""))
+   end
+   return ""
+end
+
+function rmIPv6pf(ip)
+   if ip and ip:find('::ffff:',1,true) == 1 then
+      return ip:sub(8)
+   end
+   if ip == "::1" then return "localhost" end
+   return ip
+end
+
+
+local function trimS(s) return s and s:gsub("^%s*(.-)%s*$", "%1") end
+function trim(x)
+   if x then
+      if type(x) == "string" then return trimS(x) end
+      local t={}
+      for k,v in pairs(x) do t[k]=trimS(v) end
+      return t
+   end
+end
