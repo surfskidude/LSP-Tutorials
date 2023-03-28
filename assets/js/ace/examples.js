@@ -1,98 +1,92 @@
 $(function() {
-    
-    $('iframe').each((e) => {
-    
-    });
-
-    $('.lspeditor').each(function() {
-        var type = $(this).attr('extype');
-        var html = document.createElement('div')
-        
-        html.appendChild(document.createElement('div'));
-        const div = document.createElement('div')
-        div.className = 'editor-relative';
-
-        const iframe = document.createElement('iframe');
-        iframe.addEventListener('load', (e) => {
-            console.log('event', e);
-        })
-        iframe.onload = function (e) {
-            console.log('loaded iframe', e);
-            e.target.document.body.style = 'color: white; font-size: 14px; line-height: 18px;';
-        }
-        if( ! $(this).attr('disabled') ) {
-            const button = document.createElement('button')
-            button.innerHTML = (type == "C" ? "Compile" : "Run");
-            html.appendChild(button);
-            const button2 = document.createElement('Revert')
-            button2.innerHTML = (type == "C" ? "Compile" : "Run");
-            html.appendChild(button2);
-        }
-        div.appendChild(iframe);
-        html.appendChild(div)
-        $(this).add(html);
-    });
-    $('.lspeditor > div').each(function() {
-        var p = $(this).parent();
-        var type = p.attr('extype');
-        if(!type) type='lsp';
-        var exno = p.attr('example');
-        var editor = ace.edit(this);
-        var tn = type == "lsp" ? "LSP" : (type == "lua" ? "Lua" : "C");
-        p.before('<b>'+tn+' example: '+exno+'</b>');
-        function editorLoad(fn) {
-            $.ajax({
-                url : fn,
-                dataType: "text",
-                success : function (data) {
-                    editor.setValue(data);
-                    var len=data.split(/\r\n|\r|\n/).length;
-                    editor.setOptions({maxLines: len > 35 ? 35 : len});
-                    editor.gotoLine(1);
-                }
-            });
-        }
-        p.children('button').click(function() {
-            var p = $(this).parent();
-            var ifr = p.children('iframe');
-            if($(this).html() == "Revert") {
-                var ex = type == "C" ?
-                    ("examples/manage.lsp?ex="+exno+"&type=C&revert=") :
-                    ("examples/"+exno+".txt");
-                editorLoad(ex);
-                ifr.hide();
+    function aceInstanceLoad(editor, link) {
+        $.ajax({
+            url : link,
+            dataType: "text",
+            success : function (data) {
+                // editor.addClass('opened');
+                editor.setValue(data);
+                var len=data.split(/\r\n|\r|\n/).length;
+                editor.setOptions({maxLines: len > 35 ? 35 : len});
+                editor.gotoLine(1);
             }
-            else {
-                ifr.show();
+        });
+    }
+
+    /** Addded  button to editors and add result iFrames */
+    $('.lspeditor').each(function(e, codeElement) {
+        const $this = $(codeElement)
+        const type = $this.attr('extype') || 'lsp';
+        const exampleNumber = $this.attr('example');
+        
+        const tn = type == "lsp" ? "LSP" : (type == "lua" ? "Lua" : "C");
+        $this.append(`<h5>${tn} example: ${exampleNumber}</h5>`);
+
+        const $code = $('<div>', {
+            class: 'code-example'
+        });
+        $this.append($code);
+        
+        const aceInstance = ace.edit($code.get(0));
+        aceInstance.setTheme("ace/theme/monokai");
+        aceInstance.setShowPrintMargin(false);
+        aceInstance.setShowPrintMargin(false);
+        aceInstance.$blockScrolling = Infinity
+        
+        const mode = (type == "C") ? 'c_cpp' : type;
+        aceInstance.getSession().setMode(`ace/mode/${mode}`);
+        aceInstanceLoad(aceInstance, `examples/manage.lsp?ex=${exampleNumber}&type=${type}`);
+        
+        const $frame = $('iframe');
+        if( ! $(this).attr('disabled') ) {
+            const $buttons = $('<div>');
+
+            /** Run code button */
+            $('<button>')
+            .addClass('btn primary')
+            .html((type == "C" ? "Compile" : "Run"))
+            .appendTo($buttons)
+            .on('click', function() {
+                $frame.addClass('opened');
                 $.ajax({
-                    url: 'examples/save.lsp?ex='+exno,
-                    data: editor.getValue(),
+                    url: `examples/save.lsp?ex=${exampleNumber}`,
+                    data: aceInstance.getValue(),
                     contentType: false,
                     processData: false,
                     type: 'PUT',
                     success: function(data){
-                        const frame = ifr.get(0);
-                        frame.addEventListener('load', function() {
-                            ifr.contents().find('body').first().css({color: '#FFFFFF', background: '#24262B'})
-                        })
-                        ifr.attr("src","examples/manage.lsp?execute=true&ex="+
-                                 exno+"&type="+type);
-                        
+                        $frame.on('load',  function() {
+                            $frame.contents().find('body').first().css({color: '#FFFFFF', background: '#24262B'})
+                        });
+                        $frame.attr("src", `examples/manage.lsp?execute=true&ex=${exampleNumber}&type=${type}`);
                     },
                     error: function(){
                         console.log("Err");
                     }
                 });
-            }
-        });
-        editor.setTheme("ace/theme/monokai");
-        editor.setShowPrintMargin(false);
-        var mode = type;
-        if(mode == "C") mode = "c_cpp";
-        editor.getSession().setMode('ace/mode/'+mode);
-        editorLoad("examples/manage.lsp?ex="+exno+"&type="+type);
-    });
+            });
 
+            
+            /** Revert code button */
+            const $button2 = $('<button>')
+            .addClass('btn danger')
+            .html('Revert')
+            .appendTo($buttons)
+            .on('click', function() {
+                var ex = type == "C" ?
+                    (`examples/manage.lsp?ex=${exampleNumber}&type=C&revert=`) :
+                    (`examples/${exampleNumber}.txt`);
+                aceInstanceLoad(editor, ex);
+                $frame.removeClass('opened');
+            })
+            $this.append($buttons);
+        }
+        
+        $this.append($frame);
+    });
+    
+
+    /** Nav menu */
     const $ls = $("#left-sidebar")
     $(".open-main-menu").click(function() {
         if ($ls.hasClass('active')) {
@@ -105,22 +99,6 @@ $(function() {
     $('.close-header-icon').click(() => {
         $ls.removeClass('active');
     })
-
-    var prevDisp;
-    $(window).on('resize orientationchange load', function() {
-        var disp = $("#navbut").css("display");
-        if(disp != prevDisp) {
-            prevDisp = disp;
-            if(disp == "none") {
-                $("#headertxt").html("Barracuda App Server Tutorials");
-                smallMode=false;
-            }
-            else {
-                $("#headertxt").html("BAS Tutorials");
-                smallMode=true;
-            }
-        }
-    });
 
 });
 

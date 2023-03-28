@@ -17,6 +17,13 @@
   --text-link-visited: #559e5f;
   --text-header-link-color: #FFFFFF;
 
+  --btn-primary: #69C575;;
+  --btn-primary-hover: #82c98c;
+  --btn-danger: #F06552;
+  --btn-danger-hover: #ec8577;
+  
+  
+
   --red: #c0392b; 
   --bluelue: #4a69bd;
   --white: #f2f2f2;
@@ -26,8 +33,7 @@
 
 }
 
-*,
-iframe * {
+* {
   color: var(--text-main);
   box-sizing: border-box; 
 }
@@ -82,12 +88,51 @@ h2 {
   font-weight: 600;
 }
 
+h5 {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  margin: 10px auto;
+}
+
 p {
   font-size: 14px;
   line-height: 17px;
   font-style: normal;
   font-weight: 400;
   margin: 1.3em auto;
+}
+
+.btn {
+  display: inline-block;
+  padding: 10px 33px;
+  margin: 8px;
+  border-radius: 4px;
+  color: var(--text-main);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background: var(--background-header);
+}
+.btn:hover {
+  background: var(--background-header-link);
+}
+.btn.primary {
+  background: var(--btn-primary);
+}
+.btn.primary:hover {
+  background: var(--btn-primary-hover);
+}
+.btn.danger {
+  background: var(--btn-danger);
+}
+.btn.danger:hover {
+  background: var(--btn-danger-hover);
 }
 
 @media (min-width: 768px) {
@@ -98,8 +143,16 @@ p {
   h1 {
     font-size: 24px;
     line-height: 29px;
-    font-style: normal;
-    font-weight: 600;
+  }
+
+  h2 {
+    font-size: 24px;
+    line-height: 29px;
+  }
+
+  h5 {
+    font-size: 18px;
+    line-height: 22px;
   }
   p {
     font-size: 14px;
@@ -247,21 +300,65 @@ p {
 }
 
 details {
-  display: block;
-  overflow: hidden;
-  padding: 20px;
+  background: var(--background-block);
+  margin: 23px 0;
+  padding: 10px;
+  border-radius: 5px;
 }
 
 details summary {
-  display: block;
   background: var(--background-header-link);
   padding: 16px 23px;
+  cursor: pointer;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (min-width: 768px) {
+  details summary {
+    font-size: 24px;
+    line-height: 29px;
+  }
 }
 
 #main-content img   {
   max-width: 100%;
 }
 
-.ace_editor {
 
+/** Editors styles */
+.lspeditor .btn {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.lspeditor iframe {
+  display: none;
+  width: 100%;
+  min-height: 150px;
+}
+.lspeditor iframe.opened {
+  display: block;
+}
+
+#NextBut {
+  display: inline-block;
+  padding: 10px 33px;
+  margin: 8px;
+  border-radius: 4px;
+  color: var(--text-main);
+  font-style: normal;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 20px;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  background: var(--background-header);
+}
+#NextBut:hover {
+  background: var(--background-header-link);
 }
