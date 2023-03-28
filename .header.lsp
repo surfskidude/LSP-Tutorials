@@ -35,10 +35,14 @@ local links={
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><?lsp=title?></title>
-<link rel="stylesheet" href="intro-style.css" />
+<link rel="stylesheet" href="/assets/css/intro-style.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 <script src="/rtl/jquery.js"></script>
-<script src="ace/ace.js" type="text/javascript"></script>
-<script src="examples.js" type="text/javascript"></script>
+<script src="/assets/js/common.js" type="text/javascript"></script>
+<script src="/assets/js/ace/ace.js" type="text/javascript"></script>
+<script src="/assets/js/ace/examples.js" type="text/javascript"></script>
 <?lsp if not app.noalert then ?>
 <script>
 $(function() {
@@ -53,26 +57,24 @@ $(function() {
 <?lsp end ?>
 </head>
 <body>
-<!-- <div id="ofheader"></div> -->
-<!-- <div id="ofleft"></div> -->
-<div id="mainContainer">
-  <div id="header">
-    <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/"><img src="images/BAS-logo.png" /></a>
-    <div id="navbut"><div></div><div></div><div></div></div>
-    <div id="headertxt">BAS Tutorials</div>
-  </div>
-<!-- <div id="fixleft"></div> -->
-<div id="leftSidebar">
-    <div id="nav">
-<ul>
-<?lsp
-for _,link in ipairs(links) do
-   local isactive = title == link[2]
-   response:write('<li><a href="',link[1],'"', isactive and ' class="selected"' or '','>',link[2],'</a></li>')
-end
-?>
-</ul>
-    </div>
-</div>
-  <div id="mainContent">
-  <div class="innertube">
+<section id="left-sidebar">
+   <div class="close-header-menu" >
+      <a class="close-header-icon">
+         <img src="/images/icon-close-violet.svg" />
+      </a>
+   </div>
+   <a class="main-logo" target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/"><img src="images/BAS-logo.png" /></a>
+   <nav id="main-nav">
+      <?lsp
+      for _,link in ipairs(links) do
+         local isactive = title == link[2]
+         response:write('<a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a>')
+      end
+      ?>
+   </nav>
+</section>
+<header id="header">
+   <span class="open-main-menu mobile-only"><img src="/images/icon-open-menu-violet.svg" /></span>
+   <div class="header-title">Barracuda App Server Tutorials</div>
+</header>
+<main id="main-content">

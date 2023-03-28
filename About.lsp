@@ -2,6 +2,7 @@
 title="About" response:include".header.lsp"
 local appuri=app.wfshdir.."applications/"
 ?>
+
 <h1>Lua and LSP Tutorials</h1>
 <div class="rh">
 
@@ -21,7 +22,7 @@ $("#tutvideo").click(() => $("#tutdiv").hide());
 <div style="max-width:640px;margin:auto">
 <object style="width:100%" id="LuaREPL" type="image/svg+xml" data="images/LuaREPL.svg"></object>
 </div>
-<script src="LuaREPL.js"></script>
+<script src="/assets/js/LuaREPL.js"></script>
 
 
 <details open>

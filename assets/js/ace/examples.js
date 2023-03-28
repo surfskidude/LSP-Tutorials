@@ -1,14 +1,36 @@
 $(function() {
+    
+    $('iframe').each((e) => {
+    
+    });
+
     $('.lspeditor').each(function() {
         var type = $(this).attr('extype');
-        var html = "<div></div>";
-        if( ! $(this).attr('disabled') ) {
-            html += ('<button>'+
-                     (type == "C" ? "Compile" : "Run")+
-                     '</button><button>Revert</button>');
+        var html = document.createElement('div')
+        
+        html.appendChild(document.createElement('div'));
+        const div = document.createElement('div')
+        div.className = 'editor-relative';
+
+        const iframe = document.createElement('iframe');
+        iframe.addEventListener('load', (e) => {
+            console.log('event', e);
+        })
+        iframe.onload = function (e) {
+            console.log('loaded iframe', e);
+            e.target.document.body.style = 'color: white; font-size: 14px; line-height: 18px;';
         }
-        html += '<iframe></iframe>';
-        $(this).html(html);
+        if( ! $(this).attr('disabled') ) {
+            const button = document.createElement('button')
+            button.innerHTML = (type == "C" ? "Compile" : "Run");
+            html.appendChild(button);
+            const button2 = document.createElement('Revert')
+            button2.innerHTML = (type == "C" ? "Compile" : "Run");
+            html.appendChild(button2);
+        }
+        div.appendChild(iframe);
+        html.appendChild(div)
+        $(this).add(html);
     });
     $('.lspeditor > div').each(function() {
         var p = $(this).parent();
@@ -49,8 +71,13 @@ $(function() {
                     processData: false,
                     type: 'PUT',
                     success: function(data){
+                        const frame = ifr.get(0);
+                        frame.addEventListener('load', function() {
+                            ifr.contents().find('body').first().css({color: '#FFFFFF', background: '#24262B'})
+                        })
                         ifr.attr("src","examples/manage.lsp?execute=true&ex="+
                                  exno+"&type="+type);
+                        
                     },
                     error: function(){
                         console.log("Err");
@@ -58,7 +85,7 @@ $(function() {
                 });
             }
         });
-        editor.setTheme("ace/theme/github");
+        editor.setTheme("ace/theme/monokai");
         editor.setShowPrintMargin(false);
         var mode = type;
         if(mode == "C") mode = "c_cpp";
@@ -66,25 +93,18 @@ $(function() {
         editorLoad("examples/manage.lsp?ex="+exno+"&type="+type);
     });
 
-    var smallMode=false;
-    var nbHide=false;
-    $("#navbut").click(function() {
-        var m=$("#leftSidebar");
-        if(nbHide) {
-            $(".lspeditor").show();
-            m.hide();
-            if(smallMode)
-                $("#fixleft").hide();
-            nbHide=false;
-        }
-        else {
-            $(".lspeditor").hide();
-            m.show();
-            if(smallMode)
-                $("#fixleft").show();
-            nbHide=true;
+    const $ls = $("#left-sidebar")
+    $(".open-main-menu").click(function() {
+        if ($ls.hasClass('active')) {
+            $ls.removeClass('active')
+        } else {
+            $ls.addClass('active')
         }
     });
+
+    $('.close-header-icon').click(() => {
+        $ls.removeClass('active');
+    })
 
     var prevDisp;
     $(window).on('resize orientationchange load', function() {

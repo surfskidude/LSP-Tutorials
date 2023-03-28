@@ -2,9 +2,6 @@
 title="OPC-UA Example" response:include".header.lsp"
 local version = true == pcall(function() require("opcua_ns0") require("opcua.api") end) and ba.version() or 0
 ?>
-<style>
-img {max-width:100%;border: 1px solid gray;}
-</style>
 
 
 <h1>OPC-UA Example</h1>

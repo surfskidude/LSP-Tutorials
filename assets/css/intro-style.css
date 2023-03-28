@@ -1,0 +1,267 @@
+/**
+* Vars
+
+*/
+
+:root{
+  --background-body: #060606;
+  --background-block: #24262B;
+  --background-header: #1D1E22;
+  --background-header-link: #454856;
+  --background-header-link-active: #69C575;
+  --background-block: #24262A;
+
+
+  --text-main: #FFFFFF;
+  --text-link: #69C575;
+  --text-link-visited: #559e5f;
+  --text-header-link-color: #FFFFFF;
+
+  --red: #c0392b; 
+  --bluelue: #4a69bd;
+  --white: #f2f2f2;
+  --yellow: #feca57;
+  --yellow: #ffffcc;
+  --og-r: #BB133E;
+
+}
+
+*,
+iframe * {
+  color: var(--text-main);
+  box-sizing: border-box; 
+}
+
+a {
+  text-decoration: none;
+}
+
+.mobile-only {
+  display: block;
+}
+.desktop-only {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .mobile-only {
+    display: none;
+  }
+  .desktop-only {
+    display: block;
+  }
+}
+
+
+body{
+  font-family: Montserrat, sans-serif;
+  background: var(--background-body);
+}
+
+html,body{
+  height: 100%;
+}
+
+html,body, table, tr, td {
+  margin: 0;
+  padding: 0;
+}
+
+
+h1 {
+  font-size: 18px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+h2 {
+  font-size: 16px;
+  line-height: 20px;
+  font-style: normal;
+  font-weight: 600;
+}
+
+p {
+  font-size: 14px;
+  line-height: 17px;
+  font-style: normal;
+  font-weight: 400;
+  margin: 1.3em auto;
+}
+
+@media (min-width: 768px) {
+  body {
+    padding-left: 350px; /* Left sizebar size */
+  }
+
+  h1 {
+    font-size: 24px;
+    line-height: 29px;
+    font-style: normal;
+    font-weight: 600;
+  }
+  p {
+    font-size: 14px;
+    line-height: 17px;
+    font-style: normal;
+    font-weight: 400;
+    margin: 1.3em auto;
+  }
+}
+
+/** Left sidebar styles **/
+
+#left-sidebar {
+  display: block;
+  position: fixed;
+  z-index: 3;
+  left: -5000px;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 300px;
+  background-color: var(--background-header);
+  transition: all .3s ease; 
+  padding: 25px;
+  overflow: scroll;
+}
+
+#left-sidebar.active {
+  left: 0;
+}
+
+@media (min-width: 768px) {
+  #left-sidebar {
+    left: 0; 
+    width: 350px;
+  }
+  #left-sidebar::-webkit-scrollbar {
+    width: 7px;
+  }
+  #left-sidebar::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  #left-sidebar::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  #left-sidebar::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  } 
+}
+
+
+#left-sidebar .close-header-menu {
+  display: block;
+  text-align: right;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 22px;
+  font-style: normal;
+  font-weight: 600;
+}
+#left-sidebar .main-logo {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: 20px auto;
+  background: var(--background-block);
+  border-radius: 4px;
+
+}
+#left-sidebar .main-logo img {
+  width: 235px;
+  height: 235px;
+}
+
+#left-sidebar .main-link-menu {
+  display: block;
+  margin: 14px 22px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--background-header-link);
+  color: var(--text-header-link-color);
+  transition: all .3s ease;
+  padding: 14px 22px;
+  text-transform: uppercase;
+}
+
+#left-sidebar .main-link-menu.selected,
+#left-sidebar .main-link-menu:active,
+#left-sidebar .main-link-menu:hover {
+  background-color: var(--background-header-link-active);
+}
+
+/** Header styles **/
+
+#header { 
+  display: grid;
+  grid-template-columns: 26px 1fr;
+  grid-gap: 22px; 
+  padding:  60px 20px 20px;
+  align-items: center;
+}
+
+#header .open-main-menu {
+  display: inline-block;
+  width: 34px;
+  height: 34px;
+  cursor: pointer;
+}
+#header .header-title {
+   font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+@media (min-width: 1024px) {
+  #header { 
+    display: block;
+  }
+  #header .header-title {
+    font-style: normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 34px;
+  }
+  #header .open-main-menu {
+    display: none;
+  }
+}
+
+.header-title { 
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+/** Main content styles **/
+
+#main-content {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+}
+
+details {
+  display: block;
+  overflow: hidden;
+  padding: 20px;
+}
+
+details summary {
+  display: block;
+  background: var(--background-header-link);
+  padding: 16px 23px;
+}
+
+#main-content img   {
+  max-width: 100%;
+}
+
+.ace_editor {
+
+}
