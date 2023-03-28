@@ -20,7 +20,7 @@ $("#tutvideo").click(() => $("#tutdiv").hide());
 <br/>
 <p>It's important to note that the browser is only used as an editor and to display the results of your code. The actual processing takes place on the server side. When you click the 'Run' button, the Lua code example displayed in the browser is sent to the server to be parsed and executed. The server will then send the response back to the browser for display.</p>
 <div style="max-width:640px;margin:auto">
-<object style="width:100%" id="LuaREPL" type="image/svg+xml" data="images/LuaREPL.svg"></object>
+<object class="background-white" style="width:100%;padding: 10px;border-radius:10px;" id="LuaREPL" type="image/svg+xml" data="images/LuaREPL.svg"></object>
 </div>
 <script src="/assets/js/LuaREPL.js"></script>
 

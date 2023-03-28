@@ -18,6 +18,9 @@ function(e,t,n){
 .ace-monokai .ace_cursor {
   color: #F8F8F0
 }
+.ace-monokai .ace_gutter-cell  {
+  color: #676B7D
+}
 .ace-monokai .ace_marker-layer .ace_selection {
   background: #49483E
 }

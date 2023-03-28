@@ -26,7 +26,7 @@ response:include".header.lsp"
 <details>
   <summary>Application server v.s. web server</summary>
 
-  <img src="https://realtimelogic.com/images/apps-server-vs-web-server.jpg" style="float:right;margin-left:15px;" />
+  <img src="https://realtimelogic.com/images/apps-server-vs-web-server.jpg" style="float:right;margin:15px;" />
 
   <p>An LSP page is automatically converted to a Lua script and then executed on the server when the page is accessed by a client such as a browser. The response from the LSP page is shown in your browser window.</p>
 

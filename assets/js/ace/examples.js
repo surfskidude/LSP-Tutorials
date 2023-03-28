@@ -4,9 +4,10 @@ $(function() {
             url : link,
             dataType: "text",
             success : function (data) {
+                console.log(data);
                 // editor.addClass('opened');
                 editor.setValue(data);
-                var len=data.split(/\r\n|\r|\n/).length;
+                const len = data.split(/\r\n|\r|\n/).length;
                 editor.setOptions({maxLines: len > 35 ? 35 : len});
                 editor.gotoLine(1);
             }
@@ -22,14 +23,12 @@ $(function() {
         const tn = type == "lsp" ? "LSP" : (type == "lua" ? "Lua" : "C");
         $this.append(`<h5>${tn} example: ${exampleNumber}</h5>`);
 
-        const $code = $('<div>', {
-            class: 'code-example'
-        });
-        $this.append($code);
+        const $code = $('<div>')
+            .addClass('code-example')
+            .appendTo($this);
         
         const aceInstance = ace.edit($code.get(0));
         aceInstance.setTheme("ace/theme/monokai");
-        aceInstance.setShowPrintMargin(false);
         aceInstance.setShowPrintMargin(false);
         aceInstance.$blockScrolling = Infinity
         
@@ -37,9 +36,10 @@ $(function() {
         aceInstance.getSession().setMode(`ace/mode/${mode}`);
         aceInstanceLoad(aceInstance, `examples/manage.lsp?ex=${exampleNumber}&type=${type}`);
         
-        const $frame = $('iframe');
+        const $frame = $('<iframe>').appendTo($this);
+        
         if( ! $(this).attr('disabled') ) {
-            const $buttons = $('<div>');
+            const $buttons = $('<div>').appendTo($this);
 
             /** Run code button */
             $('<button>')
@@ -54,7 +54,7 @@ $(function() {
                     contentType: false,
                     processData: false,
                     type: 'PUT',
-                    success: function(data){
+                    success: (data) => {
                         $frame.on('load',  function() {
                             $frame.contents().find('body').first().css({color: '#FFFFFF', background: '#24262B'})
                         });
@@ -68,7 +68,7 @@ $(function() {
 
             
             /** Revert code button */
-            const $button2 = $('<button>')
+            $('<button>')
             .addClass('btn danger')
             .html('Revert')
             .appendTo($buttons)
@@ -76,13 +76,10 @@ $(function() {
                 var ex = type == "C" ?
                     (`examples/manage.lsp?ex=${exampleNumber}&type=C&revert=`) :
                     (`examples/${exampleNumber}.txt`);
-                aceInstanceLoad(editor, ex);
+                aceInstanceLoad(aceInstance, ex);
                 $frame.removeClass('opened');
-            })
-            $this.append($buttons);
+            });
         }
-        
-        $this.append($frame);
     });
     
 

@@ -8,7 +8,9 @@
 
 <div class="rh">
   <div class="article-spacer">
-  <iframe style="float:right" width="560" height="315" src="https://www.youtube-nocookie.com/embed/jUuqBZwwkQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="youtube-video">
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jUuqBZwwkQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  </div>
     <h1>Lua Types Tutorial</h1>
     <p>This is a brief introduction to the eight basic types of values in Lua: number, string, boolean, table, function, nil, userdata, and thread. Each section introduces a different type. </p>
     <p>We use function <a  target="_blank" href="https://realtimelogic.com/ba/doc/?url=lua.html#_G_print">print()</a> to print out values or calculations on those values and function <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/man/manual.html#pdf-type">type()</a> to fetch the variable type.</p>
