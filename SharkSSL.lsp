@@ -116,7 +116,7 @@ local function emitNoSecurityModule()
 </details>
 <?lsp end
 
-title="SSL/TLS &amp; Trust" response:include".header.lsp"
+title="Protocols: SSL/TLS &amp; Trust" response:include".header.lsp"
 print"<h1>TLS: It's All About the Trust</h2><p>Trust is primary, encryption is secondary. <a href='#' id='why'>Why?</a></p>"
 
 local acmebot=require"acme/bot"

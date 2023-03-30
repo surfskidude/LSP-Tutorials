@@ -1,4 +1,4 @@
-<?lsp title="Sockets" response:include".header.lsp" ?>
+<?lsp title="LSP: Sockets " response:include".header.lsp" ?>
 
 <h1>Sockets (Network) Programming</h1>
 

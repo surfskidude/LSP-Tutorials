@@ -1,5 +1,5 @@
 <?lsp
-title="Web File Server"
+title="Examples: Web File Server"
 response:include".header.lsp"
 local uri=app.wfshdir
 local davuri = string.format("http://%s%s",app.rmIPv6pf(request:sockname()),uri)

@@ -1,4 +1,4 @@
-<?lsp title="Pac-Man Game" response:include".header.lsp" 
+<?lsp title="Examples: Pac-Man Game" response:include".header.lsp" 
 local sockname = app.rmIPv6pf(request:sockname())
 ?>
 

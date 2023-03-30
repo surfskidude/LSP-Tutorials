@@ -1,4 +1,4 @@
-<?lsp title="Ajax" response:include".header.lsp" ?>
+<?lsp title="LSP: Ajax" response:include".header.lsp" ?>
 <h1>Providing a Real Time Web Interface Using AJAX</h1>
 <div class="rh">
 <div class="blogsidebar">

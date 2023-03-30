@@ -1,4 +1,4 @@
-<?lsp title="Certificate Mgr" response:include".header.lsp" ?>
+<?lsp title="Examples: Certificate Mgr" response:include".header.lsp" ?>
 
    <h1>Certificate Management Tool</h1>
 
