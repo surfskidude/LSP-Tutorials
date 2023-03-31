@@ -13,7 +13,7 @@
 
 <div class="lspeditor" example="5.2"></div>
 
-<div style="background:white;width:180px;margin-top:10px" class="blogsidebar">
+<div class="center" style="margin:10px auto" class="blogsidebar">
 <img title="compileLSP" src="images/compileLSP_thumb_1.gif" />
 <p class="caption">Figure 1. Recompiling LSP is as simple as refreshing the browser window.</p>
 </div>

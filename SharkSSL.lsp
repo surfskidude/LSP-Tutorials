@@ -50,7 +50,7 @@ local function emitAcmeActive(dn)
 <details open>
 <summary>Certificate Installed</summary>
 <p>The Let's Encrypt signed certificate is installed and you may navigate to the secure URL by navigating to:</p>
-<h3 style="text-align:center"><a target="_blank" href="https://<?lsp=string.format("%s:%d%s",dn,ba.serversslport,request:uri())?>">https://<?lsp=dn?></a></h3>
+<h3 class="center"><a target="_blank" href="https://<?lsp=string.format("%s:%d%s",dn,ba.serversslport,request:uri())?>">https://<?lsp=dn?></a></h3>
 
 <p><b>Note:</b>the DNS translation to IP address fails if you have DNS rebinding protection enabled in your router or enabled by your DNS provider.</p>
 
@@ -181,7 +181,7 @@ $(function() {
 </ol>
 <p>Trust is established during the initial asymmetric encryption, which is used for deriving keys used by symmetric encryption. The browser validates the server's certificate as part of the asymmetric encryption handshaking. The following figure shows how the server sends its certificate to the browser.</p>
 
-<div class="center"><img src="images/ssl-trust.gif" alt="SSL"/></div>
+<div class="center background-white"><img src="images/ssl-trust.gif" alt="SSL"/></div>
 
 <p>The browser does not trust the server's certificate unless: (1) it has a hard-copy of the Certificate Authority (CA) certificate that was used to sign the server's certificate, and (2) the domain name in the URL matches any of the names in the server's certificate.</p>
 See the tutorial <a target='_blank' href='https://realtimelogic.com/articles/Certificate-Management-for-Embedded-Systems'>Introduction to asymmetric algorithms</a> for details.

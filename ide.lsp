@@ -40,7 +40,7 @@
 <br/>
 <br/>
 
-<p style="margin:auto;width:180px" id="NextBut"><a target="_blank" href="/rtl/appmgr/new-application.lsp">Open LspAppMgr</a></p>
+<p id="NextBut"><a target="_blank" href="/rtl/appmgr/new-application.lsp">Open LspAppMgr</a></p>
 
 <br/>
 

@@ -12,7 +12,7 @@ function(e,t,n){
   background: #555651
 }
 .ace-monokai {
-  background-color: #272822;
+  background-color: #313131;
   color: #F8F8F2
 }
 .ace-monokai .ace_cursor {

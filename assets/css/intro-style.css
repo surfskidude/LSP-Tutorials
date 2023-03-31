@@ -4,7 +4,7 @@
 */
 
 :root{
-  --background-body: #060606;
+  --background-body: #1A1A1A;
   --background-block: #24262B;
   --background-header: #1D1E22;
   --background-header-link: #454856;
@@ -30,6 +30,7 @@
   --yellow: #feca57;
   --yellow: #ffffcc;
   --og-r: #BB133E;
+  --og-black: #383838;
 
 }
 
@@ -39,7 +40,12 @@
 }
 
 a {
+  color: var(--text-link);
   text-decoration: none;
+}
+
+a:hover {
+  color: var(--text-link-visited);
 }
 
 .mobile-only {
@@ -104,7 +110,8 @@ p {
   margin: 1.3em auto;
 }
 
-.btn {
+.btn,
+input[type=submit] {
   display: inline-block;
   padding: 10px 33px;
   margin: 8px;
@@ -119,7 +126,8 @@ p {
   cursor: pointer;
   background: var(--background-header);
 }
-.btn:hover {
+.btn:hover,
+input[type=submit] {
   background: var(--background-header-link);
 }
 .btn.primary {
@@ -145,6 +153,22 @@ p {
 
 .background-white {
   background: var(--background-white);
+}
+
+.center {
+  text-align: center;
+}
+
+input {
+  background-color: var(--background-header-link);
+  color: var(--text-link);
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  font-variant: normal;
+  border: 1px var(--background-body) solid;
 }
 
 @media (min-width: 768px) {

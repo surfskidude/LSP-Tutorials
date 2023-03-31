@@ -17,7 +17,7 @@ height:500px;
 <p>The examples require a <a href="https://makoserver.net/download/overview/">newer Mako Server</a>!</p>
 <?lsp else ?>
 
-<div style="max-width:800px;margin:auto">
+<div class="background-white" style="max-width:800px;margin:auto">
 <img src="images/MQTT.svg" alt="Execute Lua MQTT code" />
 </div>
 

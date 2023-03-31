@@ -14,6 +14,17 @@ $(function() {
         });
     }
 
+    $('pre.code').each(function(e, codeElement) {
+        $(this).css({width: '100%'})
+        const aceInstance = ace.edit(codeElement);
+        aceInstance.setTheme("ace/theme/monokai");
+        aceInstance.setShowPrintMargin(false);
+        aceInstance.$blockScrolling = Infinity
+        aceInstance.setOption("maxLines", 1000);
+        aceInstance.setReadOnly(true);
+        aceInstance.getSession().setMode(`ace/mode/lua`);
+    })
+
     /** Addded  button to editors and add result iFrames */
     $('.lspeditor').each(function(e, codeElement) {
         const $this = $(codeElement)
@@ -36,7 +47,6 @@ $(function() {
         aceInstance.getSession().setMode(`ace/mode/${mode}`);
         aceInstanceLoad(aceInstance, `examples/manage.lsp?ex=${exampleNumber}&type=${type}`);
         
-        const $frame = $('<iframe>').appendTo($this);
         
         if( ! $(this).attr('disabled') ) {
             const $buttons = $('<div>').appendTo($this);
@@ -80,6 +90,8 @@ $(function() {
                 $frame.removeClass('opened');
             });
         }
+        //Add result frame
+        const $frame = $('<iframe>').appendTo($this);
     });
     
 
