@@ -1,4 +1,4 @@
-<?lsp title="Navigation Menu" response:include".header.lsp" ?>
+<?lsp title="LSP: Navigation Menu" response:include".header.lsp" ?>
 
 <style type="text/css">
  p.c4 {clear: left}

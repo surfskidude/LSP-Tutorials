@@ -1,4 +1,4 @@
-<?lsp title="BAS API" response:include".header.lsp" ?>
+<?lsp title="LSP: BAS API" response:include".header.lsp" ?>
 
    <h1>Barracuda App Server API Tutorial</h1>
 

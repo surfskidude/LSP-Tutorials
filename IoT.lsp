@@ -1,4 +1,4 @@
-<?lsp title="SMQ IoT Examples" response:include".header.lsp"
+<?lsp title="Protocols: SMQ IoT Examples" response:include".header.lsp"
 
 local dio=ba.openio"disk"
 local ci=io:dofile(".lua/C-Install.lua",_ENV)

@@ -1,5 +1,5 @@
 <?lsp 
-title="MQTT Examples"
+title="Protocols: MQTT Examples"
 response:include".header.lsp"
 local version = ba.version() or 0
 ?>

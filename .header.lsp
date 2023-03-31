@@ -3,29 +3,42 @@
 local links={
    {'About.lsp','About'},
    {'Introduction.lsp','Introduction'},
-   {'Lua-Types.lsp','Lua Types'},
-   {'Lua-Control.lsp','Lua Control'},
-   {'Lua-Functions.lsp','Lua Functions'},
-   {'Lua-Scope.lsp','Lua Scope'},
-   {'Lua-Coroutines.lsp','Lua Coroutines'},
-   {'Lua-Metamethods.lsp','Lua Metamethods'},
-   {'Lua-Bindings.lsp','Lua to C Code'},
-   {'HTML-Forms.lsp','LSP &amp; HTML Forms'},
-   {'Ajax.lsp','Ajax'},
-   {'WebSockets.lsp', 'WebSockets'},
-   {'Sockets.lsp','Sockets'},
-   {'Dynamic-Navigation-Menu.lsp','Navigation Menu'},
-   {'SharkSSL.lsp','SSL/TLS &amp; Trust'},
-   {'BAS-API-Tutorial.lsp','BAS API'},
-   {'IoT.lsp','SMQ IoT Examples'},
-   {'MQTT.lsp','MQTT Examples'},
-   {'opc-ua.lsp','OPC-UA Example'},
-   {'ide.lsp','Lua REPL'},
+
+   {'Lua-Types.lsp',"Lua", {
+         {'Lua-Types.lsp','Types'},
+         {'Lua-Control.lsp','Control'},
+         {'Lua-Functions.lsp','Functions'},
+         {'Lua-Scope.lsp','Scope'},
+         {'Lua-Coroutines.lsp','Coroutines'},
+         {'Lua-Metamethods.lsp','Metamethods'},
+         {'Lua-Bindings.lsp','Lua to C Code'},
+      }
+   },
+   {'HTML-Forms.lsp','LSP', {
+         {'HTML-Forms.lsp','HTML Forms'},
+         {'Ajax.lsp','Ajax'},
+         {'WebSockets.lsp', 'WebSockets'},
+         {'Sockets.lsp','Sockets '},
+         {'Dynamic-Navigation-Menu.lsp','Navigation Menu'},
+         {'BAS-API-Tutorial.lsp','BAS API'},
+      }
+   },
+   {'IoT.lsp','Protocols', {
+         {'IoT.lsp','SMQ IoT Examples'},
+         {'MQTT.lsp','MQTT Examples'},
+         {'opc-ua.lsp','OPCUA Example'},
+         {'SharkSSL.lsp','SSL/TLS &amp; Trust'},
+      }
+   },
+   {'ide.lsp','Examples', {
+         {'ide.lsp','Lua REPL'},
+         {'wfs.lsp','Web File Server'},
+         {'Pac-Man.lsp','Pac-Man Game'},
+         {'certmgr.lsp','Certificate Mgr'}
+      }
+   },
    {'GitHub.lsp','More @ GitHub'},
    {'Documentation.lsp','Documentation'},
-   {'wfs.lsp','Web File Server'},
-   {'Pac-Man.lsp','Pac-Man Game'},
-   {'certmgr.lsp','Certificate Mgr'},
 }
 
 ?>
@@ -57,20 +70,37 @@ $(function() {
 </head>
 <body>
 <section id="left-sidebar">
-   <div class="close-header-menu" >
+   <div class="close-header-menu">
       <a class="close-header-icon">
          <img src="/images/icon-close-violet.svg" />
       </a>
    </div>
    <a class="main-logo" target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/"><img src="images/BAS-logo.png" /></a>
-   <nav id="main-nav">
+   <nav id="main-nav"><ul>
       <?lsp
       for _,link in ipairs(links) do
-         local isactive = title == link[2]
-         response:write('<a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a>')
+         local isactive
+         if link[3] then
+            isactive = title:find("^"..link[2]) and true or false
+         else
+            isactive = title == link[2]
+         end
+
+         response:write('<li><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a>')
+         if isactive and link[3] then
+            response:write'<ul>'
+            for _,link in ipairs(link[3]) do
+               --local isactive = title ==link[2]
+               local isactive = title:find(link[2].."$") and true or false
+               trace(title,link[2])
+               response:write('<li><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a></li>')
+            end
+            response:write'</ul>'
+         end
+         response:write'</li>'
       end
       ?>
-   </nav>
+   </ul></nav>
 </section>
 <header id="header">
    <span class="open-main-menu mobile-only"><img src="/images/icon-open-menu-violet.svg" /></span>

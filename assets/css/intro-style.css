@@ -428,3 +428,12 @@ details summary {
 #NextBut:hover {
   background: var(--background-header-link);
 }
+
+#main-nav li {
+  list-style-type: none;
+}
+
+#main-nav > ul > li > ul > li {
+  padding: 0;
+  font-size:70%;
+}

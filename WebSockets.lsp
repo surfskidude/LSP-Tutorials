@@ -1,4 +1,4 @@
-<?lsp title="WebSockets" response:include".header.lsp" ?>
+<?lsp title="LSP: WebSockets" response:include".header.lsp" ?>
 <h1>WebSockets Introduction</h1>
 <div class="rh">
 

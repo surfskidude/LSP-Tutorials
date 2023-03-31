@@ -1,4 +1,4 @@
-<?lsp title="Lua REPL" response:include".header.lsp" ?>
+<?lsp title="Examples: Lua REPL" response:include".header.lsp" ?>
 
    <h1>Lua REPL</h1>
 
