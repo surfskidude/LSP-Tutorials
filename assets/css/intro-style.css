@@ -259,6 +259,12 @@ input {
   font-style: normal;
   font-weight: 600;
 }
+
+@media (min-width: 768px) {
+  #left-sidebar .close-header-menu {
+    display: none;
+  }
+}
 #left-sidebar .main-logo {
   display: block;
   width: 250px;
@@ -273,7 +279,8 @@ input {
   height: 235px;
 }
 
-#left-sidebar .main-link-menu {
+#main-nav .main-link-menu, 
+#main-nav .open-link-menu {
   display: block;
   margin: 14px 22px;
   border-radius: 4px;
@@ -283,14 +290,63 @@ input {
   transition: all .3s ease;
   padding: 14px 22px;
   text-transform: uppercase;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 24px;
 }
 
-#left-sidebar .main-link-menu.selected,
-#left-sidebar .main-link-menu:active,
-#left-sidebar .main-link-menu:hover {
+#main-nav .open-link-menu {
+  display: inline-block;
+  margin: 0;
+  padding: 0 22px;
+  width: calc(100% - 40px);
+}
+
+#main-nav .main-link-menu.selected,
+#main-nav .main-link-menu:active,
+#main-nav .main-link-menu:hover {
   background-color: var(--background-header-link-active);
 }
 
+#main-nav .menu-level-2 .main-link-menu {
+  
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+#main-nav details {
+  margin: 14px 22px;
+  padding: 0;
+}
+#main-nav details summary {
+  padding: 14px 22px;
+  margin: 0;
+  text-transform: uppercase;
+  transition: all .3s ease;
+}
+
+#main-nav details summary::marker {
+  display: inline-block;
+  width: 40px;
+}
+#main-nav details[open] summary,
+#main-nav details[open] summary .open-link-menu {
+  background-color: var(--background-header-link-active);
+}
+
+
+#main-nav ul,
+#main-nav ul ul {
+  padding-left: 0;
+}
+
+#main-nav ul ul .main-link-menu {
+  padding-right: 0;
+  margin-right: 0;
+}
 /** Header styles **/
 
 #header { 

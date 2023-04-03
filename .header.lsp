@@ -85,17 +85,20 @@ $(function() {
          else
             isactive = title == link[2]
          end
-
-         response:write('<li><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a>')
-         if isactive and link[3] then
-            response:write'<ul>'
+         response:write('<li class="menu-level-1">')
+         if link[3] then
+            response:write('<details', isactive and ' open' or ' ','>');
+            response:write('<summary><a href="',link[1],'" class="open-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a></summary>')
+            response:write('<ul class="', isactive and ' selected"' or '"','>');
             for _,link in ipairs(link[3]) do
                --local isactive = title ==link[2]
                local isactive = title:find(link[2].."$") and true or false
                trace(title,link[2])
-               response:write('<li><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a></li>')
+               response:write('<li class="menu-level-2"><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a></li>')
             end
             response:write'</ul>'
+         else 
+            response:write('<a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a>')
          end
          response:write'</li>'
       end
