@@ -1,0 +1,133 @@
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #d4d4d4;
+    background-color: #252526;
+}
+
+#container {
+    height: 100%;
+    display: flex;
+}
+
+#left-pane {
+    height: 100%;
+    overflow: auto;
+    border-right: 5px solid #1e1e1e;
+}
+
+#right-pane {
+    flex: 1;
+    height: 100%;
+}
+
+#bottom-pane {
+    flex: 1;
+    overflow: auto;
+}
+
+.gutter-horizontal
+{
+  cursor: e-resize;
+}
+
+.gutter-vertical {
+   cursor: n-resize;
+ }
+
+.gutter {
+    background-color: #2d2d30;
+    box-shadow: inset -1px 0 1px rgba(0, 0, 0, 0.15), inset 1px 0 1px rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+    background-color: #252526;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #3c3c3c;
+    border-radius: 6px;
+    border: 3px solid #252526;
+    cursor:pointer;
+}
+
+::-webkit-scrollbar-corner {
+    background-color: #252526;
+}
+
+* {
+    scrollbar-color: #3c3c3c #252526;
+    scrollbar-width: thin;
+}
+
+#editorpane {
+  display: flex;
+  flex-direction: column;
+}
+
+#tabheader {
+  display: flex;
+  height:25px;
+}
+
+.tabbtn {
+  background-color: #2d2d2d;
+  position: relative;
+  color: #cccccc;
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  transition: 0.3s;
+    font-size:14px;
+}
+
+.closebtn{
+   position:absolute;
+   color: white;
+   visibility: hidden;
+   font-size:8px;
+   top:0;
+   right:0;
+   padding: 3px;
+}
+
+.tabbtn:hover {
+  color: white;
+  background-color: #454545;
+}
+
+.tabbtn:hover .closebtn, .tabbtn.active .closebtn {
+  visibility: visible;
+}
+
+.closebtn:hover {
+  background: #cccccc;
+  font-weight:bolder;
+}
+
+
+.tabbtn.active {
+  color: white;
+  background-color: #1e1e1e;
+}
+
+
+#editors{
+  width: 100%;
+  height: calc(100% - 25px);
+
+}
+.editorcontainer {
+   height:100%;
+  display: none;
+ }
