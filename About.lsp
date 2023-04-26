@@ -11,13 +11,6 @@ local appuri=app.wfshdir.."applications/"
 <div class="article-spacer">
 <p>Welcome to the tutorials for the high level Lua APIs provided by the Barracuda App Server (BAS) and Mako Server! The menu on the left includes links to all of the available tutorials. For the best learning experience, we recommend starting at the top of the menu and working your way down. These tutorials will introduce you to the APIs and help you get started with using BAS to develop your applications. Happy learning!</p>
 
-<div id="tutdiv" class="center">
-<img id="tutvideo" src="images/Lua-Tutorial-Intro.gif" alt="introduction" />
-</div>
-<script>
-$("#tutvideo").click(() => $("#tutdiv").hide());
-</script>
-<br/>
 <p>It's important to note that the browser is only used as an editor and to display the results of your code. The actual processing takes place on the server side. When you click the 'Run' button, the Lua code example displayed in the browser is sent to the server to be parsed and executed. The server will then send the response back to the browser for display.</p>
 <div style="max-width:640px;margin:auto">
 <object class="background-white" style="width:100%;padding: 10px;border-radius:10px;" id="LuaREPL" type="image/svg+xml" data="images/LuaREPL.svg"></object>

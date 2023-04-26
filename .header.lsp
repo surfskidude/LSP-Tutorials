@@ -33,7 +33,7 @@ local links={
    {'ide.lsp','Examples', {
          {'ide.lsp','Lua REPL'},
          {'wfs.lsp','Web File Server'},
-         {'Pac-Man.lsp','Pac-Man Game'},
+         {'Pac-Man.lsp','PacMan Game'},
          {'certmgr.lsp','Certificate Mgr'}
       }
    },

@@ -13,11 +13,6 @@
 
 <div class="lspeditor" example="5.2"></div>
 
-<div class="center" style="margin:10px auto" class="blogsidebar">
-<img title="compileLSP" src="images/compileLSP_thumb_1.gif" />
-<p class="caption">Figure 1. Recompiling LSP is as simple as refreshing the browser window.</p>
-</div>
-
 <p>When the user fills out the form above and clicks the submit button, the form data is sent for processing to the URL of the page loaded in the browser. With LSP, you can keep the server side processing in the same page or you can redirect the POST'ed data to a separate page such as what is common when writing CGI scripts. You will find LSP much easier to use though, since LSP makes it easy to create dynamic response data.</p>
 
 <p>An LSP page provides a number of pre-defined variables such as the  <a target="_blank" href="/ba/doc/?url=en/lua/lua.html#request">request object</a> and the  <a target="_blank" href="/ba/doc/?url=en/lua/lua.html#response">response object</a>. The request object makes it easy to retrieve information provided by the client (the browser) and the response object is used when sending response data back to the client. We use method <a target="_blank" href="/ba/doc/?url=en/lua/lua.html#request_data">request:data</a> on line 6 in example 5.2 to fetch the <a target="_blank" href="http://en.wikipedia.org/wiki/Percent-encoding">URL encoded data</a> sent from the browser. This data is sent when the user clicks the Submit button. The URL encoded data is automatically converted to a Lua table by the server and the data is presented as key/value pairs, hence the data for the HTML input element on line 14 is represented as "luaTable.name" at the server side (line 7).</p>

@@ -460,7 +460,7 @@ details summary {
 .lspeditor iframe {
   display: none;
   width: 100%;
-  min-height: 150px;
+  min-height: 250px;
 }
 .lspeditor iframe.opened {
   display: block;
