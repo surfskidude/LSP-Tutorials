@@ -93,7 +93,6 @@ $(function() {
             for _,link in ipairs(link[3]) do
                --local isactive = title ==link[2]
                local isactive = title:find(link[2].."$") and true or false
-               trace(title,link[2])
                response:write('<li class="menu-level-2"><a href="',link[1],'" class="main-link-menu ', isactive and ' selected"' or '"','>',link[2],'</a></li>')
             end
             response:write'</ul>'
