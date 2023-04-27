@@ -21,6 +21,8 @@
   --btn-primary-hover: #82c98c;
   --btn-danger: #F06552;
   --btn-danger-hover: #ec8577;
+  --btn-next: #EAC850;
+  --btn-next-hover: #e7be2a;
   
   
 
@@ -28,7 +30,7 @@
   --bluelue: #4a69bd;
   --white: #f2f2f2;
   --yellow: #feca57;
-  --yellow: #ffffcc;
+  --yellow-hover: #ffffcc;
   --og-r: #BB133E;
   --og-black: #383838;
 
@@ -142,6 +144,12 @@ input[type=submit] {
 }
 .btn.danger:hover {
   background: var(--btn-danger-hover);
+}
+.btn.next {
+  background: var(--btn-next);
+}
+.btn.next:hover {
+  background: var(--btn-next-hover);
 }
 
 .block {
@@ -452,6 +460,42 @@ input {
 #main-content img   {
   max-width: 100%;
 }
+#main-content .lua-code-method   {
+  color: #66D9EF;
+}
+#main-content .lua-code-function   {
+  color: #F92672;
+}
+
+.alert {
+  display: block;
+  border: 2px solid var(--background-header-link);
+  background: var(--background-block);
+  padding: 20px 30px;
+  border-radius: 8px;
+}
+
+.alert p {
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  margin: 5px 0;
+  text-shadow: 0 0 2px #000;
+}
+
+.alert.alert-success {
+  background: var(--btn-primary-hover);
+  border-color: var(--btn-primary);
+}
+.alert.alert-danger {
+  background: var(--btn-danger-hover);
+  border-color: var(--btn-danger);
+}
+.alert.alert-warning {
+  background: var(--btn-next-hover);
+  border-color: var(--btn-next);
+}
 
 
 /** Editors styles */
@@ -483,10 +527,15 @@ input {
   border: none;
   box-shadow: none;
   cursor: pointer;
-  background: var(--background-header);
+  background: var(--btn-next);
 }
 #NextBut:hover {
-  background: var(--background-header-link);
+  background: var(--btn-next-hover);
+}
+#NextBut a,
+#NextBut a:visited{
+  text-shadow: 0 0 4px #000;
+  color: var(--text-main);
 }
 
 #main-nav li {
