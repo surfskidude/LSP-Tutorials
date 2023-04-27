@@ -57,7 +57,7 @@
   <p>The following is a more complex example demonstrating some important features of coroutines:</p>
   <div class="lspeditor" extype="lua" example="10.9"></div>
   <p>Basically, we have a for loop which calls two functions: odd() when it encounters an odd number and even() on even numbers. The output may be a little difficult to understand, so we will study the outer loops one at a time. Comments have been added.</p>
-  <pre>
+  <pre class="cmd-output">
   ----    1
   A: odd  1       -- yield from odd()
   E: ok, value, status     true    1       suspended
@@ -67,20 +67,20 @@
   function. Note that the function odd(), which is called by our
   coroutine function, yields. You do not have to yield in the coroutine
   function; this is an important and useful feature. We return value of 1 with the yield.</p>
-  <pre>
+  <pre class="cmd-output">
   ----    2
   B: odd  1       -- resume in odd with the values we left on the yield
   C: even 2       -- call even and exit prematurely
   E: ok, value, status     true    -1      suspended  -- yield in for loop
   </pre>
   <p>In loop 2, the main for loop yields and suspends the coroutine. The point to note here is that we can yield anywhere. We do not have to keep yielding from one point in our coroutine. We return -1 with the yield.</p>
-  <pre>
+  <pre class="cmd-output">
   ----    3
   A: odd  3       -- odd() yields again after resuming in for loop
   E: ok, value, status     true    3       suspended
   </pre>
   <p>We resume the coroutine in the for loop and when odd() is called it yields again.</p>
-  <pre>
+  <pre class="cmd-output">
   ----    4
   B: odd  3       -- resume in odd(), variable values retained
   C: even 4       -- even called()
@@ -89,7 +89,7 @@
   E: ok, value, status     true    5       suspended
   </pre>
   <p>In loop 4, we resume in odd() where we left off. Note that the variable values are preserved. The scope of the odd() function is preserved during a coroutine suspend. We traverse to the end of even(), this time exiting at the end of the function. In either case, when we exit a function without using coroutine.yield(), the scope and all its variables are destroyed. Only on a yield can we resume.</p>
-  <pre>
+  <pre class="cmd-output">
   ----    5
   B: odd  5       -- odd called again
   E: ok, value, status     true    nil     dead  -- for loop terminates

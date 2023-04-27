@@ -180,6 +180,22 @@ input {
   border: 1px var(--background-body) solid;
 }
 
+textarea {
+  background-color: #313131;
+  color: #F8F8F2;
+}
+.cmd-input {
+  font-family: Consolas;
+  background: #5a5a5a;
+  color: #F8F8F2;
+  padding: 5px;
+}
+.cmd-output {
+  font-family: Consolas;
+  background-color: #313131;
+  color: #F8F8F2;
+}
+
 @media (min-width: 768px) {
   body {
     padding-left: 350px; /* Left sizebar size */
@@ -478,10 +494,14 @@ input {
 .alert p {
   font-size: 16px;
   line-height: 20px;
-  font-weight: bold;
   letter-spacing: 1px;
   margin: 5px 0;
   text-shadow: 0 0 2px #000;
+}
+.alert.alert-success p,
+.alert.alert-danger p,
+.alert.alert-warning p {
+  font-weight: 500;
 }
 
 .alert.alert-success {

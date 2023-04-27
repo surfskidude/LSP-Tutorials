@@ -10,7 +10,7 @@
 
 <p>You may click the button below to open Xedge, but note that the IDE works best when loaded separately as follows:</p>
 
-<pre class="code" >mako -l::<?lsp=app.exio:realpath"xedge.zip"?></pre>
+<div class="cmd-input" >mako -l::<?lsp=app.exio:realpath"xedge.zip"?></div>
 
 <br/>
 <br/>

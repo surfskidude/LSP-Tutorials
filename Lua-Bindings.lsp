@@ -75,7 +75,7 @@ end
 <?lsp if not demo.config.nocompile then ?>
 <p>Clicking the above compile button should compile the C code and produce a DLL on Windows and a Shared Library on Linux.</p>
 
-<div class="alert alert-warning">
+<div class="alert">
 <p><b>Note:</b> you can modify the C code in the above example by using the inline editor, but you may have to restart the server before you can compile and use the new DLL. The server must be restarted if you have already loaded the DLL by using the Lua function "require". A loaded DLL is not released until the server terminates.</p>
 </div>
 
@@ -119,7 +119,7 @@ end
     <li>Click the submit button.</li>
   </ol>
   <p>By using JavaScript code, the two manual steps can be combined into one. Copy the following code snippet and paste it into the above editor (example 6.3) directly after the &lt;head&gt; element.</p>
-  <pre class="code" style="width:90%;height:140px;">
+  <textarea style="width:90%;height:140px;">
       &lt;script src='/rtl/jquery.js'&gt;&lt;/script&gt;
       &lt;script&gt;
           $(function() {
@@ -129,7 +129,7 @@ end
               $(":submit").remove();
           });
       &lt;/script&gt;
-  </pre>
+  </textarea>
   <p>The above code uses JavaScript code to install an "on click" handler for the checkbox and to remove the submit button. The "on click" handler uses AJAX to send a HTTP POST request to the server. We will go into the details of AJAX in the next tutorial.</p>
 </details>
 

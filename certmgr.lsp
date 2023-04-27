@@ -14,7 +14,7 @@
 <br/>
 <p>The Certificate Management Tool can also be loaded separately as follows:</p>
 
-<pre class="code">mako -l::<?lsp=app.exio:realpath"certmgr.zip"?></pre>
+<div class="cmd-input">mako -l::<?lsp=app.exio:realpath"certmgr.zip"?></div>
 
 <h2>Video Tutorial</h2>
 <p>The video shows how to create an Elliptic Curve Cryptography (ECC) certificate for the server, how to install the certificate in the server, and how to make the clients connecting to the server trust this certificate.</p>

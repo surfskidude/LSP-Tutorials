@@ -8,7 +8,7 @@ $(function() {
                 // editor.addClass('opened');
                 editor.setValue(data);
                 const len = data.split(/\r\n|\r|\n/).length;
-                editor.setOptions({maxLines: len > 35 ? 35 : len});
+                editor.setOptions({maxLines: len > 35 ? 35 : len, minLines: 5});
                 editor.gotoLine(1);
             }
         });
