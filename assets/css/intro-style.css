@@ -129,6 +129,7 @@ input[type=submit] {
 .btn:hover,
 input[type=submit] {
   background: var(--background-header-link);
+  color: var(--text-main);
 }
 .btn.primary {
   background: var(--btn-primary);
@@ -192,7 +193,7 @@ input {
   }
   p {
     font-size: 14px;
-    line-height: 17px;
+    line-height: 20px;
     font-style: normal;
     font-weight: 400;
     margin: 1.3em auto;
@@ -223,7 +224,7 @@ input {
   background-color: var(--background-header);
   transition: all .3s ease; 
   padding: 25px;
-  overflow: scroll;
+  overflow-y: scroll;
 }
 
 #left-sidebar.active {
@@ -421,14 +422,14 @@ input {
   }
 }
 
-details {
+#main-content details {
   background: var(--background-block);
   margin: 23px 0;
   padding: 10px;
   border-radius: 5px;
 }
 
-details summary {
+#main-content details summary {
   background: var(--background-header-link);
   padding: 16px 23px;
   cursor: pointer;

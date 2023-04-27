@@ -119,7 +119,7 @@ end
     <li>Click the submit button.</li>
   </ol>
   <p>By using JavaScript code, the two manual steps can be combined into one. Copy the following code snippet and paste it into the above editor (example 6.3) directly after the &lt;head&gt; element.</p>
-  <textarea style="width:90%;height:140px;">
+  <pre class="code" style="width:90%;height:140px;">
       &lt;script src='/rtl/jquery.js'&gt;&lt;/script&gt;
       &lt;script&gt;
           $(function() {
@@ -129,7 +129,7 @@ end
               $(":submit").remove();
           });
       &lt;/script&gt;
-  </textarea>
+  </pre>
   <p>The above code uses JavaScript code to install an "on click" handler for the checkbox and to remove the submit button. The "on click" handler uses AJAX to send a HTTP POST request to the server. We will go into the details of AJAX in the next tutorial.</p>
 </details>
 

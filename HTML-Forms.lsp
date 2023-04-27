@@ -46,7 +46,7 @@
 <details open>
   <summary>Cross Site Scripting Attacks</summary>
   <p>All forms above are open to <a target="_blank" href="http://en.wikipedia.org/wiki/Cross-site_scripting">cross site scripting</a> (XSS) attacks, in particular example 5.2, since this example emits the form data "as is" in the HTML response. Copy the following HTML and Javascript code, paste the data into the name field in example 5.2, and click Submit. </p>
-  <pre class="code">&lt;script&gt;alert("hello");&lt;/script&gt;</pre>
+  <pre class="code" data-lang="Javascript">&lt;script&gt;alert("hello");&lt;/script&gt;</pre>
   <p>Depending on the browser you use, you may get a JavaScript popup saying Hello. Some browsers include counter measures so you may have to try several browsers before you see the popup.</p>
   <p>A common method used to prevent XSS attacks is to create a filter that translates symbols to the HTML escaped version of the symbols. The following code shows one way to create such a filter.</p>
 
