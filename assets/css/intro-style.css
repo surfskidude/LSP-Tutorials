@@ -325,8 +325,11 @@ input {
 #main-nav details summary {
   padding: 14px 22px;
   margin: 0;
+  border-radius: 4px;
+  cursor: pointer;
   text-transform: uppercase;
   transition: all .3s ease;
+  background-color: var(--background-header-link);
 }
 
 #main-nav details summary::marker {
