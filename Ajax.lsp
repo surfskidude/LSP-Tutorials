@@ -64,7 +64,7 @@
   <p>We check if our client side AJAX code (line 24) sent the server the key/value pair "char" on line 4. It would be a program error if this was not set. Line 5 to 13 deals with the AJAX request and the JSON response. The keyboard event is converted to a string character on line 8 if it is within the range of the standard printable ASCII table. Line 10 triggers if the keyboard key is a non printable character. The code on this line converts the number to a string number. Non printable characters are generated from keyboard events such as the keyboard "Enter" button which generates the key number 13.</p>
   <p>Line 12 is for debugging purposes. The response string is printed to the server’s trace buffer. You will see this being printed if the server is running in a console-- i.e. not running as a background service.</p>
   <?lsp if mako.daemon then ?>
-  <div class="alert">
+  <div class="alert alert-warning">
   <p><b>Note:</b> you cannot see the console output since the server is running as a background service, however, you can still see the server's output by opening the <a target="_blank" href="/rtl/tracelogger/">TraceLogger</a>.</p>
   </div>
   <?lsp end ?>
