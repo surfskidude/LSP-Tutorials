@@ -23,11 +23,11 @@ local links={
          {'BAS-API-Tutorial.lsp','BAS API'},
       }
    },
-   {'IoT.lsp','Protocols', {
+   {'HTTP-Client.lsp','Protocols', {
+         {'HTTP-Client.lsp','HTTP Client'},
          {'IoT.lsp','SMQ IoT Examples'},
          {'MQTT.lsp','MQTT Examples'},
          {'opc-ua.lsp','OPCUA Example'},
-         {'SharkSSL.lsp','SSL/TLS &amp; Trust'},
       }
    },
    {'ide.lsp','Examples', {

@@ -1,0 +1,20 @@
+-- Load the module and create an HTTP instance
+local httpModule=require"httpm"
+local http=httpModule.create()
+
+-- Access the Web-File-Manager on a Barracuda App Server and initiate
+-- a request for a JSON directory listing.
+local url="https://tutorial.realtimelogic.com/fs/home/mako"
+local query = {cmd="lj"}
+-- The JSON response is returned as a Lua table 't'
+local t,err = http:json(url, query)
+
+if t then -- If OK
+    -- Iterate all elements
+   for _,r in ipairs(t) do
+      response:write("name=",r.n,", size=",r.s < 0 and "DIR" or r.s,
+                     ", date=",os.date("%c",r.t),"<br>")
+   end
+else
+   response:write("Failed:",err)
+end
