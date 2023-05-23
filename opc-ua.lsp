@@ -21,8 +21,7 @@ local version = true == pcall(function() require("opcua_ns0") require("opcua.api
 <?lsp elseif version < 5019	then ?>
 <h3>The two OPC-UA examples require a <a target="_blank" href="https://makoserver.net/download/overview/">newer Mako Server</a>!</h3>
 <?lsp else ?>
-<br/>
-<p style="margin:auto;width:280px" id="NextBut"><a target="_blank" href="/opc/">Start The OPC-UA Web Client</a></p>
+<p style="text-align: center;" id="NextBut"><a target="_blank" href="/opc/">Start The OPC-UA Web Client</a></p>
 <?lsp end ?>
 
 <ol>
