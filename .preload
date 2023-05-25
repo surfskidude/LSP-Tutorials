@@ -144,8 +144,12 @@ end
 --io:dofile(".lua/fix.lua", _ENV)
 
 demo.index=ba.create.dir(nil,-10)
-demo.index:setfunc(function(_ENV,path) 
+demo.index:setfunc(function(_ENV,path)
    if request:method() == "GET" and response:initial() then
+      local ext=path:match"[^%.^/]+$"
+      if ext and ext ~= "lsp" then return false end
+      local h = request:header()
+      if h["Sec-WebSocket-Key"] or h["SimpleMQ"] or h["x-requested-with"] then return false end
       if pcall(function() response:forward"/index.shtml" end) then return true end
       response:reset()
    end
