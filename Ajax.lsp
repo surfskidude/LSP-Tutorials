@@ -73,7 +73,7 @@ When the server sends the example code to the browser, JavaScript code in the cl
   number is converted to text and the text is then appended to the HTML in the browser.<br/>
   <div class="lspeditor" example="7.2"></div>
   <p>Click the above Run button and start entering text in the input field.</p>
-  <p>We install an "on page load" event callback function on line 5 by providing an anonymous function to the jQuery <b><code>$()</</code>b> function. 
+  <p>We install an "on page load" event callback function on line 5 by providing an anonymous function to the jQuery <b><code>$()</code></b> function. 
     The "on page load" callback function will be called when the page has loaded and the Document Object Model (DOM) is ready. 
       We start modifying the DOM on line 6 so it is important that the DOM is ready at that point.</p>
   <p>Line 14 to 16 is our static HTML. The message "Please enable JavaScript" should not be visible to users that have 
@@ -100,7 +100,7 @@ When the server sends the example code to the browser, JavaScript code in the cl
         $("#out").append(rsp.char);
   });</pre>
   <p>jQuery provides a number of functions that simplifies the use of the browser’s raw <samp>XMLHttpPRequest</samp> API. One of these functions 
-  is <a target="_blank" href="http://api.jquery.com/jquery.getjson/">$.getJSON()</a>, which sends URL encoded data to the server and expects JSON 
+  is <a target="_blank" href="http://api.jquery.com/jquery.getjson/">$.getJSON()</a>, which sends$ URL encoded data to the server and expects JSON 
   as the response data from the server. The first argument to this function is <samp>window.location</samp> which is the URL to the page itself. 
     This means we will be sending the <samp>AJAX</samp> request back to the same LSP page on the server. 
     The second argument is a JavaScript object containing the key-value pairs we want to send to the server. 
