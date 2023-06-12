@@ -13,6 +13,7 @@
   --background-white: #e2e2e2;
 
   --text-main: #FFFFFF;
+  --text-black: #040122;
   --text-link: #85ff95;
   --text-link-visited: #85ff95;
   --text-header-link-color: #FFFFFF;
@@ -23,6 +24,13 @@
   --btn-danger-hover: #ec8577;
   --btn-next: #EAC850;
   --btn-next-hover: #e7be2a;
+
+  --alert-primary: #026710;;
+  --alert-primary-block: #b1fcbb;
+  --alert-danger: #c51700;
+  --alert-danger-block: #ffd3ce;
+  --alert-warning: #000000;
+  --alert-warning-block: #ffff84;
   
   
 
@@ -509,25 +517,43 @@ textarea {
   line-height: 20px;
   letter-spacing: 1px;
   margin: 5px 0;
-  text-shadow: 0 0 2px #000;
 }
 .alert.alert-success p,
 .alert.alert-danger p,
 .alert.alert-warning p {
   font-weight: 500;
 }
+.alert.alert-success a,
+.alert.alert-danger a,
+.alert.alert-warning a {
+  border-bottom: #01a919 2px solid;
+  color: #01a919;
+}
+.alert.alert-success * {
+  color: var(--alert-primary);
+}
+.alert.alert-danger * {
+  color: var(--alert-danger);
+}
+.alert.alert-warning * {
+  color: var(--alert-warning);
+}
+.alert.alert-danger p,
+.alert.alert-warning p {
+  font-weight: 500;
+}
 
 .alert.alert-success {
-  background: var(--btn-primary-hover);
-  border-color: var(--btn-primary);
+  background: var(--alert-primary-block);
+  border-color: var(--alert-primary);
 }
 .alert.alert-danger {
-  background: var(--btn-danger-hover);
-  border-color: var(--btn-danger);
+  background: var(--alert-danger-block);
+  border-color: var(--alert-danger);
 }
 .alert.alert-warning {
-  background: var(--btn-next-hover);
-  border-color: var(--btn-next);
+  background: var(--alert-warning-block);
+  border-color: var(--alert-warning);
 }
 
 
@@ -567,8 +593,7 @@ textarea {
 }
 #NextBut a,
 #NextBut a:visited{
-  text-shadow: 0 0 4px #000;
-  color: var(--text-main);
+  color: var(--text-black);
 }
 
 #main-nav li {
