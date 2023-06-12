@@ -522,6 +522,7 @@ textarea {
 .alert.alert-danger p,
 .alert.alert-warning p {
   font-weight: 500;
+  color: #000000;
 }
 .alert.alert-success a,
 .alert.alert-danger a,
@@ -529,15 +530,7 @@ textarea {
   border-bottom: #01a919 2px solid;
   color: #01a919;
 }
-.alert.alert-success * {
-  color: var(--alert-primary);
-}
-.alert.alert-danger * {
-  color: var(--alert-danger);
-}
-.alert.alert-warning * {
-  color: var(--alert-warning);
-}
+
 .alert.alert-danger p,
 .alert.alert-warning p {
   font-weight: 500;
