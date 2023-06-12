@@ -19,8 +19,8 @@ response:include".header.lsp"
   <summary>LSP Tags</summary>
   <p>Lua code can be written right into your HTML like this:</p>
   <div class="lspeditor" example="1.2"></div>
-  <p>Your Lua code goes inside the <strong>&lt;?lsp</strong> and <strong>?&gt;</strong> delimiters. Here we use the function print to output "Hello". We also output the text "world!" by using the expression tag.</p>
-  <p>Lua script can be freely intermixed with HTML or XML. LSP tags are XML compliant <strong>&lt;?lsp &nbsp;&nbsp; ?&gt;</strong>. Code between these tags is executed as Lua code. Expressions are provided by the <strong>&lt;?lsp= &nbsp;&nbsp; ?&gt;</strong> tag. The result of an expression is emitted as HTML/XML.</p>
+  <p>Your Lua code goes inside the <code>&lt;?lsp</code> and <code>?&gt;</code> delimiters. Here we use the function print to output "Hello". We also output the text "world!" by using the expression tag.</p>
+  <p>Lua script can be freely intermixed with HTML or XML. LSP tags are XML compliant <code>&lt;?lsp &nbsp;&nbsp; ?&gt;</code>. Code between these tags is executed as Lua code. Expressions are provided by the <code>&lt;?lsp= &nbsp;&nbsp; ?&gt;</code> tag. The result of an expression is emitted as HTML/XML.</p>
 </details>
 
 <details>
@@ -39,11 +39,11 @@ response:include".header.lsp"
 
   <div class="lspeditor" example="1.3"></div>
 
-  <p>Line 4 in the above example sets variable 'print' to the global variable print, thus hiding the default print function in the LSP page. Lua provides scoping and environments. You will learn more about how this works in the <a href="Lua-Scope.lsp">Lua Scope tutorials</a>. Delete line 4 above and re-run the script. You should now see the Hello World message being printed in the browser window and not in the server's console window.</p>
+  <p>Line 4 in the above example sets variable <code>'print'</code> to the global variable print, thus hiding the default print function in the LSP page. Lua provides scoping and environments. You will learn more about how this works in the <a href="Lua-Scope.lsp">Lua Scope tutorials</a>. Delete line 4 above and re-run the script. You should now see the Hello World message being printed in the browser window and not in the server's console window.</p>
 
   <p>In addition to using function print for sending response data, the Barracuda App Server also provides a method in the response object for sending response data. The method response:write is faster than function print since it does not deal with the specialties in the <a target="_blank" href="ba/doc/en/lua/man/manual.html#pdf-print">standard Lua print function.</a>
 
-  <p>The following example shows how to use response:write.</p>
+  <p>The following example shows how to use <samp>response:write</samp>.</p>
 
   <div class="lspeditor" example="1.4"></div>
 </details>

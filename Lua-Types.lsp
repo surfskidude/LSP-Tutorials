@@ -13,7 +13,7 @@
   </div>
     <h1>Lua Types Tutorial</h1>
     <p>This is a brief introduction to the eight basic types of values in Lua: number, string, boolean, table, function, nil, userdata, and thread. Each section introduces a different type. </p>
-    <p>We use function <a  target="_blank" href="https://realtimelogic.com/ba/doc/?url=lua.html#_G_print">print()</a> to print out values or calculations on those values and function <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/man/manual.html#pdf-type">type()</a> to fetch the variable type.</p>
+    <p>We use function <a  target="_blank" href="https://realtimelogic.com/ba/doc/?url=lua.html#_G_print"><samp>print()</samp></a> to print out values or calculations on those values and function <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/man/manual.html#pdf-type"><samp>type()</samp></a> to fetch the variable type.</p>
 <div style="clear:both"></div>
     <div class="lspeditor" extype="lua" example="2.1"></div>
   </div>
@@ -22,38 +22,41 @@
     <summary>Numbers</summary>
     <p>Lua allows simple arithmetic on numbers using the usual operators to add, subtract, multiply, and divide. Lua supports integer and floating point numbers. Lua can also be compiled with integer only support.</p>
     <div class="lspeditor" extype="lua" example="2.2"></div>
-    <p>We can assign values to variables using the = operator. </p>
+    <p>We can assign values to variables using the <samp>=</samp> operator. </p>
     <div class="lspeditor" extype="lua" example="2.3"></div>
-    <p>The variable x is created when the number 7 is assigned to it. We use the print() function again to print out the value of x. We can now use the value in x for other calculations. </p>
+    <p>The variable <code>x</code> is created when the number <samp>7</samp> is assigned to it. We use the <code>print()</code> function again to print out the value of <samp>x</samp>. We can now use the value in <samp>x</samp> for other calculations. </p>
     <div class="lspeditor" extype="lua" example="2.4"></div>
-    <p>Notice how print(x*2) does not change the value of x because it was not assigned using the =, but x = x * 9 multiplies the current value of x by 9 and stores the new value in x again.</p>
+    <p>Notice how print(x*2) does not change the value of x because it was not assigned using the <samp>=</samp>, but <samp>x = x * 9</samp> multiplies the current value of <samp>x</samp> by 9 and stores the new value in <samp>x</samp> again.</p>
 <p>Notice how x increases each time you click the Run button.</p>
   </details>
 
   <details open>
     <summary>Strings</summary>
-    <p>We can assign strings to variables just like we can numbers: </p>
+    <p>We can assign strings to variables just like we can <code>numbers</code>: </p>
     <div class="lspeditor" extype="lua" example="2.5"></div>
-    <p>We can concatenate (join together) strings using the .. operator between two strings. </p>
+    <p>We can concatenate (join together) strings using the <code>..</code> operator between two strings. </p>
     <div class="lspeditor" extype="lua" example="2.6"></div>
-    <p>Notice that the .. operator does not change the value of message unless the = assignment operator is used just like numbers. </p>
+    <p>Notice that the <code>..</code> operator does not change the value of message unless the = assignment operator is used just like numbers. </p>
     <div class="lspeditor" extype="lua" example="2.7"></div>
-    <p>Unlike some other languages, you cannot use the + operator to concatenate strings. The following code produces an error message: </p>
+    <p>Unlike some other languages, you cannot use the <code>+</code> operator to concatenate strings. The following code produces an error message: </p>
     <div class="lspeditor" extype="lua" example="2.8"></div>
   </details>
 
   <details open>
     <summary>Boolean</summary>
-    <p>Boolean values have either the value true or false. If a value is not true, it must be false and vice versa. The not operator can be placed before a boolean value to invert it; i.e. not true is equal to false.</p>
+    <p>Boolean values have either the value <code>true</code> or <code>false</code>. If a value is not <code>true</code>, it must be <code>false</code> and vice versa. The not operator can be placed before a boolean value to invert it; i.e. not <code>true</code> is equal to <code>false</code>.</p>
     <div class="lspeditor" extype="lua" example="2.9"></div>
-    <p>Boolean values are used to represent the results of logic tests. The equals == and not equals ~= operators will return boolean values depending on the values supplied to them. </p>
+    <p>Boolean values are used to represent the results of logic tests. The equals <samp>==</samp> and not equals <samp>~=</samp> operators will return boolean values depending on the values supplied to them. </p>
     <div class="lspeditor" extype="lua" example="2.10"></div>
   </details>
 
   <details open>
     <summary>Tables</summary>
-    <p>Lua has a general-purpose aggregate datatype called a table. Aggregate data types are used for storing collections (such as lists, sets, arrays, and associative arrays) containing other objects (including numbers, strings, or even other aggregates). Lua is a unique language in that tables are used for representing most all other aggregate types.</p>
-    <p>Tables are created using a pair of curly brackets {} . Let's create an empty table:</p>
+    <p>Lua has a general-purpose aggregate datatype called a table. 
+      Aggregate data types are used for storing collections (such as lists, sets, arrays, and associative arrays) 
+      containing other objects (including numbers, strings, or even other aggregates). 
+      Lua is a unique language in that tables are used for representing most all other aggregate types.</p>
+    <p>Tables are created using a pair of curly brackets <samp>{}</samp> . Let's create an empty table:</p>
     <div class="lspeditor" extype="lua" example="2.11"></div>
     <p>Notice how the print function prints the address of the table.</p>
     <p>We can construct tables containing other objects such as the numbers and strings described above:</p>
@@ -64,16 +67,16 @@
 
   <details open>
     <summary>Functions</summary>
-    <p>In Lua, functions are assigned to variables just like numbers and strings. Functions are created using the function keyword. Here we create a simple function which will print a friendly message.</p>
+    <p>In Lua, functions are assigned to variables just like numbers and strings. Functions are created using the <samp>function</samp> keyword. Here we create a simple function which will print a friendly message.</p>
     <div class="lspeditor" extype="lua" example="2.14"></div>
-    <p>Since a function is a value just like any other, we should be able to assign functions to variables just like the other values, and we can:</p>
+    <p>Since a <samp>function</samp> is a value just like any other, we should be able to assign functions to variables just like the other values, and we can:</p>
     <div class="lspeditor" extype="lua" example="2.15"></div>
   </details>
 
   <details open>
     <summary>nil values</summary>
-    <p>nil is a special value which indicates no value. If a variable has
-    the value nil, then it has no value assigned to it and will therefore no longer exist (or doesn't exist yet). By setting a variable to nil, you can delete a variable.</p>
+    <p><samp>nil</samp> is a special value which indicates no value. If a variable has
+    the value <samp>nil</samp>, then it has no value assigned to it and will therefore no longer exist (or doesn't exist yet). By setting a variable to nil, you can delete a variable.</p>
     <div class="lspeditor" extype="lua" example="2.16"></div>
     <p>You can test to see if a variable exists by checking whether its value is nil. </p>
     <div class="lspeditor" extype="lua" example="2.17"></div>
