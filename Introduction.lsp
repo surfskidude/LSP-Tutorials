@@ -4,8 +4,15 @@ response:include".header.lsp"
 ?>
 <div class="rh">
 
+<details open>
+<summary>What is Lua Server Pages (LSP)?</summary>
+<p>Lua Server Pages (LSP) is an extended version of the Lua programming language designed to facilitate IoT, network, and server-side web development. LSP is integrated into the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda Application Server</a> and used for developing embedded systems, including Internet of Things (IoT) applications. For example, developers can use LSP to create <a target="_blank" href="https://realtimelogic.com/products/edge-controller/">custom programmable Lua-powered edge controllers</a>. It allows programmers to focus on application-specific aspects of their projects while abstracting the complexities of underlying microcontroller hardware. By leveraging LSP, developers can easily add advanced features like IoT functionality to their projects. Consequently, Lua and LSP can expedite the embedded development process, helping products and solutions reach the market faster.</p>
+<p>See the <a target="_blank" href="https://realtimelogic.com/products/lua-server-pages/">LSP Product Page</a> for additional details.</p>
+</details>
+
+
 <div class="article-spacer">
-  <h1>Lua REPL Introduction</h1>
+  <h2>Lua REPL Introduction</h2>
 </div>
 
 <details open>
