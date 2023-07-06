@@ -2,7 +2,7 @@
 <h1>Coroutines Tutorial</h1>
 <div class="rh">
 
-<p>Coroutines are types of threads enabling us to execute several tasks at once. This is done in a controlled manner by passing control to each routine and waiting until the routine says it has finished. We can reenter the routine to continue at a later time, and by doing this repeatedly, we achieve multi-tasking.</p>
+<p>Coroutines are types of threads enabling us to execute several tasks at once. This is done in a controlled manner by passing control to each routine and waiting until the routine says it has finished. We can reenter the routine to continue at a later time, and by doing this repeatedly, we achieve cooperative multitasking.</p>
 
 <details open>
   <summary>Multi-threading</summary>
@@ -171,6 +171,14 @@
   <h4>Markov Chain Algorithm</h4>
   <p>The original Lua 5.0 book includes a Markov Chain Algorithm example in <a target="_blank" href="https://www.lua.org/pil/10.2.html">chapter 10.2</a>. The following example uses the same algorithm, but the "allwords" function is redesigned. Instead of reading from the command line, the "allwords" function uses the <a target="_blank" href="/ba/doc/?url=auxlua.html#httplib">HTTP client library</a> to fetch a web page. The web page is saved and an iterator function that utilizes coroutines is returned to the Markov Chain Algorithm.</p>
   <div class="lspeditor" extype="lua" example="10.19"></div>
+</details>
+
+
+<details open>
+  <summary>Cosockets</summary>
+
+<p>Lua CoSockets, an integral feature of the Barracuda App Server, utilize coroutines and seamlessly integrate with UDP and TCP sockets to implement non-blocking I/O operations, typically used for concurrent network programming. By abstracting away complex aspects of network programming, CoSockets make designing scalable network applications significantly more manageable. CoSockets are specifically designed to be used with the Barracuda App Server's integrated socket engine, enabling the development of high-performance, scalable network applications with relative ease. Please refer to the detailed <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=SockLib.html#cosocket">CoSockets documentation</a> for an in-depth understanding and usage examples.</p>
+
 </details>
 
 </div>
