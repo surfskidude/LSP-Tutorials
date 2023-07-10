@@ -20,7 +20,7 @@
   <p>Thus, the above function can just as equally be written:</p>
   <div class="lspeditor" extype="lua" example="4.2"></div>
   <p>This alternate syntax shows most clearly the real nature of
-  functions in Lua. 'function(n) return n*2 end' itself is an expression
+  functions in Lua. <code>function(<samp>n</samp>) return <samp>n*2</samp> end</code> itself is an expression
   that evaluates at runtime to a value (here, a function). This alone
   creates a function. The left-hand side of the statement then assigns
   the function to the variable foo. However, before the function is
@@ -28,7 +28,9 @@
   still usable function, but when it is assigned to the variable foo, the function gains the name foo and can be called using that name.</p>
   <p>As such, it is not necessary to name a function to use it. The following example creates a function anonymously and immediately calls it in an expression:</p>
   <div class="lspeditor" extype="lua" example="4.3"></div>
-  <p>The important point of all this is that <b>functions in Lua are values</b> just like string and numbers are values. As values, they can be created during runtime, stored in variables, and passed to and returned from other functions. Since functions in Lua have all the rights and privileges to do all the fun things that other values do, they are said to be first class values.</p>
+  <p>The important point of all this is that <b>functions in Lua are values</b> just like string and numbers are values. 
+  As values, they can be created during runtime, stored in variables, and passed to and returned from other functions. 
+  Since functions in Lua have all the rights and privileges to do all the fun things that other values do, they are said to be first class values.</p>
 </details>
 
 <details open>

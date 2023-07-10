@@ -2,7 +2,14 @@
 
 <style type="text/css"><![CDATA[
 .svgSofGlow { 
-filter: url(#sofGlow);
+	filter: url(#sofGlow);
+	fill: #feca57;
+	stroke: #000;
+	stroke-width: 2px;
+	stroke-opacity:1;
+	stroke-linecap:butt;
+	stroke-color: rgb(255,0,0);
+	stroke-linejoin:round;
  }
 ]]></style>
 

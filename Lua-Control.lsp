@@ -7,8 +7,8 @@
 
 <details open>
   <summary>while</summary>
-  <p>The conditional looping statement "while" has the form: </p>
-  <strong><code>while</code></strong> <em>exp</em> <strong><code>do</code></strong> <em>block</em> <strong><code>end</code></strong>
+  <p>The conditional looping statement "<code>while</code>" has the form: </p>
+  <p><code>while</code> <em>exp</em> <strong><code>do</code></strong> <em>block</em> <strong><code>end</code></strong></p>
   <p>A simple loop:</p>
   <div class="lspeditor" extype="lua" example="3.1"></div>
   <p>We can exit the control of a while statement using the break
@@ -18,7 +18,7 @@
 
 <details open>
   <summary>repeat</summary>
-  <p>The conditional looping statement "repeat" has the form:</p>
+  <p>The conditional looping statement "<code>repeat</code>" has the form:</p>
   <strong><code>repeat</code></strong> <em>block</em> <strong><code>until</code></strong> <em>exp</em>
   <p>A simple loop:</p>
   <div class="lspeditor" extype="lua" example="3.3"></div>
@@ -29,7 +29,7 @@
 
 <details open>
   <summary>for</summary>
-  <p>The iterating statement "for" has two forms. The first is "for" numerical iteration:</p>
+  <p>The iterating statement "<code>for</code>" has two forms. The first is "<code>for</code>" numerical iteration:</p>
   <div class="lspeditor" extype="lua" example="3.5"></div>
   <p>The second is for sequential iteration, e.g. to print the contents of a table. In the example below, 'for' is passed the 'pairs()' iterator function, whose purpose is to supply the values of each iteration:</p>
   <div class="lspeditor" extype="lua" example="3.6"></div>
@@ -37,13 +37,13 @@
 
 <details open>
   <summary>if ... then ... else ... end</summary>
-  <p>The statement "if" has the form:</p>
+  <p>The statement "<code>if</code>" has the form:</p>
   <strong><code>if</code></strong> <em>exp</em> <strong><code>then</code></strong> <em>block</em> <em>{</em> <strong><code>elseif</code></strong> <em>exp</em> <strong><code>then</code></strong> <em>block } [</em> <strong><code>else</code></strong> <em>block ]</em> <strong><code>end</code></strong>
-  <p>For example, if ... then ... end</p>
+  <p>For example,<code>if</code> ... <code>then</code> ... <code>end</code></p>
   <div class="lspeditor" extype="lua" example="3.7"></div>
-  <p>if ... then ... else ... end</p>
+  <p><code>if</code> ... <code>then</code> ... <code>else</code> ... <code>end</code></p>
   <div class="lspeditor" extype="lua" example="3.8"></div>
-  <p>if ... then ... elseif ... else ... end</p>
+  <p><code>if</code> ... <code>then</code> ... <code>elseif</code> ... <code>else</code> ... <code>end</code></p>
   <div class="lspeditor" extype="lua" example="3.9"></div>
 </details>
 

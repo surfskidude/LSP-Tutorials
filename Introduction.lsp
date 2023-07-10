@@ -4,8 +4,15 @@ response:include".header.lsp"
 ?>
 <div class="rh">
 
+<details open>
+<summary>What is Lua Server Pages (LSP)?</summary>
+<p>Lua Server Pages (LSP) is an extended version of the Lua programming language designed to facilitate IoT, network, and web development. LSP is integrated into the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda Application Server</a> and used for developing embedded systems, including Internet of Things (IoT) applications. For example, developers can use LSP to create <a target="_blank" href="https://realtimelogic.com/products/edge-controller/">custom programmable Lua-powered edge controllers</a>. It allows programmers to focus on application-specific aspects of their projects while abstracting the complexities of underlying microcontroller hardware. By leveraging LSP, developers can easily add advanced features like IoT functionality to their projects. Consequently, Lua and LSP can expedite the embedded development process, helping products and solutions reach the market faster.</p>
+<p>See the <a target="_blank" href="https://realtimelogic.com/products/lua-server-pages/">LSP Product Page</a> for additional details.</p>
+</details>
+
+
 <div class="article-spacer">
-  <h1>Lua REPL Introduction</h1>
+  <h2>Lua REPL Introduction</h2>
 </div>
 
 <details open>
@@ -19,8 +26,8 @@ response:include".header.lsp"
   <summary>LSP Tags</summary>
   <p>Lua code can be written right into your HTML like this:</p>
   <div class="lspeditor" example="1.2"></div>
-  <p>Your Lua code goes inside the <strong>&lt;?lsp</strong> and <strong>?&gt;</strong> delimiters. Here we use the function print to output "Hello". We also output the text "world!" by using the expression tag.</p>
-  <p>Lua script can be freely intermixed with HTML or XML. LSP tags are XML compliant <strong>&lt;?lsp &nbsp;&nbsp; ?&gt;</strong>. Code between these tags is executed as Lua code. Expressions are provided by the <strong>&lt;?lsp= &nbsp;&nbsp; ?&gt;</strong> tag. The result of an expression is emitted as HTML/XML.</p>
+  <p>Your Lua code goes inside the <code>&lt;?lsp</code> and <code>?&gt;</code> delimiters. Here we use the function print to output "Hello". We also output the text "world!" by using the expression tag.</p>
+  <p>Lua script can be freely intermixed with HTML or XML. LSP tags are XML compliant <code>&lt;?lsp &nbsp;&nbsp; ?&gt;</code>. Code between these tags is executed as Lua code. Expressions are provided by the <code>&lt;?lsp= &nbsp;&nbsp; ?&gt;</code> tag. The result of an expression is emitted as HTML/XML.</p>
 </details>
 
 <details>
@@ -39,11 +46,11 @@ response:include".header.lsp"
 
   <div class="lspeditor" example="1.3"></div>
 
-  <p>Line 4 in the above example sets variable 'print' to the global variable print, thus hiding the default print function in the LSP page. Lua provides scoping and environments. You will learn more about how this works in the <a href="Lua-Scope.lsp">Lua Scope tutorials</a>. Delete line 4 above and re-run the script. You should now see the Hello World message being printed in the browser window and not in the server's console window.</p>
+  <p>Line 4 in the above example sets variable <code>'print'</code> to the global variable print, thus hiding the default print function in the LSP page. Lua provides scoping and environments. You will learn more about how this works in the <a href="Lua-Scope.lsp">Lua Scope tutorials</a>. Delete line 4 above and re-run the script. You should now see the Hello World message being printed in the browser window and not in the server's console window.</p>
 
   <p>In addition to using function print for sending response data, the Barracuda App Server also provides a method in the response object for sending response data. The method response:write is faster than function print since it does not deal with the specialties in the <a target="_blank" href="ba/doc/en/lua/man/manual.html#pdf-print">standard Lua print function.</a>
 
-  <p>The following example shows how to use response:write.</p>
+  <p>The following example shows how to use <samp>response:write</samp>.</p>
 
   <div class="lspeditor" example="1.4"></div>
 </details>
