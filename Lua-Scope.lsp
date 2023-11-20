@@ -92,7 +92,7 @@
   <p>Running the above example prints out "<samp>Hello</samp>" and "<samp>world</samp>" on two separate lines in the iframe. Function print is not in the new environment table, but it still works since we chain the new environment to the LSP page's environment.</p>
   <p>In the above example, change <code>__index = _ENV</code> to <code>__index = _G</code> and rerun the example. Notice that '<samp>world</samp>' is now printed to the server's console window and not in the iframe. Recall that we have two print functions, one for the LSP page, which sends data as response to the client and the Lua global print function, which prints to the console.</p>
   <p>As a final test, remove or comment out line 8 where we set the metatable an rerun the example. You should now get an exception since the "<code>print</code>" function is not found.</p>
-  <img style="float:right" src="/ba/doc/en/img/RequestResponseEnv.png" />
+  <img style="float:right;max-width:300px" src="https://realtimelogic.com/ba/doc/en/img/RequestResponseEnv.svg" />
   <h4>The server's three environments</h4>
   <p>The Mako Server provides three environments, all accessible from LSP pages as shown in the image to the right.</p>
   <ul>
