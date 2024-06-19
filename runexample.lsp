@@ -1,3 +1,8 @@
+<style>
+iframe {
+height:70%
+}
+</style>
 <?lsp 
 
 local src=request:data"src"
@@ -23,7 +28,7 @@ title="Run LSP Example" response:include".header.lsp"
 
 <script>
 $(function() {
-    $("#edit").find("button:nth-child(3)").remove();
+    $("#edit").find("button:nth-child(2)").remove();
 });
 </script>
 

@@ -4,13 +4,18 @@
 
 <div class="rh">
 
-<h1>Interfacing Lua to Existing C/C++ Code</h1>
+<h1>Interfacing Lua with Existing C/C++ Code</h1>
+<blockquote><p>When working with <b>embedded devices</b>, Lua can interface with lower-level C code through Lua bindings. For device management, export the necessary C functions.</p></blockquote>
 
-The following examples include C code that demonstrates how to extend the Lua APIs provided by the server. You can compile this code directly from the web page using the included TCC compiler on Windows and GCC on other platforms.
+<p><b>Here’s a breakdown of the process:</b></p>
+<ul>
+<li><b>Lua Binding:</b> This bridge connects the Lua virtual machine to native C functions or C++ methods, allowing you to call C functions within Lua scripts and add custom functions.</li>
 
-<p>A Lua binding is essentially a bridge between the Lua virtual machine and native C functions or C++ methods. It allows you to call C functions from within a Lua script and add your own custom functions to the Lua virtual machine. Lua bindings can be created manually or generated automatically using tools like the <a <a target="_blank" href="https://realtimelogic.com/swig/">online Lua Binding Generator</a>. The following figure illustrates how this works, showing the process of generating a Lua binding and integrating it into your firmware.
+<li><b>Manual or Automatic Creation:</b> Lua bindings can be created manually or automatically using tools like the <a <a target="_blank" href="https://realtimelogic.com/swig/">online Lua Binding Generator</a>.</li>
 
-<p>The following examples include C code that shows how to extend the Lua APIs provided by the server. The C code can be compiled from within this web page and is using the included TCC compiler on Windows and GCC on all other platforms.</p>
+<li><b>Compilation:</b> The provided examples include C code demonstrating how to extend Lua APIs. This code can be compiled directly from this web page using the TCC compiler on Windows and GCC on other platforms.</li>
+
+<p>Refer to the figure below for a visual representation of generating and integrating a Lua binding into your firmware. The C code examples also illustrate this process and can be compiled directly from this page.</p>
 
 <div class="center"><img src="/images/C2Lua-development-flow.svg" alt="Lua Binding Generator"></div>
 <p class="caption">Figure 1. The development flow. C code is compiled ONLY once. The Lua scripts are compiled just-in-time in the embedded device when requested by the browser.</p>
@@ -68,7 +73,7 @@ end
 
 <p>The C examples in this tutorial are designed for the Mako Server. Lua bindings for the Mako Server are identical to Lua bindings for an embedded device (RTOS) using the Barracuda App Server library, but the bindings are initialized differently. In an embedded device, the libraries will be compiled and linked with the server and all other firmware components. However, Lua bindings for the pre-compiled Mako Server binary are loaded as DLLs (shared libraries).</p>
 
-<p>The C example below is the same example as found in the Barracuda App Server documentation's <a target="_blank" href="/ba/doc/?url=GettingStarted.html#UsingLSP">Getting Started: Controlling the LED using LSP</a>, but the initialization code has been redesigned for the Mako Server. Click the above link for more information on how this example works and how to write Lua bindings.</p>
+<p>The C example below is the same example as found in the Barracuda App Server documentation's <a target="_blank" href="https://realtimelogic.com/ba/doc/en/GettingStarted.html#DeviceMgm">Getting Started: Controlling the LED using LSP</a>, but the initialization code has been redesigned for the Mako Server. Click the above link for more information on how this example works and how to write Lua bindings.</p>
 
 <div class="lspeditor" extype="C" example="LED" <?lsp=demo.config.nocompile and 'disabled="true"' or ''?>></div>
 

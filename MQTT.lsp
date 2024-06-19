@@ -11,7 +11,16 @@ height:500px;
 <h1>MQTT Examples</h1>
 <div class="rh">
 
-<p>We have two configuration-free MQTT examples available that can be easily started from your web browser. The first example demonstrates how to connect to AWS IoT Core, while the second example illustrates the potential consequences of not taking MQTT security seriously. Both examples are designed for the <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/MQTT3.html">MQTT 3.1 client stack</a>, and not the <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=MQTT.html">MQTT 5 client stack</a>. For more examples, you can check out the <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=MQTT.html">MQTT documentation</a> or the <a target="_blank" href="https://github.com/RealTimeLogic/LSP-Examples/tree/master/Sparkplug">MQTT Sparkplug example</a>. These examples are a great starting point for learning about MQTT and how to use it in your own projects.</p>
+<p>The two code-less MQTT examples below can easily be started from your web browser. The first example demonstrates how to connect to AWS IoT Core, while the second example illustrates the potential consequences of not taking MQTT security seriously. Both examples are designed for the <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/MQTT3.html">MQTT 3.1 client stack</a>, and not the <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=MQTT.html">MQTT 5 client stack</a>.</p>
+<p>For additional examples, check out:</p>
+<ol>
+<li><a target="_blank" href="https://realtimelogic.com/articles/Your-First-MQTT-Lua-Program">Your First MQTT Lua Program</a></li>
+<li><a target="_blank" href="https://realtimelogic.com/ba/doc/?url=MQTT.html">The MQTT documentation</a></li>
+<li><a target="_blank" href="https://github.com/RealTimeLogic/LSP-Examples/tree/master/Sparkplug">The MQTT Sparkplug example</a></li>
+<li><a target="_blank" href="https://realtimelogic.com/articles/Streaming-ESP32CAM-Images-to-Multiple-Browsers-via-MQTT">Streaming CAM Images to Multiple Browsers via MQTT</a></li>
+
+</ol>
+<p>The two code-less MQTT examples work as follows:</p>
 
 <?lsp if version < 4870 then ?>
 <p>The examples require a <a href="https://makoserver.net/download/overview/">newer Mako Server</a>!</p>
