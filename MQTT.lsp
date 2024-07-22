@@ -11,7 +11,7 @@ height:500px;
 <h1>MQTT Examples</h1>
 <div class="rh">
 
-<p>The two code-less MQTT examples below can easily be started from your web browser. The first example demonstrates how to connect to AWS IoT Core, while the second example illustrates the potential consequences of not taking MQTT security seriously. Both examples are designed for the <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/MQTT3.html">MQTT 3.1 client stack</a>, and not the <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=MQTT.html">MQTT 5 client stack</a>.</p>
+<p>The two code-less MQTT examples below can easily be started from your web browser. The first example demonstrates how to connect to AWS IoT Core, while the second example illustrates the potential consequences of not taking MQTT security seriously.</p>
 <p>For additional examples, check out:</p>
 <ol>
 <li><a target="_blank" href="https://realtimelogic.com/articles/Your-First-MQTT-Lua-Program">Your First MQTT Lua Program</a></li>
@@ -66,33 +66,21 @@ The JavaScript code sends the uploaded ZIP file to the server by using an HTTP P
 
 
 
-<h2>Example 2: MQTT Security Considerations</h2>
+<h2 id="pentest">How Hackers Can Penetrate Your MQTT Solution:</h2>
 
-<p>One of the most important security considerations to understand is that MQTT, by default, lacks layered access control; 
-thus, one breached device may compromise the entire solution, including all other connected devices. The purpose with the 
-following example is to show how dangerous it is to forget to consider layered access control when designing MQTT solutions. 
-The following example is designed to attack MQTT brokers with no password requirements; however, standard MQTT 
-broker solutions with password requirements do not provide layered access control by default. 
-  This means an attack similar to the one below can easily be performed by using credentials from any compromised 
-  MQTT client device that is part of the MQTT solution.</p>
-
-<details>
-  <summary>Continue reading and run the MQTT exploit:</summary>
-<p>We wrote an article for DZone on how important it is to <a target="_blank" href="https://dzone.com/articles/have-we-forgotten-the-ancient-lessons"> 
-add layered access control for MQTT solutions</a>. When you run the example below, the Lua server code searches for unprotected MQTT brokers, 
-connects to the unprotected brokers, and starts eavesdropping on all MQTT messages exchanged via these brokers.
- All data, from all connected brokers, trickling in on the server side is forwarded to the browser via one WebSocket connection 
- and dumped in real time in the browser window.</p>
-<p>You may simply click the run button below, but make sure to read the DZone article 
-<a target="_blank" href="https://dzone.com/articles/exploiting-mqtt-using-lua"> Exploiting MQTT </a> for details on how this
- exploit works. As explained in the DZone article, you may have to change the <a target="_blank" href="https://www.shodan.io">Shodan</a>
-  key for this exploit to work (variable 'key' in the program below). Note that we have made some minor changes in the example 
-  below versus the original at DZone. For example, no incoming MQTT data is saved persistently to disk and the JavaScript 
-  client terminates the WebSocket connection after receiving 100 KByte data.</p>
+<p>MQTT, by default, lacks layered access control, meaning one breached device can compromise the entire network of connected devices. This example demonstrates the dangers of neglecting layered access control in MQTT solutions. The following attack targets MQTT brokers with no password requirements. However, even standard MQTT brokers with password protection lack layered access control by default. This vulnerability allows an attacker to use credentials from any compromised device to perform a similar attack.</p>
 
 
-<div class="lspeditor" example="MQTT-exploit"></div>
-</details>
+<blockquote><p>This is the accompanying example for the tutorial <a target="_blank" href="https://realtimelogic.com/articles/How-Hackers-Can-Easily-Penetrate-Your-MQTT-Solution">How Hackers Can Penetrate Your MQTT Solution</a>. See the tutorial for the details.</p></blockquote>
+
+<p>The ready-to-run MQTT penetration test program below is slightly more advanced than the one described in the written tutorial. Instead of printing MQTT data to the server's console as it arrives, this program sends the data to the browser over a WebSocket connection, where it is displayed in real-time.</p>
+
+<div style="max-width:625px;margin:auto">
+<img src="images/exploiting-mqtt-using-lua.png" />
+</div>
+
+<div class="lspeditor" example="MQTT-Pentest"></div>
+
 
 <?lsp end ?>
 
