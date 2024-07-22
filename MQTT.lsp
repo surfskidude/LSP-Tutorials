@@ -11,7 +11,7 @@ height:500px;
 <h1>MQTT Examples</h1>
 <div class="rh">
 
-<p>The two code-less MQTT examples below can easily be started from your web browser. The first example demonstrates how to connect to AWS IoT Core, while the second example illustrates the potential consequences of not taking MQTT security seriously.</p>
+<p>The two code-less MQTT examples below can easily be started from your web browser. The first example demonstrates <a href="#ex1">how to connect to AWS IoT Core</a>, while the second example illustrates the potential consequences of <a href="#ex2">not taking MQTT security seriously</a>.</p>
 <p>For additional examples, check out:</p>
 <ol>
 <li><a target="_blank" href="https://realtimelogic.com/articles/Your-First-MQTT-Lua-Program">Your First MQTT Lua Program</a></li>
@@ -31,7 +31,7 @@ height:500px;
 </div>
 
 
-<h2>Example 1: How to Connect to AWS IoT Core using MQTT</h2>
+<h2 id="ex1">Example 1: How to Connect to AWS IoT Core using MQTT</h2>
 
 <p>This example shows you how to connect to AWS IoT Core using MQTT over a secure HTTPS connection on port 443. It's designed to work with the <a target="_blank" href="https://makoserver.net/articles/How-to-Connect-to-AWS-IoT-Core-using-MQTT-amp-ALPN">YouTube video tutorial "How to Get Started with AWS IoT Core Quick Connect"</a> and our article  <a target="_blank" href="https://makoserver.net/articles/How-to-Connect-to-AWS-IoT-Core-using-MQTT-amp-ALPN">How to Connect to AWS IoT Core using MQTT &amp; ALPN</a>. To use this example, simply follow the instructions in the video, except for running the Python code. Instead of running the Python code, you will be running the code below. This example is ready to run and will help you get started with AWS IoT Core in no time.</p>
 
@@ -66,7 +66,7 @@ The JavaScript code sends the uploaded ZIP file to the server by using an HTTP P
 
 
 
-<h2 id="pentest">How Hackers Can Penetrate Your MQTT Solution:</h2>
+<h2 id="ex2">Example 2: How Hackers Can Penetrate Your MQTT Solution</h2>
 
 <p>MQTT, by default, lacks layered access control, meaning one breached device can compromise the entire network of connected devices. This example demonstrates the dangers of neglecting layered access control in MQTT solutions. The following attack targets MQTT brokers with no password requirements. However, even standard MQTT brokers with password protection lack layered access control by default. This vulnerability allows an attacker to use credentials from any compromised device to perform a similar attack.</p>
 
@@ -87,4 +87,5 @@ The JavaScript code sends the uploaded ZIP file to the server by using an HTTP P
 <p id="NextBut"><a href="ide.lsp">Next Tutorial</a></p>
 
 </div>
+<a name="pentest"></a>
 <?lsp response:include"footer.shtml" ?>
