@@ -1,36 +1,70 @@
 <?lsp
-if request:header"x-requested-with" then
-   local key=request:data"key"
-   if key then
-      local resp
-      key=tonumber(key)
-      if key and key >=32 and key <= 127 then
-         resp=string.char(key)
-      else
-         resp = key and string.format(' "%d" ',key) or '?'
-      end
-      trace("AJAX data:", key, resp) -- Print to server's console
-      response:json({char=resp})
+if "POST" == request:method() then
+   local serpent=require"serpent"
+   -- Pretty encode a Lua table using the 'serpent' module
+   local function table2string(tab)
+      return serpent.block(tab,{comment=false})
    end
+   response:setcontenttype"text/plain"
+   local jparser = ba.json.parser()
+   local ok,table
+   for data in request:rawrdr() do
+      ok,table=jparser:parse(data)
+      if not ok or table then break end
+   end
+   if ok and table then
+      trace("Received:",ba.json.encode(table))
+      response:write(table2string(table))
+   else
+      response:write"Could not parse the JSON"
+   end
+   response:abort() -- Done
 end
 ?>
-<html>
-  <head>
-    <script src="/rtl/jquery.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Send Data with Fetch API</title>
+    <style>
+        body {margin: 20px auto;padding: 10px;}
+        textarea {width: 100%;height: 150px;margin-bottom: 10px;}
+        button {padding: 10px 20px;font-size: 16px;cursor: pointer;}
+    </style>
     <script>
-$(function() {
-   $("#out").empty();
-   $("#out").append("Enter text below:<br/>")
-   $("#in").keypress(function(ev) {
-      $.getJSON(window.location,{key:ev.which}, function(rsp) {
-         $("#out").append(rsp.char);
-      });
-   });
-});
-</script>
+    document.addEventListener("DOMContentLoaded", () => {
+      document.getElementById("sendButton").addEventListener("click", sendData);
+      const console = document.getElementById("console");
+      async function sendData() {
+        const textArea = document.getElementById("textData");
+        try {
+          const response = await fetch(window.location, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: textArea.value
+          });
+          if (response.ok) {
+            const result = await response.text(); // Read response as plain text
+            console.innerHTML = result;
+          } else {
+            alert("Failed to send data: " + response.statusText);
+          }
+        } catch (error) {
+          console.error("Error:", error);
+          alert("Error sending data.");
+        }
+      }
+    });
+    </script>
 </head>
 <body>
-<h3 id="out">hello</h3>
-<input id="in" type="text" />
+    <h2>Send Data to Server</h2>
+    <textarea id="textData" placeholder="Enter JSON here..."></textarea>
+    <br>
+    <button id="sendButton">Send Data</button>
+    <pre id="console"></pre>
 </body>
 </html>

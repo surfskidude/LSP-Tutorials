@@ -1,11 +1,25 @@
-<html>
-  <head>
-    <script src="/rtl/jquery.js"></script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Example</title>
     <script>
-$(function() {
-   alert("hello");
-});
-  </script>
-  </head>
-  <body><p>World</p></body>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Clear the content of the #out element
+            const output = document.getElementById("out");
+            output.textContent = "";
+ 
+            // Add event listener for keypress on the #in input field
+            document.getElementById("in").addEventListener("keypress", function(ev) {
+                // Append the character typed to the #out element
+                output.textContent += String.fromCharCode(ev.which);
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1 id="out">Please enable JavaScript</h1>
+    <input id="in" type="text" />
+</body>
 </html>

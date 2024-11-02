@@ -29,18 +29,6 @@ app.acmeOP={
    production=true
 }
 
- -- Used by SharkSSL.lsp and set by isreg below
-
-local function isreg()
-   local function auto()
-       -- Starts engine if previosly registered
-      local email,domain=require"acme/dns".auto(app.acmeOP)
-      if domain then trace("Certificate for",domain, "loaded") end
-   end
-   pcall(auto)
-end
-ba.thread.run(isreg)
-
 local fp = dio:open(hdir.."/.config.json") or io:open(".config.json")
 
 if fp then

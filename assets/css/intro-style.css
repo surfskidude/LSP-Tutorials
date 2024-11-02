@@ -112,7 +112,7 @@ h5 {
   margin: 10px auto;
 }
 
-p {
+p,li {
   font-size: 14px;
   line-height: 22px;
   font-style: normal;
@@ -512,6 +512,8 @@ textarea {
   border-radius: 8px;
 }
 
+.alert b,.alert strong { color: black; }
+
 .alert p {
   font-size: 16px;
   line-height: 20px;
@@ -536,7 +538,7 @@ textarea {
   font-weight: 500;
 }
 
-.alert.alert-success {
+.alert.alert-success,blockquote {
   background: var(--alert-primary-block);
   border-color: var(--alert-primary);
 }
@@ -548,6 +550,12 @@ textarea {
   background: var(--alert-warning-block);
   border-color: var(--alert-warning);
 }
+
+blockquote p, blockquote b {
+  color:black;
+}
+
+blockquote { padding: 1px 10px; }
 
 
 /** Editors styles */
