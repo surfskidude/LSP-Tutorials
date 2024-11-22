@@ -9,7 +9,7 @@ local appuri=app.wfshdir.."applications/"
 <?lsp app.loadex(_ENV,"About") ?>
 
 <div class="article-spacer">
-<p>Welcome to the tutorials for the high level Lua APIs provided by the Barracuda App Server (BAS) and Mako Server! The menu on the left includes links to all of the available tutorials. For the best learning experience, we recommend starting at the top of the menu and working your way down. These tutorials will introduce you to the APIs and help you get started with using BAS to develop your applications. Happy learning!</p>
+<p>Welcome to the tutorials for the <a target="_blank" href="https://realtimelogic.com/products/lua-server-pages/">high level Lua APIs provided by the Barracuda App Server</a> (BAS) and Mako Server! The menu on the left includes links to all of the available tutorials. For the best learning experience, we recommend starting at the top of the menu and working your way down. These tutorials will introduce you to the APIs and help you get started with using BAS to develop your applications. Happy learning!</p>
 
 <p>It's important to note that the browser is only used as an editor and to display the results of your code. The actual processing takes place on the server side. When you click the 'Run' button, the Lua code example displayed in the browser is sent to the server to be parsed and executed. The server will then send the response back to the browser for display.</p>
 <div style="max-width:640px;margin:auto">
@@ -17,17 +17,18 @@ local appuri=app.wfshdir.."applications/"
 </div>
 <script src="/assets/js/LuaREPL.js"></script>
 
+<?lsp if mako.daemon then ?>
+<p></p>
+<div class="alert alert-warning">
+<h3>Note:</h3>
+<p>The server is running in service (daemon) mode, operating in the background. This means you won’t see the console printouts, via <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/lua.html#_G_trace">trace()</a>, from the tutorials directly. However, all console output is also displayed in the included TraceLogger.</p>
+<p>For the best experience, we recommend  <a target="_blank" href="/rtl/tracelogger/">opening the TraceLogger in a separate window</a>.</p>
+</div>
+
 
 <details open>
   <summary>Mako Server vs. Barracuda App Server</summary>
 <p>The <a target="_blank" href="https://makoserver.net/">Mako Server</a> and the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda App Server</a> (BAS) are the same, but BAS is a source code library and not a standalone product. Just like the ANSI C library cannot be used before you at least create a "Hello World" program, so is the case with BAS. The Mako Server is the Barracuda App Server's "Hello World" equivalent.</p>
-</details>
-
-<?lsp if mako.daemon then ?>
-<details open>
-  <summary>Server is running in service (daemon) mode!</summary>
-<p>The server is running as a background service and you cannot see the console printouts from the tutorials. However, the included TraceLogger also shows the console printouts.</p>
-<p><b>We recommend that you <a target="_blank" href="/rtl/tracelogger/">open the TraceLogger in a separate window</a></b>.</p>
 </details>
 
 <?lsp 

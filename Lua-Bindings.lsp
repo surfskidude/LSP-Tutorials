@@ -18,8 +18,11 @@
 <p>Refer to the figure below for a visual representation of generating and integrating a Lua binding into your firmware. The C code examples also illustrate this process and can be compiled directly from this page.</p>
 
 <div class="center"><img src="/images/C2Lua-development-flow.svg" alt="Lua Binding Generator"></div>
-<p class="caption">Figure 1. The development flow. C code is compiled ONLY once. The Lua scripts are compiled just-in-time in the embedded device when requested by the browser.</p>
+<p class="caption">Figure 1. The Development Flow: The C code is compiled only once, while Lua scripts are compiled just-in-time on the embedded device. This occurs during startup and when requested by the browser. The figure illustrates the use of a generator to create bindings; however, in this tutorial, the Lua bindings are created manually.</p>
 
+<p>The C examples in this tutorial are tailored for the Mako Server. Lua bindings for the Mako Server are functionally identical to those for an embedded monolithic RTOS device using the Barracuda App Server library, with differences in how they are initialized. On an embedded device, the libraries are compiled and linked with the server and other firmware components. In contrast, Lua bindings for the pre-compiled Mako Server binary are loaded as DLLs (shared libraries).</p>
+
+<p>This tutorial focuses on calling C code from Lua. For information on calling Lua asynchronously from C, refer to the <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/C/reference/html/md_en_C_md_LuaBindings.html#AsynchC2Lua">advanced Lua bindings</a> section in the documentation.</p>
 
 <?lsp
 
@@ -30,7 +33,7 @@ if not page.installed then
       if ok then
          response:sendredirect(request:url())
       end
-      response:write('<p class="warning">',err,'</p>')
+      response:write('<div class="alert alert-warning"><p>',err,'</p></div>')
       response:include"footer.shtml"
       return
    end
@@ -52,10 +55,9 @@ $("#install").click(function() {
 });
 </script>
 <?lsp
-
-     if not demo.internet then
+if not demo.internet then
 ?>
-<p class="warning">Warning: it appears that there is no Internet connection or a proxy prevents access. The installation process will fail if the server is unable to download the additional component!</p>
+<div class="alert alert-warning"><p>Warning: it appears that there is no Internet connection or a proxy prevents access. The installation process will fail if the server is unable to download the additional component!</p></div>
 <?lsp
      end
      response:include"footer.shtml"
@@ -70,9 +72,7 @@ $("#install").click(function() {
    end
 end
 ?>
-
-<p>The C examples in this tutorial are designed for the Mako Server. Lua bindings for the Mako Server are identical to Lua bindings for an embedded device (RTOS) using the Barracuda App Server library, but the bindings are initialized differently. In an embedded device, the libraries will be compiled and linked with the server and all other firmware components. However, Lua bindings for the pre-compiled Mako Server binary are loaded as DLLs (shared libraries).</p>
-
+<h2>Examples</h2>
 <p>The C example below is the same example as found in the Barracuda App Server documentation's <a target="_blank" href="https://realtimelogic.com/ba/doc/en/GettingStarted.html#DeviceMgm">Getting Started: Controlling the LED using LSP</a>, but the initialization code has been redesigned for the Mako Server. Click the above link for more information on how this example works and how to write Lua bindings.</p>
 
 <div class="lspeditor" extype="C" example="LED" <?lsp=demo.config.nocompile and 'disabled="true"' or ''?>></div>

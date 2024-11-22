@@ -4,20 +4,13 @@ response:include".header.lsp"
 ?>
 <div class="rh">
 
-<details open>
-<summary>What is Lua Server Pages (LSP)?</summary>
-<p>Lua Server Pages (LSP) is an extended version of the Lua programming language designed to facilitate IoT, network, and web development. LSP is integrated into the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda Application Server</a> and used for developing embedded systems, including Internet of Things (IoT) applications. For example, developers can use LSP to create <a target="_blank" href="https://realtimelogic.com/products/edge-controller/">custom programmable Lua-powered edge controllers</a>. It allows programmers to focus on application-specific aspects of their projects while abstracting the complexities of underlying microcontroller hardware. By leveraging LSP, developers can easily add advanced features like IoT functionality to their projects. Consequently, Lua and LSP can expedite the embedded development process, helping products and solutions reach the market faster.</p>
-<p>See the <a target="_blank" href="https://realtimelogic.com/products/lua-server-pages/">LSP Product Page</a> for additional details.</p>
-</details>
-
-
 <div class="article-spacer">
   <h2>Lua REPL Introduction</h2>
 </div>
 
 <details open>
 <summary>How the interactive examples work</summary>
-<p>The examples provided in these tutorials are loaded from the server using AJAX and displayed in a fully functional web-based Lua/LSP editor. You have the ability to edit any of the examples and save your changes by clicking the 'Run' button. This button not only saves your changes, but also executes the LSP page on the server and displays the result below in an iframe. Give it a try by clicking the 'Run' button below and see the result appear in the iframe.</p>
+<p>The examples provided in these tutorials are loaded from the server and displayed in a fully functional web-based Lua/LSP editor. You have the ability to edit any of the examples and save your changes by clicking the 'Run' button. This button not only saves your changes, but also executes the LSP page on the server and displays the result below in an iframe. Give it a try by clicking the 'Run' button below and see the result appear in the iframe.</p>
   <div class="lspeditor" example="1.1"></div>
 <p>The revert button reverts the example back to the original code and hides the iframe.  Click line 2 in the above editor, modify the text 'Hello World' to 'LSP Rocks', and click the Run button. You can then try the Revert button and revert the example back to its original form.</p>
 </details>

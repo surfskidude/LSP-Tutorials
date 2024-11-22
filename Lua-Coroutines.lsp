@@ -169,7 +169,7 @@
   <p>Run the example and notice that you do not get an exception. The reason is that the timer function's environment is now set to the Lua application's environment. You can also test the script by setting the environment to the global _G environment.</p>
   <a name="MarkovChain"></a>
   <h4>Markov Chain Algorithm</h4>
-  <p>The original Lua 5.0 book includes a Markov Chain Algorithm example in <a target="_blank" href="https://www.lua.org/pil/10.2.html">chapter 10.2</a>. The following example uses the same algorithm, but the "allwords" function is redesigned. Instead of reading from the command line, the "allwords" function uses the <a target="_blank" href="/ba/doc/?url=auxlua.html#httplib">HTTP client library</a> to fetch a web page. The web page is saved and an iterator function that utilizes coroutines is returned to the Markov Chain Algorithm.</p>
+  <p>The original Lua 5.0 book includes a Markov Chain Algorithm example in <a target="_blank" href="https://www.lua.org/pil/10.2.html">chapter 10.2</a>. The following example uses the same algorithm, but the "allwords" function is redesigned. Instead of reading from the command line, the "allwords" function uses the <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/auxlua.html#httplib">HTTP client library</a> to fetch a web page. The web page is saved and an iterator function that utilizes coroutines is returned to the Markov Chain Algorithm.</p>
   <div class="lspeditor" extype="lua" example="10.19"></div>
 </details>
 

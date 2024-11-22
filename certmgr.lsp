@@ -5,13 +5,11 @@
 
 <p>The Certificate Management Tool is an indispensable tool for administrators and a must-have for anyone that uses SSL Certificates for websites, servers, secure IoT device management, or Code Signing Certificates for trusted software. See the <a target="_blank" href="https://realtimelogic.com/articles/How-to-act-as-a-Certificate-Authority-the-Easy-Way">Certificate Management Tool Home Page</a> for details.</p>
 
-<p style="text-align:center"><b>Read up on <a href="SharkSSL.lsp">Trust Management</a> before using this tool.</b></p>
 
-<br/>
+<p style="margin:auto;width:400px" id="NextBut"><a target="_blank" href="certmgr/">Open the Cert Management Tool</a></p>
 
-<p style="margin:auto;width:400px" id="NextBut"><a target="_blank" href="certmgr/">Open the Certificate Management Tool</a></p>
+<div class="alert"><p>Note that <a target="_blank" href="https://realtimelogic.com/articles/Automatic-Certificate-Management-for-Devices">it is no longer practical to design your own PKI for use with modern browsers</a>.</p></div>
 
-<br/>
 <p>The Certificate Management Tool can also be loaded separately as follows:</p>
 
 <div class="cmd-input">mako -l::<?lsp=app.exio:realpath"certmgr.zip"?></div>

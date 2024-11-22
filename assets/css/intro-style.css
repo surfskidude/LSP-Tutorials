@@ -51,6 +51,7 @@
 
 a {
   color: var(--text-link);
+  font-weight: bold;
   text-decoration: none;
 }
 
@@ -512,7 +513,7 @@ textarea {
   border-radius: 8px;
 }
 
-.alert b,.alert strong { color: black; }
+.alert b,.alert strong, .alert h2, .alert h3 { color: yellow; }
 
 .alert p {
   font-size: 16px;
@@ -522,9 +523,11 @@ textarea {
 }
 .alert.alert-success p,
 .alert.alert-danger p,
+  .alert.alert-warning p, .alert.alert-warning strong, .alert.alert-warning h3 {
+  color: #000000;
+}
 .alert.alert-warning p {
   font-weight: 500;
-  color: #000000;
 }
 .alert.alert-success a,
 .alert.alert-danger a,

@@ -3,7 +3,8 @@
 <h1>Control Structure Tutorial</h1>
 
 
-<p>Lua control structures will be familiar to programmers. Sections 2.4.4 and 2.4.5 of the Reference Manual provide the necessary information.</p>
+<p>Lua's control structures will feel familiar to most programmers. For detailed information, refer to Sections 2.4.4 and 2.4.5 of the <a target="_blank" href="https://realtimelogic.com/ba/doc/luaref_index.html">Lua Reference Manual</a>.</p>
+
 
 <details open>
   <summary>while</summary>

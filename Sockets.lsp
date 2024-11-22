@@ -6,10 +6,9 @@
 The following blocking socket example makes the LSP page wait until a response is returned from the NTP time server. 
 The Lua code executing at the server converts the returned result to a printable format and sends the result to the browser.</p>
 <?lsp if not demo.internet then ?>
-<fieldset class="warning"><legend>NO INTERNET</legend>
-<p>Warning: it appears that there is no Internet connection or a proxy prevents access. 
+<div class="alert alert-warning"><p><strong>Warning:</strong> it appears that there is no Internet connection or a proxy prevents access. 
 The following socket examples will fail if the server is unable to connect to the Internet!</p>
-</fieldset>
+</div>
 <p><br/></p>
 
 <?lsp

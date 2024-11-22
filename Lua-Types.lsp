@@ -1,19 +1,23 @@
 <?lsp title="Lua Types" response:include".header.lsp"
  ?>
 
+<h1>Lua</h1>
+<p>When comparing Lua to traditional C code for embedded development, Lua generally offers a significant advantage in terms of development speed and ease of use due to its higher-level features like dynamic typing, automatic memory management, and a simpler syntax, allowing developers to focus on application logic rather than low-level hardware details, while C remains the preferred choice for situations demanding extreme performance and direct hardware control. If you're a C programmer, check out the tutorial <a target="_blank" href="https://realtimelogic.com/articles/Using-Lua-for-Embedded-Development-vs-Traditional-C-Code">Why Smart C Coders Use Both C and Lua in Their Projects</a>.</p>
 
-<p><a target="_blank" href="https://realtimelogic.com/products/lua-server-pages/">LSP is the Lua engine</a> included in the Barracuda App Server. To fully understand and make use of LSP, it's important to first have a good understanding of the Lua programming language. The tutorials provided here, starting with the 'Lua types' tutorial, will introduce you to the basics of Lua.</p>
+<div class="youtube-video">
+  <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jUuqBZwwkQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
 
-<p>Please note that some examples may depend on declarations defined in previous examples, and may not work properly if not executed in the proper order. It is recommended to follow the tutorials in the order they are presented to ensure a smooth learning experience.</p>
+<h2>Follow the Tutorial Order:</h2>
+
+<p>Some examples rely on declarations from earlier sections and may not function correctly if executed out of sequence. To ensure a smooth learning experience, it’s recommended to follow the tutorials in the order presented.</p>
 
 <div class="rh">
   <div class="article-spacer">
-  <div class="youtube-video">
-    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/jUuqBZwwkQw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-  </div>
-    <h1>Lua Types Tutorial</h1>
+
+    <h2>Lua Types Tutorial</h2>
     <p>This is a brief introduction to the eight basic types of values in Lua: number, string, boolean, table, function, nil, userdata, and thread. Each section introduces a different type. </p>
-    <p>We use function <a  target="_blank" href="https://realtimelogic.com/ba/doc/?url=lua.html#_G_print"><samp>print()</samp></a> to print out values or calculations on those values and function <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/man/manual.html#pdf-type"><samp>type()</samp></a> to fetch the variable type.</p>
+    <p>We use function <a target="_blank" href="https://realtimelogic.com/ba/doc/?url=lua.html#_G_print"><samp>print()</samp></a> to print out values or calculations on those values and function <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/man/manual.html#pdf-type"><samp>type()</samp></a> to fetch the variable type.</p>
 <div style="clear:both"></div>
     <div class="lspeditor" extype="lua" example="2.1"></div>
   </div>
@@ -52,10 +56,7 @@
 
   <details open>
     <summary>Tables</summary>
-    <p>Lua has a general-purpose aggregate datatype called a table. 
-      Aggregate data types are used for storing collections (such as lists, sets, arrays, and associative arrays) 
-      containing other objects (including numbers, strings, or even other aggregates). 
-      Lua is a unique language in that tables are used for representing most all other aggregate types.</p>
+    <p>Lua uses a versatile data structure called a table, which can store collections like lists, sets, arrays, and associative arrays. These collections can hold various types of data, including numbers, strings, or even other tables. What makes Lua unique is that tables are used to represent almost all aggregate types, making them a powerful and flexible tool in the language.</p>
     <p>Tables are created using a pair of curly brackets <samp>{}</samp> . Let's create an empty table:</p>
     <div class="lspeditor" extype="lua" example="2.11"></div>
     <p>Notice how the print function prints the address of the table.</p>
@@ -84,7 +85,7 @@
 
   <details open>
     <summary>Userdata</summary>
-    <p>Userdata values are objects foreign to Lua such as objects implemented in C. These typically come about when an object in a C library is exposed to Lua. An example of a userdata value is a file handle. A userdata often behaves like a table, and you can largely ignore the difference unless you are implementing one. Userdata is a more advanced topic discussed further in the Lua Reference Manual.</p>
+    <p>Userdata values are objects external to Lua, often implemented in C and exposed to Lua through a library. A common example of a userdata value is a file handle. Userdata often behaves similarly to a table, and for most purposes, you can treat it as such unless you're implementing one yourself. This is a more advanced topic and is covered in greater detail in the <a target="_blank" href="https://realtimelogic.com/ba/doc/luaref_index.html">Lua Reference Manual</a>.</p>
     <div class="lspeditor" extype="lua" example="2.18"></div>
   </details>
 

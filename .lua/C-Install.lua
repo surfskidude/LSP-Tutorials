@@ -47,6 +47,11 @@ if iswin then
    hdir=mako.dos2unix(hdir)
 end
 local appdir=hdir.."/lspapps"
+if not _G.appdir then
+   print("TMP dir:",tmpd)
+   print("App dir:",appdir)
+   _G.appdir=appdir
+end
 check(dio:stat(appdir) or dio:mkdir(appdir), "Cannot create "..appdir)
 local appio=ba.mkio(dio,appdir)
 
