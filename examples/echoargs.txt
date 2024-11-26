@@ -1,0 +1,5 @@
+function echoargs(...)
+    print("Args received:",...)
+    return ...
+end
+print("Return values", echoargs("The Number of the Day is",ba.rnd(1, 10)))

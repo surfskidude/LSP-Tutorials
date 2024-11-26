@@ -5,29 +5,11 @@
 <div class="rh">
 
 <h1>Interfacing Lua with Existing C/C++ Code</h1>
-<blockquote><p>When working with <b>embedded devices</b>, Lua can interface with lower-level C code through Lua bindings. For device management, export the necessary C functions.</p></blockquote>
-
-<p><b>Here’s a breakdown of the process:</b></p>
-<ul>
-<li><b>Lua Binding:</b> This bridge connects the Lua virtual machine to native C functions or C++ methods, allowing you to call C functions within Lua scripts and add custom functions.</li>
-
-<li><b>Manual or Automatic Creation:</b> Lua bindings can be created manually or automatically using tools like the <a <a target="_blank" href="https://realtimelogic.com/swig/">online Lua Binding Generator</a>.</li>
-
-<li><b>Compilation:</b> The provided examples include C code demonstrating how to extend Lua APIs. This code can be compiled directly from this web page using the TCC compiler on Windows and GCC on other platforms.</li>
-
-<p>Refer to the figure below for a visual representation of generating and integrating a Lua binding into your firmware. The C code examples also illustrate this process and can be compiled directly from this page.</p>
-
-<div class="center"><img src="/images/C2Lua-development-flow.svg" alt="Lua Binding Generator"></div>
-<p class="caption">Figure 1. The Development Flow: The C code is compiled only once, while Lua scripts are compiled just-in-time on the embedded device. This occurs during startup and when requested by the browser. The figure illustrates the use of a generator to create bindings; however, in this tutorial, the Lua bindings are created manually.</p>
-
-<p>The C examples in this tutorial are tailored for the Mako Server. Lua bindings for the Mako Server are functionally identical to those for an embedded monolithic RTOS device using the Barracuda App Server library, with differences in how they are initialized. On an embedded device, the libraries are compiled and linked with the server and other firmware components. In contrast, Lua bindings for the pre-compiled Mako Server binary are loaded as DLLs (shared libraries).</p>
-
-<p>This tutorial focuses on calling C code from Lua. For information on calling Lua asynchronously from C, refer to the <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/C/reference/html/md_en_C_md_LuaBindings.html#AsynchC2Lua">advanced Lua bindings</a> section in the documentation.</p>
 
 <?lsp
-
+local notInstalled,cc=false
 if not page.installed then
-   local cc = io:dofile(".lua/C-Install.lua",app)
+   cc = io:dofile(".lua/C-Install.lua",app)
    if request:method() == "POST" and request:data"install" then
       local ok,err = cc.install()
       if ok then
@@ -37,7 +19,75 @@ if not page.installed then
       response:include"footer.shtml"
       return
    end
-   if cc.check() then
+   notInstalled = cc.check()
+end
+?>
+
+<details <?lsp=notInstalled and "open" or "closed"?>>
+    <summary>Introduction</summary>
+<blockquote><p>When working with <b>embedded devices</b>, Lua can interface with lower-level C code through Lua bindings. For device management, export the necessary C functions as Lua bindings.</p></blockquote>
+
+<p><b>Here’s a breakdown of the process:</b></p>
+<ul>
+<li><b>Lua Binding:</b> This bridge connects the Lua virtual machine to native C functions or C++ methods, allowing you to call C functions within Lua scripts and add custom functions.</li>
+
+<li><b>Manual or Automatic Creation:</b> Lua bindings can be created manually or automatically using tools like the <a target="_blank" href="https://realtimelogic.com/swig/">online Lua Binding Generator</a>.</li>
+
+<li><b>Compilation:</b> The provided examples include C code demonstrating how to extend Lua APIs. This code can be compiled directly from this web page using the TCC compiler on Windows and GCC on other platforms.</li>
+</ul>
+
+<p>Refer to the figure below for a visual representation of generating and integrating a Lua binding into your firmware. The C code examples also illustrate this process and can be compiled directly from this page.</p>
+
+<div class="center"><img src="/images/C2Lua-development-flow.svg" alt="Lua Binding Generator"/></div>
+<p class="caption">Figure 1. The Development Flow: The C code is compiled only once, while Lua scripts are compiled just-in-time on the embedded device. This occurs during startup and when requested by the browser. The figure illustrates the use of a generator to create bindings; however, in this tutorial, the Lua bindings are created manually.</p>
+
+<h2>What is a Lua Binding</h2>
+
+<p>A Lua binding is a bridge between Lua code and the underlying functionality written in another programming language, typically C or C++. It allows Lua to interact with the underlying platform, external libraries, and system-specific features by exposing native functions, data structures, or APIs to Lua in a way that Lua code can easily understand and use.</p>
+
+<h4>The Virtual Stack</h4>
+<p>Communication between Lua and C is facilitated by a virtual stack, which serves as the primary medium for data exchange and intermediate storage. The stack is central to nearly every API operation and critical for handling Lua to C interactions.</p>
+<p>To understand how Lua's virtual stack works in the context of C code, let's look at a simple Lua example:</p>
+
+<div class="lspeditor" extype="lua" example="echoargs"></div>
+
+
+<p>The function, echoargs, takes a variable number of arguments, prints them along with the text "Args received: ", and then returns all the arguments. The three dots (...) indicate that the function accepts a variable number of arguments.</p>
+<p>The variable number of arguments, represented by the ... in Lua, conceptually illustrates what a Lua binding receives when interacting with the Lua runtime. Every argument passed to a Lua function is pushed onto the virtual stack, allowing the binding to access them sequentially, process them, and return results to Lua. We can convert the echoargs Lua function into its equivalent Lua C API binding to demonstrate how Lua bindings handle these arguments. This conversion provides insight into how arguments are managed in C.</p>
+
+
+<pre>
+int lua_echoargs(lua_State *L)
+{
+   // Get the number of arguments passed to the function
+   int nargs = lua_gettop(L);
+   // Print the arguments using printf
+   printf("Args received:");
+   for (int i = 1; i <= nargs; i++) {
+      printf(" %s", lua_tostring(L, i)); // 'i' is stack index
+   }
+   printf("\n");
+   // Return all arguments to Lua
+   return nargs;  // The number of results matches the number of input arguments
+}
+</pre>
+
+<p>The above lua_echoargs function demonstrates how Lua bindings handle arguments using the Lua C API and the Virtual Stack. It processes all arguments passed from Lua, prints them, and returns them back to Lua without modification. Here's how it works:</p>
+<ol>
+<li><strong>Getting the Number of Arguments</strong>: The function uses lua_gettop to determine how many arguments were passed to the Lua function. Each argument corresponds to a position on the virtual stack, starting at index 1.</li>
+<li><strong>Processing and Printing Arguments</strong>: The function iterates over the stack indices using a for loop. For each argument, it uses lua_tostring, which safely converts any type of value into a string representation</li>
+<li><strong>Returning Arguments</strong>: After printing, the function returns all arguments to Lua. The return count matches the input count (nargs), which ensures the behavior is consistent with the original Lua function.</li>
+</ol>
+
+<h2>Getting Started</h2>
+
+<p>The C examples in this tutorial are tailored for the Mako Server. Lua bindings for the Mako Server are functionally identical to those for an embedded monolithic RTOS device using the Barracuda App Server library, with differences in how they are initialized. On an embedded device, the libraries are compiled and linked with the server and other firmware components. In contrast, Lua bindings for the pre-compiled Mako Server binary are loaded as DLLs (shared libraries).</p>
+
+<p>This tutorial focuses on calling C code from Lua. For information on calling Lua asynchronously from C, refer to the <a  target="_blank" href="https://realtimelogic.com/ba/doc/en/C/reference/html/md_en_C_md_LuaBindings.html#AsynchC2Lua">advanced Lua bindings</a> section in the documentation.</p>
+</details>
+<?lsp
+if not page.installed then
+if notInstalled then
 ?>
 <h2>Install Required Modules</h2>
 <p>The Lua binding examples require the Mako Server module plugin and a compiler.  Click the following button to install the required components.</p>
