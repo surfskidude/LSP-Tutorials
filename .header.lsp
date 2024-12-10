@@ -14,7 +14,8 @@ local links={
          {'Lua-Bindings.lsp','Lua to C Code'},
       }
    },
-   {'HTML-Forms.lsp','LSP', {
+   {'LSP-Intro.lsp','LSP', {
+         {'LSP-Intro.lsp','intro'},
          {'HTML-Forms.lsp','HTML Forms'},
          {'Ajax.lsp','Ajax'},
          {'WebSockets.lsp', 'WebSockets'},
@@ -31,7 +32,7 @@ local links={
       }
    },
    {'ide.lsp','Examples', {
-         {'ide.lsp','Lua REPL'},
+         {'ide.lsp','Lua IDE'},
          {'wfs.lsp','Web File Server'},
          {'Pac-Man.lsp','PacMan Game'},
          {'certmgr.lsp','Certificate Mgr'}
