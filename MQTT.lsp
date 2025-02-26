@@ -70,8 +70,9 @@ The JavaScript code sends the uploaded ZIP file to the server by using an HTTP P
 
 <p>MQTT, by default, lacks layered access control, meaning one breached device can compromise the entire network of connected devices. This example demonstrates the dangers of neglecting layered access control in MQTT solutions. The following attack targets MQTT brokers with no password requirements. However, even standard MQTT brokers with password protection lack layered access control by default. This vulnerability allows an attacker to use credentials from any compromised device to perform a similar attack.</p>
 
-
-<blockquote><p>This is the accompanying example for the tutorial <a target="_blank" href="https://realtimelogic.com/articles/How-Hackers-Can-Easily-Penetrate-Your-MQTT-Solution">How Hackers Can Penetrate Your MQTT Solution</a>. See the tutorial for the details.</p></blockquote>
+<div class="alert alert-success">
+<p>This is the accompanying example for the tutorial <a target="_blank" href="https://realtimelogic.com/articles/How-Hackers-Can-Easily-Penetrate-Your-MQTT-Solution">How Hackers Can Penetrate Your MQTT Solution</a>. See the tutorial for the details.</p>
+</div>
 
 <p>The ready-to-run MQTT penetration test program below is slightly more advanced than the one described in the written tutorial. Instead of printing MQTT data to the server's console as it arrives, this program sends the data to the browser over a WebSocket connection, where it is displayed in real-time.</p>
 

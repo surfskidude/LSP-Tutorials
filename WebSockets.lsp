@@ -83,10 +83,10 @@ if you want to get a deeper understanding of how to use WebSockets.</p>
   to server communication and vice versa. The broker provides an API that enables Lua code running on the server side to act as an SMQ client; 
   thus you can easily design communication channels between browsers and the server.</p>
 
-<blockquote>
+<div class="alert alert-success">
 <p>Why you should consider using SMQ and not raw WebSockets is explain in the tutorial 
 <a target="_blank" href="https://realtimelogic.com/articles/Modern-Approach-to-Embedding-a-Web-Server-in-a-Device">Modern Approach to Embedding a Web Server in a Device</a></p>
-</blockquote>
+</div>
 
   <p>The following example requires some understanding of the Lua scope and using coroutines so you may want to take a look at 
   these two tutorials (<a href="Lua-Scope.lsp">Scope</a> and <a href="Lua-Coroutines.lsp">Coroutine</a>) prior to running the two following examples. 

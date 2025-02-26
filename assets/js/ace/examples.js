@@ -4,8 +4,8 @@ $(function() {
             url : link,
             dataType: "text",
             success : function (data) {
-                console.log(data);
-                // editor.addClass('opened');
+                //console.log(data);
+                //editor.addClass('opened');
                 editor.setValue(data);
                 const len = data.split(/\r\n|\r|\n/).length;
                 editor.setOptions({maxLines: len, minLines: 5});

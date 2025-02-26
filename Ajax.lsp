@@ -7,7 +7,14 @@
 <details open>
 <summary class="exth">Using the Fetch API</summary>
 
-<p>The following examples from the <a target="_blank" href="https://makoserver.net/articles/Ajax-for-Beginners">Ajax for Beginners Tutorial</a> are designed to provide a hands-on understanding of real-time data handling and user interaction. Each step is broken down to show how these functions work, giving you a practical grasp of asynchronous web communication.</p>
+<p>The following examples from the Ajax for Beginners Tutorial are designed to provide a hands-on understanding of real-time data handling and user interaction. Each step is broken down to show how these functions work, giving you a practical grasp of asynchronous web communication.</p>
+
+<div class="alert alert-warning">
+<p><b>Note:</b> You can find a detailed explanation of how the following examples work in the <a target="_blank" href="https://makoserver.net/articles/Ajax-for-Beginners">written AJAX tutorial</a>.</p>
+</div>
+
+
+
 
 <p>The following example is the JavaScript foundation for the two AJAX examples below. Every time the event triggers, the keyboard key number is converted to text, and the text is then appended to the HTML in the browser.</p>
 
@@ -41,7 +48,7 @@
 
 <p>This version has been adapted to run on the Lua example engine, with all code consolidated into a single file for simplicity. Before diving into this example, you may find it helpful to review the <a href="WebSockets.lsp">WebSockets Introduction</a> and the <a target="_blank" href="https://makoserver.net/articles/AJAX-over-WebSockets">AJAX over WebSockets Tutorial</a>, which provides insights into the mechanics of this example.</p>
 
-<p>In this example, JavaScript leverages the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promise API</a> and JQuery. You can <a target="_blank" href="https://github.com/RealTimeLogic/LSP-Examples/blob/master/AJAX-Over-WebSockets/www/promise.html">download an alternative version from GitHub</a> that also uses async-await and the native DOM API instead of using JQuery.</p>
+<p>In this example, JavaScript leverages the <a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises">Promise API</a> and JQuery. You can <a target="_blank" href="https://github.com/RealTimeLogic/LSP-Examples/blob/master/AJAX-Over-WebSockets/www/promise.html">download an alternative version from GitHub</a> that uses async-await and the native DOM API instead of using JQuery.</p>
 
 <div class="lspeditor" example="AjaxOverWebSockets"></div>
 

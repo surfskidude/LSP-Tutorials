@@ -513,7 +513,7 @@ textarea {
   border-radius: 8px;
 }
 
-.alert b,.alert strong, .alert h2, .alert h3 { color: yellow; }
+.alert b,.alert a,.alert strong,.alert h2,.alert h3 { color: black !important; }
 
 .alert p {
   font-size: 16px;
@@ -554,7 +554,7 @@ textarea {
   border-color: var(--alert-warning);
 }
 
-blockquote p, blockquote b {
+blockquote p, blockquote b,blockquote strong,blockquote a {
   color:black;
 }
 
