@@ -5,8 +5,7 @@ local function timeout()
       trace("Interval", i)
       coroutine.yield(true)
    end
-   trace("Stop interval")
-   print("Terminating Coroutine")
+   trace("Terminating Timer Coroutine")
 end
 
 -- Create a self referencing interval timer and start the coroutine immediately.
