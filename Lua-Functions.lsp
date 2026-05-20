@@ -4,12 +4,12 @@
 
 <div class="rh">
 
-<p>Functions are conventionally defined in Lua with the function keyword as follows:</p>
+<p>A function is a reusable block of code. In Lua, the usual way to define a named function is with the <code>function</code> keyword:</p>
 
 <strong><code>function</code></strong> <em>function_name</em> <strong><code>(</code></strong> <em>args</em> <strong><code>)</code></strong> <em>body</em> <strong><code>end</code></strong>
 
 
-<p>The following example shows a simple function called "foo" that receives a single argument and returns twice its value:</p>
+<p>The following example defines a simple function called <code>foo</code>. It receives one argument and returns twice that value:</p>
 
 <div class="lspeditor" extype="lua" example="4.1"></div>
 
@@ -17,30 +17,17 @@
   <summary>Functions are values</summary>
   <p>The above syntax is actually just a convenience for the following equivalent syntax:</p>
   <em>function_name</em> <strong><code>= function(</code></strong> <em>args</em> <strong><code>)</code></strong> <em>body</em> <strong><code>end</code></strong>
-  <p>Thus, the above function can just as equally be written:</p>
+  <p>That means the same function can also be written like this:</p>
   <div class="lspeditor" extype="lua" example="4.2"></div>
-  <p>This alternate syntax shows most clearly the real nature of
-  functions in Lua. <code>function(<samp>n</samp>) return <samp>n*2</samp> end</code> itself is an expression
-  that evaluates at runtime to a value (here, a function). This alone
-  creates a function. The left-hand side of the statement then assigns
-  the function to the variable foo. However, before the function is
-  assigned to foo, the function has no name. It is an anonymous though
-  still usable function, but when it is assigned to the variable foo, the function gains the name foo and can be called using that name.</p>
+  <p>This alternate syntax shows what Lua is really doing. <code>function(<samp>n</samp>) return <samp>n*2</samp> end</code> creates a function value at runtime. The assignment then stores that function in the variable <code>foo</code>. Before the assignment, the function has no name; after the assignment, you can call it through <code>foo</code>.</p>
   <p>As such, it is not necessary to name a function to use it. The following example creates a function anonymously and immediately calls it in an expression:</p>
   <div class="lspeditor" extype="lua" example="4.3"></div>
-  <p>The important point of all this is that <b>functions in Lua are values</b> just like string and numbers are values. 
-  As values, they can be created during runtime, stored in variables, and passed to and returned from other functions. 
-  Since functions in Lua have all the rights and privileges to do all the fun things that other values do, they are said to be first class values.</p>
+  <p>The important point is that <b>functions in Lua are values</b>, just like strings and numbers are values. They can be created at runtime, stored in variables, passed to other functions, and returned from functions. Values with this flexibility are called first-class values.</p>
 </details>
 
 <details open>
   <summary>Function values are references</summary>
-  <p>When functions in Lua are passed around as values, they are treated
-  as reference values just like tables. The reference refers to an
-  object with a unique identity and lifetime containing the function
-  body (code implementation). Therefore, when a function variable is
-  assigned to another, the function code itself is not copied, but
-  rather the reference is copied.</p>
+  <p>When you pass functions around, Lua treats them as reference values, much like tables. Assigning one function variable to another does not copy the function body; it copies a reference to the same function.</p>
   <div class="lspeditor" extype="lua" example="4.4"></div>
 </details>
 
@@ -50,21 +37,21 @@
   <div class="lspeditor" extype="lua" example="4.5"></div>
   <p>Note that we could not call the object x above because it is a string, but when we assign the function foo to the variable x, we can call it:</p>
   <div class="lspeditor" extype="lua" example="4.6"></div>
-  <p>Functions, i.e. variables, in Lua can be dynamically changed at runtime. Dynamically changing the variable type at runtime is a powerful feature not found in statically typed languages such as C.</p>
+  <p>Variables in Lua can hold different kinds of values over time. A variable that once held a string can later hold a function. This runtime flexibility is one of the main differences between Lua and statically typed languages such as C.</p>
   <p>Notice that the type of a function is always simply "function"
   without further qualification, regardless of the number and types of the function's parameters and return values:</p>
   <div class="lspeditor" extype="lua" example="4.7"></div>
-  <p>This differs from C in which the type of a function (its prototype) contains argument and return type information that must be explicitly specified before use. In Lua you do not need to declare types for values returned by functions or for arguments passed to functions! This allows Lua to deal with function arguments and return values in a flexible manner. Lua handles multiple arguments, variable argument lists, and multiple return values.</p>
-  <p>In particular, we have no problem assigning functions with different argument lists or return values to the variable x since x has no notion of the object assigned to it:</p>
+  <p>This differs from C, where a function prototype declares argument and return types before use. In Lua, you do not declare the types of arguments or return values. This lets Lua handle multiple arguments, variable argument lists, and multiple return values with very little ceremony.</p>
+  <p>For example, we can assign functions with different argument lists or return values to the same variable <code>x</code>. The variable does not enforce a fixed function shape:</p>
   <div class="lspeditor" extype="lua" example="4.8"></div>
-  <p>One must be careful not to name variables the same. A statically typed language, such as C, gives you compile errors when two or more functions are named the same, but this is not the case with a dynamic language such as Lua. Lua also  allows us to easily write very flexible code.</p>
+  <p>This flexibility also means you must be careful with names. If you assign a new value to an existing variable, Lua accepts it. A statically typed language such as C may catch some naming mistakes at compile time, but Lua keeps the rules lightweight so you can write flexible code.</p>
 </details>
 
 <details open>
   <summary>Function destruction</summary>
   <p>Since functions are objects, they consume resources (system memory). Eventually they are destroyed. Like other objects, Lua destroys functions after they are no longer reachable:</p>
   <div class="lspeditor" extype="lua" example="4.9"></div>
-  <p>Since foo is just a reference to a function body, we can assign other variables to have the same value. We can also delete the reference to foo by assigning the value nil to it. This effectively deletes the foo variable. Once we delete the reference from both foo and bar, the function is unreachable, and Lua will delete it -- i.e. Lua's Garbage Collector collects the unused function.</p>
+  <p>Since <code>foo</code> is only a reference to a function, another variable such as <code>bar</code> can refer to the same function. Assigning <code>nil</code> to <code>foo</code> removes that reference. When no references remain, the function becomes unreachable and Lua's garbage collector can reclaim it.</p>
 </details>
 
 <p id="NextBut"><a href="Lua-Scope.lsp">Next Tutorial</a></p>

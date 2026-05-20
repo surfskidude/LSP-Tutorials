@@ -3,7 +3,7 @@
 <h1>Control Structure Tutorial</h1>
 
 
-<p>Lua's control structures will feel familiar to most programmers. For detailed information, refer to Sections 2.4.4 and 2.4.5 of the <a target="_blank" href="https://realtimelogic.com/ba/doc/luaref_index.html">Lua Reference Manual</a>.</p>
+<p>Control structures decide which code runs and how many times it runs. Lua's control structures will look familiar if you have used languages such as C, JavaScript, or Python. For full details, see Sections 2.4.4 and 2.4.5 of the <a target="_blank" href="https://realtimelogic.com/ba/doc/luaref_index.html">Lua Reference Manual</a>.</p>
 
 
 <details open>
@@ -12,8 +12,7 @@
   <p><code>while</code> <em>exp</em> <strong><code>do</code></strong> <em>block</em> <strong><code>end</code></strong></p>
   <p>A simple loop:</p>
   <div class="lspeditor" extype="lua" example="3.1"></div>
-  <p>We can exit the control of a while statement using the break
-  keyword as in the following example.</p>
+  <p>You can leave a <code>while</code> loop early with the <code>break</code> keyword, as shown in the next example.</p>
   <div class="lspeditor" extype="lua" example="3.2"></div>
 </details>
 
@@ -25,14 +24,14 @@
   <div class="lspeditor" extype="lua" example="3.3"></div>
   <p>Like the while statement, we can exit a repeat loop using a break statement:</p>
   <div class="lspeditor" extype="lua" example="3.4"></div>
-  <p>cows_come_home is a variable which is not defined. When we access it we get the value nil, so this code means "until false" or forever.</p>
+  <p><code>cows_come_home</code> is not defined, so reading it returns <code>nil</code>. In Lua, <code>nil</code> is treated as false in a condition, so this code means "repeat until false", which is an endless loop unless <code>break</code> runs.</p>
 </details>
 
 <details open>
   <summary>for</summary>
-  <p>The iterating statement "<code>for</code>" has two forms. The first is "<code>for</code>" numerical iteration:</p>
+  <p>The <code>for</code> statement has two forms. The first is numeric iteration, which counts through a range of numbers:</p>
   <div class="lspeditor" extype="lua" example="3.5"></div>
-  <p>The second is for sequential iteration, e.g. to print the contents of a table. In the example below, 'for' is passed the 'pairs()' iterator function, whose purpose is to supply the values of each iteration:</p>
+  <p>The second form iterates over values supplied by an iterator function. In the example below, <code>pairs()</code> supplies each key and value from a table:</p>
   <div class="lspeditor" extype="lua" example="3.6"></div>
 </details>
 
@@ -40,11 +39,11 @@
   <summary>if ... then ... else ... end</summary>
   <p>The statement "<code>if</code>" has the form:</p>
   <strong><code>if</code></strong> <em>exp</em> <strong><code>then</code></strong> <em>block</em> <em>{</em> <strong><code>elseif</code></strong> <em>exp</em> <strong><code>then</code></strong> <em>block } [</em> <strong><code>else</code></strong> <em>block ]</em> <strong><code>end</code></strong>
-  <p>For example,<code>if</code> ... <code>then</code> ... <code>end</code></p>
+  <p>For example, <code>if</code> ... <code>then</code> ... <code>end</code>:</p>
   <div class="lspeditor" extype="lua" example="3.7"></div>
-  <p><code>if</code> ... <code>then</code> ... <code>else</code> ... <code>end</code></p>
+  <p><code>if</code> ... <code>then</code> ... <code>else</code> ... <code>end</code>:</p>
   <div class="lspeditor" extype="lua" example="3.8"></div>
-  <p><code>if</code> ... <code>then</code> ... <code>elseif</code> ... <code>else</code> ... <code>end</code></p>
+  <p><code>if</code> ... <code>then</code> ... <code>elseif</code> ... <code>else</code> ... <code>end</code>:</p>
   <div class="lspeditor" extype="lua" example="3.9"></div>
 </details>
 

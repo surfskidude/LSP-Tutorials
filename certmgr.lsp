@@ -3,7 +3,7 @@
    <h1>Certificate Management Tool</h1>
 
 
-<p>The Certificate Management Tool is an indispensable tool for administrators and a must-have for anyone that uses SSL Certificates for websites, servers, secure IoT device management, or Code Signing Certificates for trusted software. See the <a target="_blank" href="https://realtimelogic.com/articles/How-to-act-as-a-Certificate-Authority-the-Easy-Way">Certificate Management Tool Home Page</a> for details.</p>
+<p>The Certificate Management Tool helps administrators create and manage certificates for websites, servers, secure IoT device management, and code signing. See the <a target="_blank" href="https://realtimelogic.com/articles/How-to-act-as-a-Certificate-Authority-the-Easy-Way">Certificate Management Tool home page</a> for details.</p>
 
 
 <p style="margin:auto;width:400px" id="NextBut"><a target="_blank" href="certmgr/">Open the Cert Management Tool</a></p>
@@ -15,7 +15,7 @@
 <div class="cmd-input">mako -l::<?lsp=app.exio:realpath"certmgr.zip"?></div>
 
 <h2>Video Tutorial</h2>
-<p>The video shows how to create an Elliptic Curve Cryptography (ECC) certificate for the server, how to install the certificate in the server, and how to make the clients connecting to the server trust this certificate.</p>
+<p>The video shows how to create an Elliptic Curve Cryptography (ECC) certificate for the server, install it, and configure clients to trust it.</p>
 
 
 <style>

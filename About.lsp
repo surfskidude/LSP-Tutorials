@@ -9,9 +9,9 @@ local appuri=app.wfshdir.."applications/"
 <?lsp app.loadex(_ENV,"About") ?>
 
 <div class="article-spacer">
-<p>Welcome to the tutorials for the <a target="_blank" href="https://realtimelogic.com/ba/doc/">high level Lua APIs provided by the Barracuda App Server</a> (BAS) and Mako Server! The menu on the left includes links to all of the available tutorials. For the best learning experience, we recommend starting at the top of the menu and working your way down. These tutorials will introduce you to the APIs and help you get started with using BAS to develop your applications. Happy learning!</p>
+<p>Welcome to the tutorials for the <a target="_blank" href="https://realtimelogic.com/ba/doc/">high-level Lua APIs provided by the Barracuda App Server</a> (BAS) and Mako Server. The menu on the left links to all tutorials. For the best learning experience, start at the top and work your way down. The pages introduce the APIs step by step and show how BAS can be used to build applications.</p>
 
-<p>It's important to note that the browser is only used as an editor and to display the results of your code. The actual processing takes place on the server side. When you click the 'Run' button, the Lua code example displayed in the browser is sent to the server to be parsed and executed. The server will then send the response back to the browser for display.</p>
+<p>The browser is used as an editor and as a place to display results. The actual processing happens on the server. When you click Run, the code shown in the browser is sent to the server, parsed, executed, and then returned to the browser as a response.</p>
 <div style="max-width:640px;margin:auto">
 <object class="background-white" style="width:100%;padding: 10px;border-radius:10px;" id="LuaREPL" type="image/svg+xml" data="images/LuaREPL.svg"></object>
 </div>
@@ -21,17 +21,17 @@ local appuri=app.wfshdir.."applications/"
 <p></p>
 <div class="alert alert-warning">
 <h3>Note:</h3>
-<p>The server is running in service (daemon) mode, operating in the background. This means you won’t see the console printouts, via <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/lua.html#_G_trace">trace()</a>, from the tutorials directly. However, all console output is also displayed in the included TraceLogger.</p>
-<p>For the best experience, we recommend  <a target="_blank" href="/rtl/tracelogger/">opening the TraceLogger in a separate window</a>.</p>
+<p>The server is running in service (daemon) mode, which means it operates in the background. You will not see tutorial output written with <a target="_blank" href="https://realtimelogic.com/ba/doc/en/lua/lua.html#_G_trace">trace()</a> in a console window, but the same output is available in the included TraceLogger.</p>
+<p>For the best experience, <a target="_blank" href="/rtl/tracelogger/">open the TraceLogger in a separate window</a>.</p>
 </div>
 
 
 <details open>
   <summary>Mako Server vs. Barracuda App Server</summary>
-<p>The <a target="_blank" href="https://makoserver.net/">Mako Server</a> and the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda App Server</a> (BAS) are the same, but BAS is a source code library and not a standalone product. Just like the ANSI C library cannot be used before you at least create a "Hello World" program, so is the case with BAS. The Mako Server is the Barracuda App Server's "Hello World" equivalent.</p>
+<p>The <a target="_blank" href="https://makoserver.net/">Mako Server</a> is built with the <a target="_blank" href="https://realtimelogic.com/products/barracuda-application-server/">Barracuda App Server</a> (BAS). BAS is a source code library, not a standalone product. Mako Server is a ready-to-run example of BAS packaged as a server, much like a "Hello World" program demonstrates a library in use.</p>
 </details>
 
-<?lsp 
+<?lsp
 end
 if not demo.config.NoInstallInfo then
 ?>
@@ -49,15 +49,15 @@ local addr= ba.serverport == 80 and "http://"..app.ipaddr or string.format("http
   <summary>Server Address</summary>
 <p>The IP address of this computer is <?lsp= app.ipaddr?>. You can access this computer from other computers in your network by navigating to <a target="_blank" href='<?lsp=addr?>'><?lsp=addr?></a>.</p>
 </details>
-<?lsp 
+<?lsp
 end end
 ?>
 
 <details>
   <summary>How the Tutorials and Demos are Packaged</summary>
-<p>Each of the ZIP files in the <a target="_blank" href="<?lsp=appuri?>">applications sub-directory</a> are separate web-applications. If you look in the console window where the server is running, you should see that the startdemo script has instructed the server to load multiple applications (ZIP files). Many of the applications are designed as "standalone" applications, and it is possible to instruct the server to load these separately.</p>
+<p>Each ZIP file in the <a target="_blank" href="<?lsp=appuri?>">applications sub-directory</a> is a separate web application. In the server console, you should see that the <code>startdemo</code> script loads multiple applications from ZIP files. Many of these applications are designed to run standalone, so the server can also load them separately.</p>
 </details>
- 
+
 </div>
 <p id="NextBut"><a href="Introduction.lsp">First Tutorial</a></p>
 <?lsp response:include"footer.shtml" ?>

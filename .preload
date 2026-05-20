@@ -95,11 +95,30 @@ if not rio:stat(ldir) then
       ldir=nil -- WebDAV may be in read only mode when used by some clients
    end
 end
+
+-- Anything "filter" related below is to limit access when used on https://tutorial.realtimelogic.com/
+
+local noaccessfilter={
+bin=true,boot=true,dev=true,etc=true,lib=true,lib64=true,media=true,mnt=true,
+opt=true,proc=true,root=true,run=true,sbin=true,srv=true,sys=true,usr=true,var=true
+}
+
+local function fsfilter(_ENV,relpath)
+   if noaccessfilter[relpath:match("([^/]+)")] then
+      response:senderror(403)
+      return true
+   end
+   return false
+end
+
 local maxUploads=50
 local maxLocks=100
+filterdir=ba.create.dir("fs")
+filterdir:setfunc(fsfilter)
 require"wfs" -- install ba.create.wfs by loading it from mako.zip
-fsdir=ba.create.wfs("fs",rio,ldir,maxUploads,maxLocks)
-fsdir:insert() -- Insert as a root node with name 'fs' in the VFS
+fsdir=ba.create.wfs("",rio,ldir,maxUploads,maxLocks)
+filterdir:insert(fsdir)
+filterdir:insert() -- Insert as a root node with name 'fs' in the VFS
 -- Compat fix. Web apps designed for WFS.
 ba.serverport,ba.serversslport=mako.port,mako.sslport
 

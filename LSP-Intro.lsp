@@ -2,15 +2,15 @@
 
 <h1>Using LSP for Web Development</h1>
 
-<p>Lua Server Pages (LSP) blend HTML and Lua code to create dynamic, server-driven web applications. Unlike static pages, LSP allows your server to produce custom responses on-the-fly—reading form input, generating personalized content, and interacting with server-side resources. By embedding Lua code directly into HTML templates, you can streamline your development process, handle routing more intuitively, and quickly build interactive, data-driven web experiences without the need for additional frameworks.</p>
+<p>Lua Server Pages (LSP) combine HTML and Lua code to create dynamic, server-driven web applications. A static page always sends the same content, but an LSP page can read form input, generate custom HTML, and use server-side resources before sending the response to the browser. Because Lua code can live directly inside the HTML template, you can build interactive pages without adding a separate web framework.</p>
 
-<p>In these LSP tutorials, we’ll walk through some interactive examples demonstrating how to use LSP. However, for a more solid groundwork, we recommend reading <a target="_blank" href="https://makoserver.net/articles/HTML-Forms-and-LSP-for-Beginners">Introduction to Server-Generated Content Using Lua</a>, which lays out the fundamental concepts you’ll need.</p>
+<p>These tutorials use interactive examples to show how LSP works. For a slower introduction to the same fundamentals, read <a target="_blank" href="https://makoserver.net/articles/HTML-Forms-and-LSP-for-Beginners">Introduction to Server-Generated Content Using Lua</a>.</p>
 
 <h2>Planning on designing a SPA using React, Vue.js, etc.?</h2>
 
-<p>Keep in mind that an LSP page does not have to return a complete HTML document. Instead, it can provide only the specific snippet of HTML needed at the moment. This makes LSP a perfect fit for tools like HTMX, which enables pages to update dynamically based on server responses—no full page reloads are required.</p>
+<p>An LSP page does not have to return a complete HTML document. It can return only the small HTML fragment needed for the current interaction. This makes LSP a good fit for tools such as HTMX, where the browser updates part of the page using the server's response instead of reloading everything.</p>
 
-<p>You can avoid complex client-side frameworks by focusing on <a target="_blank" href="https://htmx.org/essays/hypermedia-driven-applications/">hypermedia-driven design</a>, where the server returns manageable HTML fragments. This approach often results in more straightforward development and better performance since you’re only sending what’s actually needed. Together, LSP and Hypermedia-driven application design streamline server-driven modern interactivity while maintaining a clean, maintainable codebase.</p>
+<p>With <a target="_blank" href="https://htmx.org/essays/hypermedia-driven-applications/">hypermedia-driven design</a>, the server returns manageable HTML fragments and the browser swaps them into the page. This approach can keep applications simpler because the server remains responsible for most application logic while the browser handles focused updates.</p>
 
 <p id="NextBut"><a href="HTML-Forms.lsp">First Tutorial</a></p>
 

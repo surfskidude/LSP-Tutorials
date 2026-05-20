@@ -558,6 +558,11 @@ blockquote p, blockquote b,blockquote strong,blockquote a {
   color:black;
 }
 
+blockquote a:hover {
+  color:black !important;
+  text-decoration: underline;
+}
+
 blockquote { padding: 1px 10px; }
 
 

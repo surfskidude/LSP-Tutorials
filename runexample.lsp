@@ -3,7 +3,7 @@ iframe {
 height:70%
 }
 </style>
-<?lsp 
+<?lsp
 
 local src=request:data"src"
 src=src and ba.b64decode(src)
@@ -21,7 +21,7 @@ title="Run LSP Example" response:include".header.lsp"
 
 <h2>Online Mako Server (Barracuda App Server)</h2>
 
-<p>Click the Run button to execute the Lua code on the server side.</p>
+<p>Click Run to execute the Lua code on the server.</p>
 
 <div class="lspeditor" id="edit" example="<?lsp=fn?>"></div>
 <?lsp if src:find"trace%s*[%('\"]" then print'<p>The output from the <b>trace</b> function can be viewed in the <a target="_blank" href="/rtl/tracelogger/">TraceLogger</a>.</p>' end ?>

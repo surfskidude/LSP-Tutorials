@@ -5,7 +5,7 @@
 <li>The complete C/C++ API documentation for BAS</li>
 </ol>
 
-<p>The complete BAS C/C++ documentation is integrated in the manual, but be sure to spend time in the Lua Server Pages section. Lua offers a much more efficient way to build device-level applications and can dramatically reduce time-to-market and development costs. Lua Server Pages is an embeddable extension language used in the Barracuda Application Server to write applications at a higher level than applications designed in C/C++ code.</p>
+<p>The complete BAS C/C++ documentation is included in the manual, but be sure to spend time in the Lua Server Pages section. Lua can make device-level application development faster by letting you write higher-level application logic while keeping performance-critical code in C/C++. Lua Server Pages is the embeddable server-side scripting layer used by the Barracuda App Server.</p>
 
 
 <p><br/></p>
@@ -16,7 +16,7 @@
 
 <details open>
 <summary>Mako Server API</summary>
-<p>Since the Mako Server extends the Barracuda App Server APIs, additional APIs are available for the Mako Server. See the <a target="_blank" href="/ba/doc/?url=Mako.html">Mako Server documentation</a> for details.</p>
+<p>Mako Server extends the Barracuda App Server APIs, so it includes additional APIs of its own. See the <a target="_blank" href="/ba/doc/?url=Mako.html">Mako Server documentation</a> for details.</p>
 </details>
 
 </div>
