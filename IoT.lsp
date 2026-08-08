@@ -50,7 +50,7 @@ if request:method() == "POST" then pcall(getBatchFile) end
 
 <p>The <a target="_blank" href="/ba/doc/?url=SMQ.html">SMQ documentation</a> provides an introduction and a few basic hands-on examples.</p>
 
-<p><strong>The following examples are for the three SMQ tutorials:</strong></p>
+<p><strong>The examples below are for the three following SMQ tutorials:</strong></p>
 
 <ul>
     <li><a target="_blank" href="https://makoserver.net/articles/Designing-a-browser-based-Chat-Client-using-SimpleMQ">A basic chat client</a></li>
@@ -58,7 +58,7 @@ if request:method() == "POST" then pcall(getBatchFile) end
     <li><a target="_blank" href="https://makoserver.net/articles/Browser-to-Device-LED-Control-using-SimpleMQ">Device LED control</a></li>
 </ul>
 
-<h2>A basic chat client</h2>
+<h2>Example 1: A basic chat client</h2>
 
 <p>The basic HTML/JavaScript chat client shows how publish and subscribe can send messages to all connected clients and receive those published messages.</p>
 
@@ -66,7 +66,7 @@ if request:method() == "POST" then pcall(getBatchFile) end
 
 <p>When running the example, open multiple browser windows. Text input is at the bottom of the chat page.</p>
 
-<h2>Improving the chat client</h2>
+<h2>Example 2: Improving the chat client</h2>
 
 <p>The improved chat client builds on the basic chat client and shows how to use SMQ's one-to-one messages. Chat messages are still broadcast to all connected clients, but one-to-one messages build the list of connected users. The user list appears in the left pane, and each list entry changes color when that user types.</p>
 
@@ -74,7 +74,7 @@ if request:method() == "POST" then pcall(getBatchFile) end
 
 <p>When running the example, open multiple browser windows.</p>
 
-<h2>Device LED control</h2>
+<h2>Example 3: Device LED control</h2>
 
 <p>The device LED control example shows how to use the SMQ IoT protocol to build a web-based device management interface for controlling LEDs in one or more devices.</p>
 
